@@ -301,9 +301,15 @@
             line-height: 1.55;
             overflow-wrap: anywhere;
         }
+        @media (min-width: 1280px) {
+            .page-visual-scale {
+                zoom: 1.06;
+            }
+        }
     </style>
 </head>
 <body class="bg-surface text-on-surface" style="background:linear-gradient(180deg,#eef2f8 0%,#f7f9fc 200px);">
+<div class="page-visual-scale">
 <header class="top-0 sticky z-50 shadow-[0_4px_28px_rgba(10,30,71,0.22)]" style="background:linear-gradient(120deg,#0a1e47 0%,#0b2556 50%,#002975 100%);border-bottom:1px solid rgba(212,168,83,0.38);">
 <div class="flex items-center justify-between w-full px-6 lg:px-8 h-[72px] max-w-[1840px] mx-auto">
 <!-- 品牌文字排版 -->
@@ -552,7 +558,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 <div class="bg-white rounded-xl overflow-hidden border border-slate-200/60 hover:shadow-[0_14px_34px_rgba(10,30,71,0.10)] hover:-translate-y-1 transition-all duration-300">
-<img class="w-full h-52 object-cover" data-alt="Beijing" src="images/beijing.png"/>
+<img class="w-full h-52 object-cover" data-alt="Beijing" src="images/beijing.jpg"/>
 <div class="p-3">
 <h4 class="font-bold text-[15px] mb-1.5">北京</h4>
 <p class="text-on-surface-variant text-[11px] mb-2 leading-relaxed i18n-clamp-2">在持证导游的带领下探索故宫博物院和天坛。</p>
@@ -560,7 +566,7 @@
 </div>
 </div>
 <div class="bg-white rounded-xl overflow-hidden border border-slate-200/60 hover:shadow-[0_14px_34px_rgba(10,30,71,0.10)] hover:-translate-y-1 transition-all duration-300">
-<img class="w-full h-52 object-cover" data-alt="Shanxi" src="images/shanxi.png"/>
+<img class="w-full h-52 object-cover" data-alt="Shanxi" src="images/shanxi.jpg"/>
 <div class="p-3">
 <h4 class="font-bold text-[15px] mb-1.5">山西</h4>
 <p class="text-on-surface-variant text-[11px] mb-2 leading-relaxed i18n-clamp-2">黄河奔腾，太行巍峨，“表里山河”，绘就山西壮美画卷。</p>
@@ -568,7 +574,7 @@
 </div>
 </div>
 <div class="bg-white rounded-xl overflow-hidden border border-slate-200/60 hover:shadow-[0_14px_34px_rgba(10,30,71,0.10)] hover:-translate-y-1 transition-all duration-300">
-<img class="w-full h-52 object-cover" data-alt="Suzhou" src="images/suzhou.png"/>
+<img class="w-full h-52 object-cover" data-alt="Suzhou" src="images/suzhou.jpg"/>
 <div class="p-3">
 <h4 class="font-bold text-[15px] mb-1.5">苏州</h4>
 <p class="text-on-surface-variant text-[11px] mb-2 leading-relaxed i18n-clamp-2">人间天堂，园林之城，苏州邀您过大年。</p>
@@ -636,6 +642,10 @@
 <img class="block w-full h-auto" src="images/2.jpeg" alt=""/>
 <span class="absolute top-2 right-2 text-[8px] text-slate-400 bg-white/90 px-1.5 py-0.5 rounded">广告</span>
 </div>
+<div class="relative rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm">
+<img class="block w-full h-auto" src="images/4.jpg" alt=""/>
+<span class="absolute top-2 right-2 text-[8px] text-slate-400 bg-white/90 px-1.5 py-0.5 rounded">广告</span>
+</div>
 </div>
 </aside>
 </main>
@@ -690,6 +700,7 @@
 <p>© 2024 中国签证申请服务中心。版权所有。Powered by Imperial Gateway.</p>
 </div>
 </footer>
+</div>
 
 <script>
 (function() {
