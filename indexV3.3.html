@@ -700,6 +700,47 @@
 <p>© 2024 中国签证申请服务中心。版权所有。Powered by Imperial Gateway.</p>
 </div>
 </footer>
+
+<!-- 弹窗公告 -->
+<div id="announcementModal" class="fixed inset-0 z-[9999] flex items-center justify-center" style="display:none;">
+<div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeAnnouncement()"></div>
+<div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-[480px] mx-4 overflow-hidden" style="animation: modalIn 0.35s ease-out;">
+<!-- 内容区 -->
+<div class="p-6 max-h-[60vh] overflow-y-auto">
+<h3 class="text-lg font-bold text-red-600 mb-3 flex items-center gap-2">
+<span class="w-1 h-5 rounded-full bg-red-500"></span>
+重要通知！！！请务必阅读知晓！！！
+</h3>
+<div class="text-sm text-on-surface-variant leading-relaxed space-y-3 mb-4">
+<p>根据中国驻新加坡使馆通知，自2024年9月起，申请人须通过新加坡中国签证申请服务中心网站线上提交签证申请，并等待线上审核完成后，前往签证中心递交护照和材料。申请流程请点击<a href="#" class="text-primary font-medium hover:underline">第一步</a>、<a href="#" class="text-primary font-medium hover:underline">第二步</a>、<a href="#" class="text-primary font-medium hover:underline">第三步</a>进行查看。请务必阅读！！！</p>
+
+<p class="font-bold text-on-surface mt-4">特别提醒：</p>
+
+<p class="pl-2">1. 强烈建议您至少在出行前30天在签证中心网站线上提交签证申请。</p>
+
+<p class="pl-2">2. 请确认申请状态为线上审核完成，再到签证中心递交护照和材料，无需预约。</p>
+
+<p class="pl-2">3. 线上审核完成之前，您可自行取消申请，<a href="#" class="text-primary font-medium hover:underline">点击这里</a>查看取消办法。自2026年1月1日起，如申请已通过线上审核但需取消，需由您本人或委托他人前来签证中心办理取消手续，并缴纳相应服务费。</p>
+
+<p class="pl-2">4. 中心推出多项增值服务，<a href="#" class="text-primary font-medium hover:underline">点击这里</a>了解详情。</p>
+
+<div class="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+<p class="text-amber-800 font-medium text-xs">【防诈骗提示】签证中心不会通过电话或短信索要敏感信息，仅接受现场现金或PayNow支付，请提高警惕，谨防诈骗。！！！</p>
+</div>
+</div>
+
+<div class="flex gap-3 mt-4">
+<button onclick="closeAnnouncement()" class="flex-1 bg-gradient-to-r from-[#d4a853] to-[#c08f2e] text-white py-2.5 rounded-lg text-sm font-semibold hover:shadow-lg transition-shadow">我已阅读，关闭</button>
+</div>
+</div>
+</div>
+</div>
+<style>
+@keyframes modalIn {
+    from { opacity: 0; transform: scale(0.92) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+</style>
 </div>
 
 <script>
@@ -744,6 +785,17 @@
     carousel.addEventListener('mouseleave', start);
     start();
 })();
+
+// 弹窗公告
+function closeAnnouncement() {
+    var modal = document.getElementById('announcementModal');
+    modal.style.opacity = '0';
+    modal.style.transition = 'opacity 0.25s ease';
+    setTimeout(function() { modal.style.display = 'none'; }, 250);
+}
+window.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('announcementModal').style.display = 'flex';
+});
 </script>
 </body>
 </html>
