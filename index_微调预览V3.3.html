@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>中国签证申请服务中心</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#ffe088",
+                      "inverse-primary": "#b4c5ff",
+                      "on-background": "#191c1e",
+                      "tertiary": "#735c00",
+                      "surface-variant": "#e0e3e6",
+                      "error": "#ba1a1a",
+                      "surface-container-low": "#f2f4f7",
+                      "on-tertiary-fixed-variant": "#574500",
+                      "on-primary-fixed-variant": "#033ea6",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary": "#775a19",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "on-surface": "#191c1e",
+                      "on-secondary-fixed-variant": "#5d4201",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed-dim": "#e9c349",
+                      "inverse-surface": "#2d3133",
+                      "on-surface-variant": "#434653",
+                      "tertiary-container": "#cba72f",
+                      "on-error-container": "#93000a",
+                      "surface-tint": "#2d58bf",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "surface-container-high": "#e6e8eb",
+                      "background": "#f7f9fc",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed": "#261900",
+                      "on-tertiary-fixed": "#241a00",
+                      "secondary-fixed-dim": "#e9c176",
+                      "inverse-on-surface": "#eff1f4",
+                      "primary": "#002975",
+                      "on-secondary-container": "#785a1a",
+                      "outline": "#747684",
+                      "surface-container-highest": "#e0e3e6",
+                      "primary-fixed": "#dbe1ff",
+                      "outline-variant": "#c4c6d5",
+                      "on-tertiary-container": "#4e3d00",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#f7f9fc",
+                      "secondary-container": "#fed488",
+                      "surface-container": "#eceef1",
+                      "on-primary-container": "#98b1ff",
+                      "primary-container": "#003da5",
+                      "surface-dim": "#d8dadd",
+                      "secondary-fixed": "#ffdea5",
+                      "surface": "#f7f9fc",
+                      "on-primary-fixed": "#00174b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Plus Jakarta Sans"],
+                      "label": ["Inter"]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(0, 41, 117, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        body { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+        h1, h2, h3 { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+        .nav-dropdown { position: relative !important; }
+        .nav-dropdown:hover .dropdown-content { display: block; }
+        .nav-dropdown:hover .dropdown-content.extended-service-menu { display: flex !important; }
+        .dropdown-content.extended-service-menu {
+            display: none !important;
+            position: absolute !important;
+            top: 100% !important;
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%) !important;
+            margin-top: 10px !important;
+            z-index: 9999 !important;
+            overflow: visible !important;
+            background: rgba(255,255,255,0.98) !important;
+            backdrop-filter: blur(30px) !important;
+            -webkit-backdrop-filter: blur(30px) !important;
+            border-radius: 24px !important;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15) !important;
+            padding: 40px !important;
+            width: 1000px !important;
+            max-width: 95vw !important;
+            border: none !important;
+        }
+        /* 导航项激活指示线 */
+        .nav-dropdown > a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffffff;
+            transition: width 0.3s ease;
+        }
+        .nav-dropdown:hover > a::after {
+            width: 100%;
+        }
+
+        /* 自定义高级呼吸流光动效 */
+        @keyframes subtleScroll {
+            0%, 100% { transform: translateY(0); opacity: 0.6; }
+            50% { transform: translateY(6px); opacity: 1; }
+        }
+        .animate-subtle-scroll {
+            animation: subtleScroll 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        @keyframes carouselFade1 {
+            0%, 40% { opacity: 1; }
+            50%, 90% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes carouselFade2 {
+            0%, 40% { opacity: 0; }
+            50%, 90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .animate-carousel-1 { animation: carouselFade1 6s ease-in-out infinite; }
+        .animate-carousel-2 { animation: carouselFade2 6s ease-in-out infinite; }
+
+        /* Mega Menu - Extended Service */
+        .extended-service-menu {
+            width: 1000px;
+            max-width: 95vw;
+            padding: 40px;
+            display: flex;
+            gap: 60px;
+        }
+        .mega-menu-sidebar {
+            flex: 0 0 25%;
+            border-right: 1px solid rgba(0, 0, 0, 0.06);
+            padding-right: 2rem;
+        }
+        .mega-menu-category {
+            margin-bottom: 1.75rem;
+        }
+        .mega-menu-category-header {
+            font-size: 1.125rem;
+            font-weight: 900;
+            color: #1e3368;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+        .mega-menu-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.25rem;
+            margin-left: -1.25rem;
+            border-left: 3px solid transparent;
+            color: #374151;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border-radius: 0 8px 8px 0;
+        }
+        .mega-menu-item:hover {
+            font-weight: 700;
+            border-left-color: #d4a853;
+            color: #d4a853;
+            background: rgba(212, 168, 83, 0.05);
+        }
+        .mega-menu-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            width: 100%;
+            flex: 1;
+        }
+        .mega-menu-ad-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mega-menu-ad-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+        }
+        .mega-menu-ad-card:hover img {
+            transform: scale(1.05);
+        }
+        .mega-menu-ad-card:hover .mega-menu-ad-content {
+            transform: translateY(-5px);
+        }
+        .mega-menu-ad-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .mega-menu-ad-content {
+            padding: 1.25rem;
+            transition: transform 0.35s ease;
+        }
+        .mega-menu-ad-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: #111827;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.75rem;
+        }
+        .mega-menu-ad-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #d4a853;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            margin-top: 8px;
+        }
+        .mega-menu-ad-link:hover {
+            gap: 12px;
+        }
+        .official-card {
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+        }
+        .official-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.09);
+        }
+        .official-promo-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(0, 41, 117, 0.12);
+            background: rgba(255, 255, 255, 0.92);
+            color: #002975;
+            padding: 12px 16px;
+            border-radius: 14px;
+            font-size: 14px;
+            line-height: 1.35;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+            transition: all 0.2s ease;
+            min-height: 54px;
+            white-space: normal;
+            word-break: normal;
+            overflow-wrap: anywhere;
+        }
+        .official-promo-link:hover {
+            border-color: rgba(0, 41, 117, 0.3);
+            background: #ffffff;
+            transform: translateY(-1px);
+        }
+        .official-promo-link .material-symbols-outlined {
+            font-size: 18px;
+            flex: 0 0 auto;
+            color: #775a19;
+        }
+        .i18n-nowrap {
+            white-space: nowrap;
+        }
+        .i18n-title {
+            line-height: 1.2;
+            overflow-wrap: anywhere;
+        }
+        .i18n-clamp-2,
+        .i18n-clamp-3 {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .i18n-clamp-2 {
+            -webkit-line-clamp: 2;
+        }
+        .i18n-clamp-3 {
+            -webkit-line-clamp: 3;
+        }
+        .i18n-soft-text {
+            line-height: 1.55;
+            overflow-wrap: anywhere;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface" style="background:linear-gradient(180deg,#eef2f8 0%,#f7f9fc 200px);">
+<header class="top-0 sticky z-50 shadow-[0_4px_28px_rgba(10,30,71,0.22)]" style="background:linear-gradient(120deg,#0a1e47 0%,#0b2556 50%,#002975 100%);border-bottom:1px solid rgba(212,168,83,0.38);">
+<div class="flex items-center justify-between w-full px-6 lg:px-8 h-[72px] max-w-[1840px] mx-auto">
+<!-- 品牌文字排版 -->
+<div class="flex items-center shrink-0">
+<div class="flex items-baseline gap-2.5">
+<span class="text-[18px] font-bold text-white tracking-wide">中国签证申请服务中心</span>
+<span class="hidden sm:inline text-[11px] text-[#e9c349] font-semibold px-2 py-0.5 rounded-full border border-[#d4a853]/40">新加坡中心</span>
+</div>
+</div>
+<!-- 导航 -->
+<nav class="hidden md:flex items-center gap-0">
+<a class="text-white/70 hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors" href="#">首页</a>
+<a class="text-white/70 hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors" href="#">签证服务</a>
+<a class="text-white/70 hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors" href="#">认证服务</a>
+<div class="nav-dropdown relative group">
+<a class="text-white/70 group-hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors flex items-center gap-0.5" href="#">
+延伸服务<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</a>
+<div class="dropdown-content hidden extended-service-menu">
+<div class="mega-menu-sidebar">
+<div class="mega-menu-category">
+<div class="mega-menu-category-header">携程服务</div>
+<div class="mega-menu-item">酒店</div>
+<div class="mega-menu-item">机票</div>
+<div class="mega-menu-item">接送机</div>
+<div class="mega-menu-item">租车</div>
+<div class="mega-menu-item">火车票</div>
+</div>
+<div class="mega-menu-category">
+<div class="mega-menu-category-header">旅游服务</div>
+<div class="mega-menu-item">门票体验</div>
+<div class="mega-menu-item">当地玩乐</div>
+<div class="mega-menu-item">旅游保险</div>
+<div class="mega-menu-item">私人定制游</div>
+</div>
+</div>
+<div class="mega-menu-gallery">
+<div class="mega-menu-ad-card">
+<img src="images/wuliangye.jpg" alt=""/>
+<div class="mega-menu-ad-content">
+<div class="mega-menu-ad-title">品牌合作推广</div>
+<a href="#" class="mega-menu-ad-link">查看推广 →</a>
+</div>
+</div>
+<div class="mega-menu-ad-card">
+<img src="images/hotel.jpg" alt=""/>
+<div class="mega-menu-ad-content">
+<div class="mega-menu-ad-title">精选酒店权益</div>
+<a href="#" class="mega-menu-ad-link">查看推广 →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="nav-dropdown relative group">
+<a class="text-white/70 group-hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors flex items-center gap-0.5" href="#">
+来华行程服务<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</a>
+<div class="dropdown-content hidden extended-service-menu">
+<div class="mega-menu-sidebar">
+<div class="mega-menu-category">
+<div class="mega-menu-category-header">携程服务</div>
+<div class="mega-menu-item">酒店</div>
+<div class="mega-menu-item">机票</div>
+<div class="mega-menu-item">接送机</div>
+<div class="mega-menu-item">租车</div>
+<div class="mega-menu-item">火车票</div>
+</div>
+<div class="mega-menu-category">
+<div class="mega-menu-category-header">旅游服务</div>
+<div class="mega-menu-item">门票体验</div>
+<div class="mega-menu-item">当地玩乐</div>
+<div class="mega-menu-item">旅游保险</div>
+</div>
+</div>
+<div class="mega-menu-gallery">
+<div class="mega-menu-ad-card">
+<img src="images/guilin.jpg" alt=""/>
+<div class="mega-menu-ad-content">
+<div class="mega-menu-ad-title">来华文旅推广</div>
+<a href="#" class="mega-menu-ad-link">查看推广 →</a>
+</div>
+</div>
+<div class="mega-menu-ad-card">
+<img src="images/wuliangye.jpg" alt=""/>
+<div class="mega-menu-ad-content">
+<div class="mega-menu-ad-title">文化体验推广</div>
+<a href="#" class="mega-menu-ad-link">查看推广 →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- 右侧工具 + 登录 -->
+<div class="flex items-center gap-2 shrink-0">
+<button class="text-white/50 hover:text-white/80 p-1 transition-all" title="切换语言">
+<span class="material-symbols-outlined text-[18px]">language</span>
+</button>
+<button class="text-white/50 hover:text-white/80 p-1 transition-all" title="在线客服">
+<span class="material-symbols-outlined text-[18px]">contact_support</span>
+</button>
+<button class="bg-[#d4a853] hover:bg-[#c79a3a] text-white px-4 py-1.5 rounded-lg text-[13px] font-semibold transition-colors shadow-[0_4px_12px_rgba(212,168,83,0.35)]">登录 / 注册</button>
+</div>
+</div>
+</header>
+
+
+<main class="pt-4 pb-8 max-w-[1824px] mx-auto px-5 lg:px-8 flex flex-col lg:flex-row gap-6" style="overflow: visible !important;">
+<aside class="hidden lg:flex flex-col gap-1.5 p-2.5 h-fit sticky top-16 w-full lg:w-[138px] shrink-0 z-40 bg-white border border-slate-200/70 rounded-lg shadow-sm" style="overflow: visible !important;">
+<div class="text-[11px] font-bold text-primary tracking-wide px-2 py-1.5 mb-1 border-b border-[#d4a853]/25 flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-[#d4a853]"></span>常用服务</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center px-2.5 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-900 text-[12px] font-medium transition-colors" href="#">
+酒店
+</a>
+<a class="flex items-center px-2.5 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-900 text-[12px] font-medium transition-colors" href="#">
+机票
+</a>
+<div class="relative group">
+<a class="flex items-center gap-0.5 px-2.5 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-900 text-[12px] font-medium transition-colors cursor-pointer" href="#">
+其他交通
+<span class="material-symbols-outlined text-[13px] ml-auto">chevron_right</span>
+</a>
+<div class="hidden group-hover:block absolute left-full top-0 ml-1 w-28 bg-white shadow-md rounded-lg py-1.5 border border-slate-200/60 z-[100]">
+<a class="block px-3 py-1.5 text-[11px] text-slate-700 hover:bg-blue-50 hover:text-blue-900 transition-colors" href="#">接送机</a>
+<a class="block px-3 py-1.5 text-[11px] text-slate-700 hover:bg-blue-50 hover:text-blue-900 transition-colors" href="#">租车</a>
+<a class="block px-3 py-1.5 text-[11px] text-slate-700 hover:bg-blue-50 hover:text-blue-900 transition-colors" href="#">火车票</a>
+</div>
+</div>
+<a class="flex items-center px-2.5 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-900 text-[12px] font-medium transition-colors" href="#">
+体验/门票
+</a>
+<a class="flex items-center px-2.5 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-900 text-[12px] font-medium transition-colors" href="#">
+定制游
+</a>
+<a class="flex items-center px-2.5 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-900 text-[12px] font-medium transition-colors" href="#">
+旅行保险
+</a>
+</nav>
+</aside>
+<section class="flex-1 space-y-5">
+<!-- 五粮液主广告横幅 -->
+<div class="mt-2 mb-5">
+<div class="flex items-center gap-2 mb-3">
+<span class="inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-wide text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-[#d4a853]"></span>
+重点合作推广 · Featured Partner
+</span>
+</div>
+<div class="rounded-xl overflow-hidden border border-slate-200/70 shadow-[0_14px_40px_rgba(10,30,71,0.12)] bg-white">
+<img src="images/hero-wuliangye-banner.png" alt="五粮液品牌合作推广" class="block w-full h-auto">
+</div>
+</div>
+<!-- 申请流程：精简五步 -->
+<div class="rounded-xl bg-white border border-slate-200/60 px-6 py-5 shadow-[0_8px_24px_rgba(10,30,71,0.06)]">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2.5 flex-1">
+<div class="w-7 h-7 rounded-full bg-[#d4a853] text-white text-[12px] font-bold flex items-center justify-center shrink-0 shadow-[0_3px_8px_rgba(212,168,83,0.4)]">1</div>
+<span class="text-[13px] font-semibold text-on-surface">选择签证类型</span>
+</div>
+<div class="w-8 h-[2px] bg-slate-200 shrink-0"></div>
+<div class="flex items-center gap-2.5 flex-1">
+<div class="w-7 h-7 rounded-full bg-[#d4a853] text-white text-[12px] font-bold flex items-center justify-center shrink-0 shadow-[0_3px_8px_rgba(212,168,83,0.4)]">2</div>
+<span class="text-[13px] font-semibold text-on-surface">在线申请</span>
+</div>
+<div class="w-8 h-[2px] bg-slate-200 shrink-0"></div>
+<div class="flex items-center gap-2.5 flex-1">
+<div class="w-7 h-7 rounded-full bg-slate-300 text-white text-[12px] font-bold flex items-center justify-center shrink-0">3</div>
+<span class="text-[13px] text-slate-500">预约办理</span>
+</div>
+<div class="w-8 h-[2px] bg-slate-200 shrink-0"></div>
+<div class="flex items-center gap-2.5 flex-1">
+<div class="w-7 h-7 rounded-full bg-slate-300 text-white text-[12px] font-bold flex items-center justify-center shrink-0">4</div>
+<span class="text-[13px] text-slate-500">递交与采集</span>
+</div>
+<div class="w-8 h-[2px] bg-slate-200 shrink-0"></div>
+<div class="flex items-center gap-2.5 flex-1">
+<div class="w-7 h-7 rounded-full bg-slate-300 text-white text-[12px] font-bold flex items-center justify-center shrink-0">5</div>
+<span class="text-[13px] text-slate-500">进度跟踪</span>
+</div>
+</div>
+</div>
+<!-- 便捷申请服务 -->
+<div class="py-5 px-5">
+<div class="mb-4 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="block w-1 h-5 rounded-full bg-[#d4a853]"></span>
+<h2 class="text-lg font-extrabold text-on-surface tracking-tight">便捷申请服务</h2>
+</div>
+<span class="text-[10px] text-slate-400 tracking-[0.2em] font-medium">SERVICE ASSISTANCE</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<a class="group bg-white rounded-xl overflow-hidden border border-slate-200/60 hover:border-[#d4a853]/40 hover:shadow-[0_10px_28px_rgba(10,30,71,0.08)] hover:-translate-y-0.5 transition-all duration-300" href="#">
+<div class="relative h-44 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" data-alt="VIP Lounge" src="images/vip-lounge.png"/>
+<span class="absolute top-2.5 left-2.5 rounded bg-white/90 px-1.5 py-0.5 text-[9px] font-semibold text-primary">推荐</span>
+</div>
+<div class="p-4">
+<h3 class="text-sm font-bold text-on-surface mb-1">VIP贵宾厅</h3>
+<p class="text-on-surface-variant text-[11px] leading-relaxed mb-2 i18n-clamp-2">尊享候机服务，专业预审材料，在舒适私密环境中完成申请手续。</p>
+<span class="inline-flex items-center gap-1 text-primary text-[11px] font-medium">了解详情 <span class="material-symbols-outlined text-[13px]">arrow_forward</span></span>
+</div>
+</a>
+<a class="group bg-white rounded-xl overflow-hidden border border-slate-200/60 hover:border-[#d4a853]/40 hover:shadow-[0_10px_28px_rgba(10,30,71,0.08)] hover:-translate-y-0.5 transition-all duration-300" href="#">
+<div class="relative h-44 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" data-alt="Mail Service" src="images/mail-service.png"/>
+</div>
+<div class="p-4">
+<h3 class="text-sm font-bold text-on-surface mb-1">邮寄服务</h3>
+<p class="text-on-surface-variant text-[11px] leading-relaxed mb-2 i18n-clamp-2">安全、快捷、无忧，全程可追踪。</p>
+<span class="inline-flex items-center gap-1 text-primary text-[11px] font-medium">了解更多 <span class="material-symbols-outlined text-[13px]">arrow_forward</span></span>
+</div>
+</a>
+<a class="group bg-white rounded-xl overflow-hidden border border-slate-200/60 hover:border-[#d4a853]/40 hover:shadow-[0_10px_28px_rgba(10,30,71,0.08)] hover:-translate-y-0.5 transition-all duration-300" href="#">
+<div class="relative h-44 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" data-alt="ID Photo" src="images/id-photo.png"/>
+</div>
+<div class="p-4">
+<h3 class="text-sm font-bold text-on-surface mb-1">证件拍照</h3>
+<p class="text-on-surface-variant text-[11px] leading-relaxed mb-2 i18n-clamp-2">符合官方标准，即拍即取。</p>
+<span class="inline-flex items-center gap-1 text-primary text-[11px] font-medium">了解更多 <span class="material-symbols-outlined text-[13px]">arrow_forward</span></span>
+</div>
+</a>
+<a class="group bg-white rounded-xl overflow-hidden border border-slate-200/60 hover:border-[#d4a853]/40 hover:shadow-[0_10px_28px_rgba(10,30,71,0.08)] hover:-translate-y-0.5 transition-all duration-300" href="#">
+<div class="relative h-44 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" data-alt="Consultation" src="images/consultation.png"/>
+</div>
+<div class="p-4">
+<h3 class="text-sm font-bold text-on-surface mb-1">人工咨询</h3>
+<p class="text-on-surface-variant text-[11px] leading-relaxed mb-2 i18n-clamp-2">一对一专家解答，专业高效。</p>
+<span class="inline-flex items-center gap-1 text-primary text-[11px] font-medium">了解更多 <span class="material-symbols-outlined text-[13px]">arrow_forward</span></span>
+</div>
+</a>
+</div>
+</div>
+</div>
+
+
+<!-- 发现中国 -->
+<div>
+<div class="mb-3 flex items-center gap-2.5">
+<span class="block w-1 h-5 rounded-full bg-[#d4a853]"></span>
+<h2 class="text-lg font-extrabold text-on-surface tracking-tight">发现中国</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-white rounded-xl overflow-hidden border border-slate-200/60 hover:shadow-[0_14px_34px_rgba(10,30,71,0.10)] hover:-translate-y-1 transition-all duration-300">
+<img class="w-full h-52 object-cover" data-alt="Forbidden City" src="images/forbidden-city.jpg"/>
+<div class="p-3">
+<h4 class="font-bold text-[15px] mb-1.5">文化遗产之旅：北京</h4>
+<p class="text-on-surface-variant text-[11px] mb-2 leading-relaxed i18n-clamp-2">在持证导游的带领下探索故宫博物院和天坛。</p>
+<a class="text-primary text-[11px] font-medium hover:underline" href="#">了解更多</a>
+</div>
+</div>
+<div class="bg-white rounded-xl overflow-hidden border border-slate-200/60 hover:shadow-[0_14px_34px_rgba(10,30,71,0.10)] hover:-translate-y-1 transition-all duration-300">
+<img class="w-full h-52 object-cover" data-alt="Guilin" src="images/guilin.png"/>
+<div class="p-3">
+<h4 class="font-bold text-[15px] mb-1.5">自然奇观：桂林</h4>
+<p class="text-on-surface-variant text-[11px] mb-2 leading-relaxed i18n-clamp-2">置身于喀斯特地貌与漓江美景之中的宁静之旅。</p>
+<a class="text-primary text-[11px] font-medium hover:underline" href="#">了解更多</a>
+</div>
+</div>
+<div class="bg-white rounded-xl overflow-hidden border border-slate-200/60 hover:shadow-[0_14px_34px_rgba(10,30,71,0.10)] hover:-translate-y-1 transition-all duration-300">
+<img class="w-full h-52 object-cover" data-alt="Chengdu" src="images/火锅.jpg"/>
+<div class="p-3">
+<h4 class="font-bold text-[15px] mb-1.5">休闲美食之都：成都</h4>
+<p class="text-on-surface-variant text-[11px] mb-2 leading-relaxed i18n-clamp-2">品味正宗火锅，探访大熊猫基地，感受蜀地慢生活。</p>
+<a class="text-primary text-[11px] font-medium hover:underline" href="#">了解更多</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 开始填表 -->
+<div class="flex justify-center py-2">
+<button class="bg-gradient-to-r from-[#d4a853] to-[#c08f2e] text-white px-10 py-3 rounded-xl text-[15px] font-bold shadow-[0_12px_30px_rgba(212,168,83,0.35)] hover:shadow-[0_16px_40px_rgba(212,168,83,0.45)] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 i18n-title">
+开始填表
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</section>
+<aside class="w-full lg:w-[260px] shrink-0 space-y-4">
+<!-- 轮播广告 -->
+<div class="bg-white rounded-xl overflow-hidden border border-slate-200/60 shadow-[0_8px_24px_rgba(10,30,71,0.06)]" id="adCarousel">
+<div class="h-44 relative overflow-hidden">
+<div class="flex h-full transition-transform duration-500 ease-in-out" id="carouselTrack">
+<div class="w-full h-full shrink-0 relative">
+<img alt="Service information" class="w-full h-full object-cover" src="images/service-counter.png">
+<div class="absolute top-2.5 left-2.5">
+<span class="bg-secondary/85 px-1.5 py-0.5 text-[9px] text-white font-semibold tracking-wide rounded">合作推广</span>
+</div>
+</div>
+<div class="w-full h-full shrink-0 relative">
+<img alt="UnionPay" class="w-full h-full object-cover" src="images/payment-fintech.png">
+<div class="absolute top-2.5 left-2.5">
+<span class="bg-blue-700/85 px-1.5 py-0.5 text-[9px] text-white font-semibold tracking-wide rounded">支付推广</span>
+</div>
+</div>
+<div class="w-full h-full shrink-0 relative">
+<img alt="Discover China" class="w-full h-full object-cover" src="images/china-travel-guilin.png">
+<div class="absolute top-2.5 left-2.5">
+<span class="bg-emerald-700/85 px-1.5 py-0.5 text-[9px] text-white font-semibold tracking-wide rounded">文旅推广</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+<button class="h-1 rounded-full transition-all duration-300 carousel-dot" style="width:16px; background:white; box-shadow:0 1px 2px rgba(0,0,0,0.2);" data-index="0"></button>
+<button class="h-1 rounded-full transition-all duration-300 carousel-dot" style="width:5px; background:rgba(255,255,255,0.45); box-shadow:0 1px 2px rgba(0,0,0,0.2);" data-index="1"></button>
+<button class="h-1 rounded-full transition-all duration-300 carousel-dot" style="width:5px; background:rgba(255,255,255,0.45); box-shadow:0 1px 2px rgba(0,0,0,0.2);" data-index="2"></button>
+</div>
+</div>
+<div class="p-3">
+<h4 class="text-[13px] font-bold text-on-surface i18n-clamp-1" id="carouselTitle">品牌合作推广</h4>
+<p class="text-[10px] text-on-surface-variant leading-relaxed mt-1 i18n-clamp-2" id="carouselDesc">来华出行、支付、酒店、文旅合作推广内容。</p>
+<a class="text-[10px] font-medium text-primary hover:underline mt-1.5 inline-block" href="#" id="carouselLink">查看详情 →</a>
+</div>
+</div>
+<!-- 图片广告位 -->
+<div class="space-y-4">
+<div class="relative rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm">
+<img class="block w-full h-auto" src="images/1.png" alt=""/>
+<span class="absolute top-2 right-2 text-[8px] text-slate-400 bg-white/90 px-1.5 py-0.5 rounded">广告</span>
+</div>
+<div class="relative rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm">
+<img class="block w-full h-auto" src="images/3.jpg" alt=""/>
+<span class="absolute top-2 right-2 text-[8px] text-slate-400 bg-white/90 px-1.5 py-0.5 rounded">广告</span>
+</div>
+<div class="relative rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm">
+<img class="block w-full h-auto" src="images/2.jpeg" alt=""/>
+<span class="absolute top-2 right-2 text-[8px] text-slate-400 bg-white/90 px-1.5 py-0.5 rounded">广告</span>
+</div>
+</div>
+</aside>
+</main>
+<footer class="bg-slate-50 border-t-2 border-[#d4a853]/30 mt-2">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-8 w-full max-w-[1760px] mx-auto">
+<div class="space-y-6">
+<img alt="中国签证服务中心" class="h-7" src="images/logo5.png"/>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">签证服务的官方提供商，致力于为所有前往中国的申请人提供高质量、专业的协助。</p>
+<div class="flex gap-4">
+<a class="text-primary hover:text-secondary" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="text-primary hover:text-secondary" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-primary hover:text-secondary" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold text-primary dark:text-blue-400 text-xs tracking-wide i18n-title">服务项目</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">申请签证</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">VIP服务</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">进度查询</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">旅游与保险</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold text-primary dark:text-blue-400 text-xs tracking-wide i18n-title">相关信息</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">关于我们</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">公告</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">隐私政策</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">法律声明</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold text-primary dark:text-blue-400 text-xs tracking-wide i18n-title">联系我们</h4>
+<div class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
+<p class="flex items-start gap-3">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                        123 外交大道, 500室, 国际城
+                    </p>
+<p class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sm">mail</span>
+                        support@cvac.cn
+                    </p>
+<p class="flex items-center gap-3 font-bold text-primary">
+<span class="material-symbols-outlined text-sm">phone</span>
+                        +86 (010) 555-VISA
+                    </p>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-200 py-8 px-12 text-center text-xs text-slate-500">
+<p>© 2024 中国签证申请服务中心。版权所有。Powered by Imperial Gateway.</p>
+</div>
+</footer>
+
+<script>
+(function() {
+    var track = document.getElementById('carouselTrack');
+    var dots = document.querySelectorAll('.carousel-dot');
+    var title = document.getElementById('carouselTitle');
+    var desc = document.getElementById('carouselDesc');
+    var link = document.getElementById('carouselLink');
+    var carousel = document.getElementById('adCarousel');
+
+    var slides = [
+        { title: '品牌合作推广', desc: '来华出行、支付、酒店、文旅合作推广内容。', link: '查看详情 →' },
+        { title: '支付权益推广', desc: '跨境支付、电子钱包及相关支付渠道推广信息。', link: '查看详情 →' },
+        { title: '来华文旅推广', desc: '目的地、交通、酒店和文旅体验内容。', link: '查看详情 →' }
+    ];
+
+    var current = 0;
+    var timer;
+
+    function goTo(index) {
+        current = index;
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+        dots.forEach(function(d, i) {
+            d.style.width = (i === index) ? '16px' : '5px';
+            d.style.background = (i === index) ? 'white' : 'rgba(255,255,255,0.45)';
+        });
+        var s = slides[index];
+        title.textContent = s.title;
+        desc.textContent = s.desc;
+        link.textContent = s.link;
+    }
+
+    function next() { goTo((current + 1) % slides.length); }
+    function start() { stop(); timer = setInterval(next, 4000); }
+    function stop() { clearInterval(timer); }
+
+    dots.forEach(function(d) {
+        d.addEventListener('click', function() { goTo(parseInt(d.dataset.index)); start(); });
+    });
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    start();
+})();
+</script>
+</body>
+</html>
