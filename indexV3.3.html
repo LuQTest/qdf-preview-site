@@ -322,7 +322,7 @@
 <!-- 导航 -->
 <nav class="hidden md:flex items-center gap-0">
 <a class="text-white/70 hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors" href="#">首页</a>
-<a class="text-white/70 hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors" href="#">签证服务</a>
+<a class="text-white/70 hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors" href="list.html">签证服务</a>
 <a class="text-white/70 hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors" href="#">认证服务</a>
 <div class="nav-dropdown relative group">
 <a class="text-white/70 group-hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors flex items-center gap-0.5" href="#">
@@ -706,7 +706,7 @@
 <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeAnnouncement()"></div>
 <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-[480px] mx-4 overflow-hidden" style="animation: modalIn 0.35s ease-out;">
 <!-- 内容区 -->
-<div class="p-6 max-h-[60vh] overflow-y-auto">
+<div class="p-6 max-h-[80vh] overflow-y-auto modal-scroll">
 <h3 class="text-lg font-bold text-red-600 mb-3 flex items-center gap-2">
 <span class="w-1 h-5 rounded-full bg-red-500"></span>
 重要通知！！！请务必阅读知晓！！！
@@ -740,6 +740,8 @@
     from { opacity: 0; transform: scale(0.92) translateY(20px); }
     to { opacity: 1; transform: scale(1) translateY(0); }
 }
+.modal-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+.modal-scroll::-webkit-scrollbar { display: none; }
 </style>
 </div>
 
