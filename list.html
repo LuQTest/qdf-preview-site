@@ -1,676 +1,317 @@
-<!DOCTYPE html>
-
-<html lang="zh-CN"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>通知公告 - 中国签证申请服务中心</title>
+<!DOCTYPE html><html lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Chinese Visa Application Service Center</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "tertiary-fixed": "#ffe088",
-                      "inverse-primary": "#b4c5ff",
-                      "on-background": "#191c1e",
-                      "tertiary": "#735c00",
-                      "surface-variant": "#e0e3e6",
-                      "error": "#ba1a1a",
-                      "surface-container-low": "#f2f4f7",
-                      "on-tertiary-fixed-variant": "#574500",
-                      "on-primary-fixed-variant": "#033ea6",
-                      "surface-container-lowest": "#ffffff",
-                      "secondary": "#775a19",
-                      "primary-fixed-dim": "#b4c5ff",
-                      "on-surface": "#191c1e",
-                      "on-secondary-fixed-variant": "#5d4201",
-                      "on-secondary": "#ffffff",
-                      "tertiary-fixed-dim": "#e9c349",
-                      "inverse-surface": "#2d3133",
-                      "on-surface-variant": "#434653",
-                      "tertiary-container": "#cba72f",
-                      "on-error-container": "#93000a",
-                      "surface-tint": "#2d58bf",
-                      "on-tertiary": "#ffffff",
-                      "on-error": "#ffffff",
-                      "surface-container-high": "#e6e8eb",
-                      "background": "#f7f9fc",
-                      "on-primary": "#ffffff",
-                      "on-secondary-fixed": "#261900",
-                      "on-tertiary-fixed": "#241a00",
-                      "secondary-fixed-dim": "#e9c176",
-                      "inverse-on-surface": "#eff1f4",
-                      "primary": "#002975",
-                      "on-secondary-container": "#785a1a",
-                      "outline": "#747684",
-                      "surface-container-highest": "#e0e3e6",
-                      "primary-fixed": "#dbe1ff",
-                      "outline-variant": "#c4c6d5",
-                      "on-tertiary-container": "#4e3d00",
-                      "error-container": "#ffdad6",
-                      "surface-bright": "#f7f9fc",
-                      "secondary-container": "#fed488",
-                      "surface-container": "#eceef1",
-                      "on-primary-container": "#98b1ff",
-                      "primary-container": "#003da5",
-                      "surface-dim": "#d8dadd",
-                      "secondary-fixed": "#ffdea5",
-                      "surface": "#f7f9fc",
-                      "on-primary-fixed": "#00174b"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.125rem",
-                      "lg": "0.25rem",
-                      "xl": "0.5rem",
-                      "full": "0.75rem"
-              },
-              "fontFamily": {
-                      "headline": ["Manrope"],
-                      "body": ["Plus Jakarta Sans"],
-                      "label": ["Inter"]
-              }
-            },
+<script src="shared-layout.js" defer></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'visa-blue': '#00338d', // Deep blue from the header
+            'visa-sidebar-text': '#333333',
+            'visa-purple': '#a642a4', // Purple block color
+            'visa-border': '#e5e7eb',
           }
         }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-nav {
-            background: rgba(0, 41, 117, 0.8);
-            backdrop-filter: blur(20px);
-        }
-        body { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
-        h1, h2, h3 { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
-        .nav-dropdown { position: relative !important; }
-        .nav-dropdown:hover .dropdown-content { display: block; }
-        .nav-dropdown:hover .dropdown-content.extended-service-menu { display: flex !important; }
-        .dropdown-content.extended-service-menu {
-            display: none !important;
-            position: absolute !important;
-            top: 100% !important;
-            left: 50% !important;
-            right: auto !important;
-            transform: translateX(-50%) !important;
-            margin-top: 10px !important;
-            z-index: 9999 !important;
-            overflow: visible !important;
-            background: rgba(255,255,255,0.98) !important;
-            backdrop-filter: blur(30px) !important;
-            -webkit-backdrop-filter: blur(30px) !important;
-            border-radius: 24px !important;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15) !important;
-            padding: 40px !important;
-            width: 1000px !important;
-            max-width: 95vw !important;
-            border: none !important;
-        }
-        .nav-dropdown > a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #ffffff;
-            transition: width 0.3s ease;
-        }
-        .nav-dropdown:hover > a::after {
-            width: 100%;
-        }
-
-        /* Mega Menu - Extended Service */
-        .extended-service-menu {
-            width: 1000px;
-            max-width: 95vw;
-            padding: 40px;
-            display: flex;
-            gap: 60px;
-        }
-        .mega-menu-sidebar {
-            flex: 0 0 25%;
-            border-right: 1px solid rgba(0, 0, 0, 0.06);
-            padding-right: 2rem;
-        }
-        .mega-menu-category {
-            margin-bottom: 1.75rem;
-        }
-        .mega-menu-category-header {
-            font-size: 1.125rem;
-            font-weight: 900;
-            color: #1e3368;
-            margin-bottom: 1rem;
-            letter-spacing: 0.5px;
-        }
-        .mega-menu-item {
-            display: flex;
-            align-items: center;
-            padding: 0.75rem 1.25rem;
-            margin-left: -1.25rem;
-            border-left: 3px solid transparent;
-            color: #374151;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            border-radius: 0 8px 8px 0;
-        }
-        .mega-menu-item:hover {
-            font-weight: 700;
-            border-left-color: #d4a853;
-            color: #d4a853;
-            background: rgba(212, 168, 83, 0.05);
-        }
-        .mega-menu-gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            width: 100%;
-            flex: 1;
-        }
-        .mega-menu-ad-card {
-            background: #fff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .mega-menu-ad-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
-        }
-        .mega-menu-ad-card:hover img {
-            transform: scale(1.05);
-        }
-        .mega-menu-ad-card:hover .mega-menu-ad-content {
-            transform: translateY(-5px);
-        }
-        .mega-menu-ad-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        .mega-menu-ad-content {
-            padding: 1.25rem;
-            transition: transform 0.35s ease;
-        }
-        .mega-menu-ad-title {
-            font-size: 15px;
-            font-weight: 800;
-            color: #111827;
-            letter-spacing: 1.5px;
-            margin-bottom: 0.75rem;
-        }
-        .mega-menu-ad-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #d4a853;
-            font-size: 14px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.25s ease;
-            margin-top: 8px;
-        }
-        .mega-menu-ad-link:hover {
-            gap: 12px;
-        }
-        .i18n-nowrap { white-space: nowrap; }
-        .i18n-title { line-height: 1.2; overflow-wrap: anywhere; }
-        .i18n-clamp-2, .i18n-clamp-3 {
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .i18n-clamp-2 { -webkit-line-clamp: 2; }
-        .i18n-clamp-3 { -webkit-line-clamp: 3; }
-        .i18n-soft-text { line-height: 1.55; overflow-wrap: anywhere; }
-
-        /* 面包屑 */
-        .breadcrumb a {
-            color: #434653;
-            transition: color 0.2s ease;
-        }
-        .breadcrumb a:hover {
-            color: #002975;
-        }
-
-        /* 列表项样式 - 卡片行 */
-        .list-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            padding: 20px 20px;
-            border-bottom: 1px solid #e8eaef;
-            border-left: 3px solid transparent;
-            transition: all 0.2s ease;
-            text-decoration: none;
-        }
-        .list-item,
-        .list-item:visited,
-        .list-item:active {
-            color: inherit;
-        }
-        .list-item:hover {
-            background: rgba(0, 41, 117, 0.025);
-            border-left-color: #002975;
-        }
-        .list-date {
-            flex: 0 0 100px;
-            text-align: right;
-            padding-top: 2px;
-        }
-        .list-date .day {
-            font-size: 14px;
-            font-weight: 600;
-            color: #434653;
-            line-height: 1.3;
-        }
-        .list-date .year {
-            font-size: 11px;
-            color: #9ca3af;
-            margin-top: 2px;
-        }
-        .list-divider {
-            display: none;
-        }
-        .list-content {
-            flex: 1;
-            min-width: 0;
-        }
-        .list-content h3 {
-            font-size: 16px;
-            font-weight: 700;
-            color: #191c1e;
-            margin-bottom: 6px;
-            line-height: 1.5;
-            transition: color 0.2s ease;
-        }
-        .list-item:hover .list-content h3 {
-            color: #002975;
-        }
-        .list-content p {
-            font-size: 13px;
-            color: #6b7280;
-            line-height: 1.7;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            -webkit-line-clamp: 2;
-            margin: 0;
-        }
-
-        /* 分页 */
-        .pagination-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid #e8eaef;
-        }
-        .pagination-info {
-            font-size: 14px;
-            color: #747684;
-        }
-        .pagination-pages {
-            display: flex;
-            align-items: center;
-            gap: 2px;
-        }
-        .pagination-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 36px;
-            height: 36px;
-            padding: 0 8px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #434653;
-            background: transparent;
-            border: 1px solid transparent;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-        .pagination-btn:hover {
-            background: #eceef1;
-            color: #002975;
-        }
-        .pagination-btn.active {
-            background: #002975;
-            color: #ffffff;
-            border-color: #002975;
-        }
-
-        @media (min-width: 1280px) {
-            .page-visual-scale {
-                zoom: 1.08;
-            }
-        }
-        @media (max-width: 640px) {
-            .list-item {
-                flex-direction: column;
-                gap: 4px;
-            }
-            .list-date {
-                flex: none;
-                text-align: left;
-                padding-top: 0;
-            }
-            .list-date .day {
-                font-size: 12px;
-                display: inline;
-            }
-            .list-date .year {
-                font-size: 11px;
-                display: inline;
-                margin-left: 4px;
-                color: #9ca3af;
-            }
-        }
-    </style>
+      }
+    }
+  </script>
+<style data-purpose="layout-styling">
+    body {
+      background-color: #ffffff;
+      overflow-x: auto;
+    }
+    .main-height {
+      min-height: calc(100vh - 60px);
+    }
+    #visa-article-table tbody tr {
+      cursor: pointer;
+      transition: background-color 0.18s ease, box-shadow 0.18s ease;
+    }
+    #visa-article-table tbody tr:hover {
+      background-color: #f8fafc;
+      box-shadow: inset 4px 0 0 #00338d;
+    }
+    #notice-list time {
+      width: 76px;
+      white-space: nowrap;
+    }
+  </style>
 </head>
-<body class="bg-surface text-on-surface">
-<div class="page-visual-scale">
-<!-- ========== HEADER ========== -->
-<header class="top-0 sticky z-50 shadow-[0_4px_28px_rgba(10,30,71,0.22)]" style="background:linear-gradient(120deg,#0a1e47 0%,#0b2556 50%,#002975 100%);border-bottom:1px solid rgba(212,168,83,0.38);">
-<div class="flex items-center justify-between w-full px-6 lg:px-8 h-[72px] max-w-[1840px] mx-auto">
-<!-- 品牌文字排版 -->
-<div class="flex items-center shrink-0">
-<div class="flex items-baseline gap-2.5">
-<span class="text-[18px] font-bold text-white tracking-wide">中国签证申请服务中心</span>
-<span class="hidden sm:inline text-[11px] text-[#e9c349] font-semibold px-2 py-0.5 rounded-full border border-[#d4a853]/40">新加坡中心</span>
+<body class="font-sans antialiased text-slate-900">
+<header class="flex h-[60px] w-full bg-visa-blue px-4 text-white shadow-md sticky top-0 z-50 lg:px-[30px]">
+<div class="flex h-full w-full items-center">
+<div class="flex items-center space-x-4">
+<img src="images/logo5.png" alt="Chinese Visa Application Service Center Logo" class="h-10 max-w-[210px] object-contain lg:max-w-none">
 </div>
-</div>
-<!-- 导航 -->
-<nav class="hidden md:flex items-center gap-0">
-<a class="text-white/70 hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors" href="index.html">首页</a>
-<a class="text-white/70 hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors" href="#">签证服务</a>
-<a class="text-white/70 hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors" href="#">认证服务</a>
-<div class="nav-dropdown relative group">
-<a class="text-white/70 group-hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors flex items-center gap-0.5" href="#">
-延伸服务<span class="material-symbols-outlined text-[14px]">expand_more</span>
-</a>
-<div class="dropdown-content hidden extended-service-menu">
-<div class="mega-menu-sidebar">
-<div class="mega-menu-category">
-<div class="mega-menu-category-header">携程服务</div>
-<div class="mega-menu-item">酒店</div>
-<div class="mega-menu-item">机票</div>
-<div class="mega-menu-item">接送机</div>
-<div class="mega-menu-item">租车</div>
-<div class="mega-menu-item">火车票</div>
-</div>
-<div class="mega-menu-category">
-<div class="mega-menu-category-header">旅游服务</div>
-<div class="mega-menu-item">门票体验</div>
-<div class="mega-menu-item">当地玩乐</div>
-<div class="mega-menu-item">旅游保险</div>
-<div class="mega-menu-item">私人定制游</div>
-</div>
-</div>
-<div class="mega-menu-gallery">
-<div class="mega-menu-ad-card">
-<img src="images/wuliangye.jpg" alt=""/>
-<div class="mega-menu-ad-content">
-<div class="mega-menu-ad-title">品牌合作推广</div>
-<a href="#" class="mega-menu-ad-link">查看推广 →</a>
-</div>
-</div>
-<div class="mega-menu-ad-card">
-<img src="images/hotel.jpg" alt=""/>
-<div class="mega-menu-ad-content">
-<div class="mega-menu-ad-title">精选酒店权益</div>
-<a href="#" class="mega-menu-ad-link">查看推广 →</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="nav-dropdown relative group">
-<a class="text-white/70 group-hover:text-white px-3.5 py-1.5 text-[14px] font-semibold transition-colors flex items-center gap-0.5" href="#">
-来华行程服务<span class="material-symbols-outlined text-[14px]">expand_more</span>
-</a>
-<div class="dropdown-content hidden extended-service-menu">
-<div class="mega-menu-sidebar">
-<div class="mega-menu-category">
-<div class="mega-menu-category-header">携程服务</div>
-<div class="mega-menu-item">酒店</div>
-<div class="mega-menu-item">机票</div>
-<div class="mega-menu-item">接送机</div>
-<div class="mega-menu-item">租车</div>
-<div class="mega-menu-item">火车票</div>
-</div>
-<div class="mega-menu-category">
-<div class="mega-menu-category-header">旅游服务</div>
-<div class="mega-menu-item">门票体验</div>
-<div class="mega-menu-item">当地玩乐</div>
-<div class="mega-menu-item">旅游保险</div>
-</div>
-</div>
-<div class="mega-menu-gallery">
-<div class="mega-menu-ad-card">
-<img src="images/guilin.jpg" alt=""/>
-<div class="mega-menu-ad-content">
-<div class="mega-menu-ad-title">来华文旅推广</div>
-<a href="#" class="mega-menu-ad-link">查看推广 →</a>
-</div>
-</div>
-<div class="mega-menu-ad-card">
-<img src="images/wuliangye.jpg" alt=""/>
-<div class="mega-menu-ad-content">
-<div class="mega-menu-ad-title">文化体验推广</div>
-<a href="#" class="mega-menu-ad-link">查看推广 →</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</nav>
-<!-- 右侧工具 + 登录 -->
-<div class="flex items-center gap-2 shrink-0">
-<button class="text-white/50 hover:text-white/80 p-1 transition-all" title="切换语言">
-<span class="material-symbols-outlined text-[18px]">language</span>
+<form class="ml-8 hidden h-9 items-stretch lg:flex" role="search">
+<label class="sr-only" for="site-search">站内搜索</label>
+<input class="w-[300px] rounded-l-md border-0 bg-white px-3 text-sm text-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-200" id="site-search" name="q" placeholder="搜索签证服务、通知等" type="search">
+<button class="flex items-center gap-1.5 rounded-r-md bg-blue-800 px-3.5 text-sm font-medium transition-colors hover:bg-blue-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" type="submit">
+<svg aria-hidden="true" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6.5"></circle><path stroke-linecap="round" d="m16 16 4 4"></path></svg>搜索
 </button>
-<button class="text-white/50 hover:text-white/80 p-1 transition-all" title="在线客服">
-<span class="material-symbols-outlined text-[18px]">contact_support</span>
-</button>
-<button class="bg-[#d4a853] hover:bg-[#c79a3a] text-white px-4 py-1.5 rounded-lg text-[13px] font-semibold transition-colors shadow-[0_4px_12px_rgba(212,168,83,0.35)]">登录 / 注册</button>
+</form>
+<div class="ml-auto hidden items-center gap-5 text-sm font-medium lg:flex">
+<span class="text-white/85">新加坡</span>
+<a class="text-white/85 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="#">切换中心</a>
+<details class="group relative"><summary class="flex cursor-pointer list-none items-center gap-1 text-white/85 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">中文<svg aria-hidden="true" class="h-3.5 w-3.5 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></summary><div class="absolute right-0 top-7 z-20 w-24 overflow-hidden rounded-md bg-white py-1 text-slate-700 shadow-lg ring-1 ring-slate-900/10"><a class="block px-3 py-2 text-sm hover:bg-slate-50 hover:text-visa-blue" href="#">中文</a><a class="block px-3 py-2 text-sm hover:bg-slate-50 hover:text-visa-blue" href="#">English</a></div></details>
+<a class="rounded-md bg-white px-3.5 py-1.5 text-visa-blue transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="#">注册 / 登录</a>
 </div>
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="打开菜单" class="ml-auto flex h-10 w-10 items-center justify-center rounded-md transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden" id="mobile-menu-toggle" type="button">
+<svg aria-hidden="true" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+</button>
 </div>
 </header>
-
-<!-- ========== 主内容区：通知公告列表 ========== -->
-<main class="pt-10 pb-20 max-w-[1824px] mx-auto px-8">
-    <!-- 面包屑导航 -->
-    <nav class="breadcrumb flex items-center gap-2 text-sm mb-8 text-on-surface-variant max-w-[1200px] mx-auto" aria-label="面包屑导航">
-        <a href="index.html" class="hover:text-primary transition-colors">首页</a>
-        <span class="material-symbols-outlined text-xs">chevron_right</span>
-        <span class="text-on-surface font-medium">通知公告</span>
-    </nav>
-
-    <div class="max-w-[1200px] mx-auto">
-        <!-- 页面标题 -->
-        <div class="mb-8 pb-5 border-b-2 border-primary/20">
-            <h1 class="text-2xl font-extrabold text-primary tracking-wide">通知公告</h1>
-            <p class="mt-2 text-sm text-on-surface-variant">及时查看签证中心服务通知、节假日安排和申请流程更新</p>
-        </div>
-
-        <!-- 两栏布局：列表 + 侧边横幅 -->
-        <div class="flex gap-10 items-start">
-            <!-- 左侧：文章列表 -->
-            <div class="flex-1 min-w-0">
-                <!-- 第1条 -->
-                <a href="article.html" class="list-item block">
-                    <div class="list-content">
-                        <h3>领事服务中心海外上线外籍人员来华咨询服务</h3>
-                        <p>领事服务中心海外上线外籍人员来华咨询服务 放假安排 元旦 New Year's Day 1月1日-3日 星期六-星期一 春节 Chinese New Year...</p>
-                    </div>
-                    <div class="list-date">
-                        <div class="day">09-11</div>
-                        <div class="year">2025年</div>
-                    </div>
-                </a>
-
-                <!-- 第2条 -->
-                <a href="article.html" class="list-item block">
-                    <div class="list-content">
-                        <h3>申请第一步：线上递交申请</h3>
-                        <p>申请流程 第一步：线上递交申请 该网站为在新加坡申请中国签证的申请人使用，请确保您选择了正确的地址。（注意查看页面...</p>
-                    </div>
-                    <div class="list-date">
-                        <div class="day">10-25</div>
-                        <div class="year">2024年</div>
-                    </div>
-                </a>
-
-                <!-- 第3条 -->
-                <a href="article.html" class="list-item block">
-                    <div class="list-content">
-                        <h3>申请第二、三步：线下递交申请及取证</h3>
-                        <p>申请流程 第二步：线上审核通过后到签证中心递交申请及交费（无需预约） 1.到签证中心提交如下材料（如有必要，您可能会...</p>
-                    </div>
-                    <div class="list-date">
-                        <div class="day">10-25</div>
-                        <div class="year">2024年</div>
-                    </div>
-                </a>
-
-                <!-- 第4条 -->
-                <a href="article.html" class="list-item block">
-                    <div class="list-content">
-                        <h3>请为随行的外籍佣工申请S2签证。</h3>
-                        <p>为随行外籍佣工，请申请S2签证。</p>
-                    </div>
-                    <div class="list-date">
-                        <div class="day">09-22</div>
-                        <div class="year">2024年</div>
-                    </div>
-                </a>
-
-                <!-- 第5条 -->
-                <a href="article.html" class="list-item block">
-                    <div class="list-content">
-                        <h3>2026年全年放假通知</h3>
-                        <p>2026年全年放假安排 Holiday Schedule for 2026 节假日 放假时间 Holiday Date 元旦 1月1日 周四 New Year's Day 1 Jan Thu...</p>
-                    </div>
-                    <div class="list-date">
-                        <div class="day">12-31</div>
-                        <div class="year">2025年</div>
-                    </div>
-                </a>
-
-                <!-- 分页 -->
-                <div class="pagination-wrapper">
-                    <span class="pagination-info">共14条 3页</span>
-                    <div class="pagination-pages">
-                        <button class="pagination-btn">
-                            <span class="material-symbols-outlined text-[18px]">chevron_left</span>
-                        </button>
-                        <button class="pagination-btn active">1</button>
-                        <button class="pagination-btn">2</button>
-                        <button class="pagination-btn">3</button>
-                        <button class="pagination-btn">
-                            <span class="material-symbols-outlined text-[18px]">chevron_right</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 右侧：侧栏 -->
-            <div class="hidden lg:block flex-shrink-0" style="width: 300px;">
-                <!-- 美丽中国卡片 -->
-                <div class="relative rounded-xl overflow-hidden shadow-[0_8px_24px_rgba(10,30,71,0.08)] border border-slate-200/40 mb-5" style="height: 240px;">
-                    <img src="images/forbidden-city.jpg" alt="美丽中国" class="absolute inset-0 w-full h-full object-cover"/>
-                    <div class="absolute inset-0 bg-gradient-to-b from-sky-400/20 via-transparent to-white/60"></div>
-                    <div class="absolute inset-0 flex flex-col items-center justify-center">
-                        <span class="text-white text-3xl font-extrabold tracking-[0.15em] drop-shadow-[0_4px_12px_rgba(0,0,0,0.35)]">美丽中国</span>
-                        <span class="text-white/80 text-sm font-semibold tracking-[0.35em] mt-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">BEAUTIFUL CHINA</span>
-                    </div>
-                </div>
-                <!-- 快捷入口卡片 -->
-                <div class="bg-white rounded-xl border border-slate-200/40 p-4 shadow-[0_4px_16px_rgba(10,30,71,0.04)] space-y-1">
-                    <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors group">
-                        <span class="material-symbols-outlined text-primary text-xl">travel_explore</span>
-                        <div class="flex-1 min-w-0">
-                            <div class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">了解中国</div>
-                            <div class="text-xs text-on-surface-variant">风土人情、旅游攻略</div>
-                        </div>
-                        <span class="material-symbols-outlined text-on-surface-variant text-sm">chevron_right</span>
-                    </a>
-                    <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors group">
-                        <span class="material-symbols-outlined text-primary text-xl">flight</span>
-                        <div class="flex-1 min-w-0">
-                            <div class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">旅行服务</div>
-                            <div class="text-xs text-on-surface-variant">机票、酒店、接送机</div>
-                        </div>
-                        <span class="material-symbols-outlined text-on-surface-variant text-sm">chevron_right</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="fixed inset-0 z-[60] hidden lg:hidden" id="mobile-menu">
+<button aria-label="关闭菜单" class="absolute inset-0 h-full w-full bg-slate-950/40" id="mobile-menu-backdrop" type="button"></button>
+<aside aria-label="移动端导航" class="relative h-full w-[min(86vw,360px)] overflow-y-auto bg-white p-5 shadow-2xl">
+<div class="flex items-center justify-between"><span class="text-base font-semibold text-visa-blue">新加坡</span><button aria-label="关闭菜单" class="flex h-9 w-9 items-center justify-center rounded-md text-slate-500 hover:bg-slate-100" id="mobile-menu-close" type="button"><svg aria-hidden="true" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+<form class="mt-5 flex h-10" role="search"><label class="sr-only" for="mobile-site-search">站内搜索</label><input class="min-w-0 flex-1 rounded-l-md border border-slate-200 px-3 text-sm text-slate-700 placeholder:text-slate-400 focus:border-visa-blue focus:ring-visa-blue" id="mobile-site-search" name="q" placeholder="搜索签证服务、通知等" type="search"><button class="rounded-r-md bg-visa-blue px-3 text-sm font-medium text-white" type="submit">搜索</button></form>
+<div class="my-5 border-t border-slate-200"></div>
+<a class="block rounded-md bg-visa-blue px-4 py-3 text-center text-base font-medium text-white" href="#">注册 / 登录</a>
+<a class="mt-1 block rounded-md px-4 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-visa-blue" href="#">切换中心</a>
+<details class="group mt-1"><summary class="flex cursor-pointer list-none items-center justify-between rounded-md px-4 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-visa-blue">中文<svg aria-hidden="true" class="h-4 w-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></summary><div class="ml-4 border-l border-slate-200 py-1"><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">中文</a><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">English</a></div></details>
+<div class="my-5 border-t border-slate-200"></div>
+<nav class="space-y-1 text-base">
+<a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">首页</a>
+<details class="group" open><summary class="flex cursor-pointer list-none items-center justify-between rounded-md px-3 py-2.5 font-medium text-visa-blue hover:bg-blue-50">签证服务<svg aria-hidden="true" class="h-4 w-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></summary><div class="ml-3 border-l border-slate-200 py-1"><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">签证类型及材料清单</a><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">费用标准</a><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">申请表样例</a><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">资料下载</a><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">在华证件办理</a><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">常见问题</a></div></details>
+<a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">认证服务</a><a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">延伸服务</a><a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">通知</a>
+<div class="my-3 border-t border-slate-200"></div>
+<a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">酒店</a><a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">机票</a><a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">其他交通</a><a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">体验/门票</a><a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">定制游</a><a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">旅行保险</a>
+</nav>
+</aside>
+</div>
+<div class="flex w-full main-height lg:h-[calc(100vh-60px)] lg:overflow-hidden">
+<aside class="hidden w-[200px] shrink-0 flex-col border-r border-visa-border py-8 lg:flex lg:h-full lg:overflow-y-auto">
+<nav class="space-y-1">
+<div class="flex flex-col mb-8">
+<a class="px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#">首页</a>
+<div>
+<button aria-controls="visa-service-submenu" aria-expanded="true" aria-label="收起签证服务子菜单" class="flex w-full items-center justify-between px-8 py-3 text-sm font-medium text-visa-blue transition-colors hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-visa-blue" id="visa-service-toggle" type="button">
+<span>签证服务</span>
+<svg aria-hidden="true" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+</button>
+<ul class="mb-2 ml-8 border-l border-slate-200" id="visa-service-submenu">
+<li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">签证类型及材料清单</a></li>
+<li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">费用标准</a></li>
+<li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">申请表样例</a></li>
+<li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">资料下载</a></li>
+<li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">在华证件办理</a></li>
+<li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">常见问题</a></li>
+</ul>
+</div>
+<div>
+<button aria-controls="authentication-service-submenu" aria-expanded="false" aria-label="展开认证服务子菜单" class="flex w-full items-center justify-between px-8 py-3 text-sm font-medium text-visa-sidebar-text transition-colors hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-visa-blue" id="authentication-service-toggle" type="button"><span>认证服务</span><svg aria-hidden="true" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></button>
+<ul class="hidden mb-2 ml-8 border-l border-slate-200" id="authentication-service-submenu"><li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">认证类型及材料清单</a></li><li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">费用标准</a></li><li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">填写样例</a></li><li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">资料下载</a></li><li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">常见问题</a></li></ul>
+</div>
+<a class="px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#">延伸服务</a>
+<a class="px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#">通知</a>
+</div>
+<div class="mx-8 border-t border-gray-100 mb-8"></div>
+<div class="flex flex-col">
+<a class="px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#">酒店</a>
+<a class="px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#">机票</a>
+<a class="px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#">其他交通</a>
+<a class="px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#">体验/门票</a>
+<a class="px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#">定制游</a>
+<a class="px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#">旅行保险</a>
+</div>
+</nav>
+</aside>
+<main class="hidden" aria-hidden="true">
+<div class="flex w-full max-w-[1500px] flex-col gap-4 px-4 pb-8 pt-4 min-[1800px]:flex-row min-[1800px]:gap-5 min-[1800px]:px-[20px] min-[1800px]:pb-12 min-[1800px]:pt-[25px]">
+<section class="flex w-full flex-col overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-sm min-[1800px]:w-[1090px]" data-purpose="main-blank-area">
+<div class="flex-1 px-4 py-5 sm:px-6 sm:py-6 lg:px-10 lg:py-8">
+<div class="w-full">
+<div class="flex flex-col items-start gap-3 border-b border-slate-100 pb-5 sm:flex-row sm:items-end sm:justify-between">
+<div>
+  <p class="text-xs font-bold tracking-[0.2em] text-visa-blue/90 uppercase">Visa Service</p>
+  <h2 class="mt-1.5 text-2xl font-bold tracking-tight text-slate-900">签证类型及材料清单</h2>
+</div>
+<button class="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-md shadow-blue-500/10 transition-all duration-150 transform active:scale-[0.98] flex items-center gap-2" type="button">
+  在线填表
+</button>
+</div>
+<p class="mt-4 text-sm leading-6 text-slate-500">请根据赴华主要目的查阅相应签证种类及适用说明。</p>
+<div class="mt-6 overflow-hidden rounded-xl border border-slate-200/70 bg-white lg:hidden">
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（L）旅游</p><p class="mt-1 text-sm leading-5 text-slate-500">个人旅游；团体旅游。</p></a>
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（F）交流、访问、考察等</p><p class="mt-1 text-sm leading-5 text-slate-500">学术、文化、宗教、非政府组织等交流活动；不超过 90 日的志愿服务及其他相关事项。</p></a>
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（M）商业贸易活动</p><p class="mt-1 text-sm leading-5 text-slate-500">贸易活动、参加比赛及其他商业活动。</p></a>
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（Q1）家庭成员或亲属（超过180日）</p><p class="mt-1 text-sm leading-5 text-slate-500">中国公民或具有中国永久居留资格的外国人的家庭成员、亲属等申请入境居留。</p></a>
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（Q2）家庭成员或亲属（不超过180日）</p><p class="mt-1 text-sm leading-5 text-slate-500">入境短期探亲的中国公民亲属或具有中国永久居留资格的外国人亲属。</p></a>
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（S1）私人事务（超过180日）</p><p class="mt-1 text-sm leading-5 text-slate-500">因工作、学习等在华居留外国人的家庭成员及其他需长期停留人员。</p></a>
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（S2）私人事务（不超过180日）</p><p class="mt-1 text-sm leading-5 text-slate-500">因工作、学习等在华居留外国人的家庭成员及其他需短期停留人员。</p></a>
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（Z）工作</p><p class="mt-1 text-sm leading-5 text-slate-500">入境工作的外国专家、营业性演出人员、驻华代表机构代表及其他取得工作许可人员。</p></a>
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（X1）长期学习（超过180日）</p><p class="mt-1 text-sm leading-5 text-slate-500">长期学习人员。</p></a>
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（X2）短期学习（不超过180日）</p><p class="mt-1 text-sm leading-5 text-slate-500">短期学习人员。</p></a>
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（J1）外国常驻记者</p><p class="mt-1 text-sm leading-5 text-slate-500">外国常驻中国新闻机构的外国常驻记者。</p></a>
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（J2）短期采访报道</p><p class="mt-1 text-sm leading-5 text-slate-500">入境进行短期采访报道的外国记者。</p></a>
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（C）乘务</p><p class="mt-1 text-sm leading-5 text-slate-500">国际列车、航空器、国际航行船舶及国际道路运输从业人员。</p></a>
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（G）过境</p><p class="mt-1 text-sm leading-5 text-slate-500">经中国过境。</p></a>
+<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（D）永久居留</p><p class="mt-1 text-sm leading-5 text-slate-500">入境永久居留人员。</p></a>
+<a class="block px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（R）人才</p><p class="mt-1 text-sm leading-5 text-slate-500">国家需要的外国高层次人才和急需紧缺专门人才。</p></a>
+</div>
+<div class="mt-6 hidden overflow-x-auto rounded-xl border border-slate-200/70 bg-white shadow-inner lg:block">
+<table class="min-w-[720px] w-full table-fixed border-collapse text-left text-sm" id="visa-article-table">
+<thead class="bg-slate-50 text-slate-600 border-b border-slate-200/70">
+  <tr>
+    <th class="w-[280px] px-6 py-4 font-semibold tracking-wide">赴华主要目的</th>
+    <th class="w-[110px] px-4 py-4 font-semibold tracking-wide text-center">签证类别</th>
+    <th class="px-6 py-4 font-semibold tracking-wide">适用说明</th>
+  </tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-slate-600">
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（L）旅游</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">L</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">个人旅游；团体旅游。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（F）交流、访问、考察等</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">F</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">学术、文化、宗教、非政府组织等交流活动；不超过 90 日的志愿服务及其他相关事项。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（M）商业贸易活动</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">M</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">贸易活动、参加比赛及其他商业活动。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（Q1）家庭成员或亲属（超过180日）</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">Q1</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">中国公民或具有中国永久居留资格的外国人的家庭成员、亲属等申请入境居留。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（Q2）家庭成员或亲属（不超过180日）</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">Q2</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">入境短期探亲的中国公民亲属或具有中国永久居留资格的外国人亲属。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（S1）私人事务（超过180日）</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">S1</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">因工作、学习等在华居留外国人的家庭成员及其他需长期停留人员。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（S2）私人事务（不超过180日）</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">S2</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">因工作、学习等在华居留外国人的家庭成员及其他需短期停留人员。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（Z）工作</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">Z</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">入境工作的外国专家、营业性演出人员、驻华代表机构代表及其他取得工作许可人员。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（X1）长期学习（超过180日）</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">X1</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">长期学习人员。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（X2）短期学习（不超过180日）</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">X2</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">短期学习人员。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（J1）外国常驻记者</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">J1</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">外国常驻中国新闻机构的外国常驻记者。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（J2）短期采访报道</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">J2</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">入境进行短期采访报道的外国记者。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（C）乘务</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">C</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">国际列车、航空器、国际航行船舶及国际道路运输从业人员。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（G）过境</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">G</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">经中国过境。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（D）永久居留</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">D</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">入境永久居留人员。</td>
+</tr>
+<tr class="bg-white">
+  <td class="px-6 py-4 font-medium text-slate-800">（R）人才</td>
+  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">R</span></td>
+  <td class="px-6 py-4 leading-6 text-slate-500">国家需要的外国高层次人才和急需紧缺专门人才。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<aside class="hidden h-[calc(100vh-85px)] w-[350px] shrink-0 overflow-hidden rounded-xl border border-slate-200/60 bg-white shadow-sm min-[1800px]:block" data-purpose="right-banner-area">
+<img class="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105" src="images/beautiful-china-temple.png" alt="美丽中国——天坛">
+</aside>
+</div>
 </main>
+<main class="min-w-0 flex-1 bg-white lg:h-full lg:overflow-y-auto">
+<div class="mx-auto w-full max-w-[1500px] px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+<section class="mx-auto max-w-[1200px]"><header class="border-b-2 border-blue-100 pb-5"><h1 class="text-2xl font-extrabold tracking-tight text-visa-blue sm:text-3xl">通知公告</h1><p class="mt-2 text-sm leading-6 text-slate-500">及时查看签证中心服务通知、节假日安排和申请流程更新</p></header>
+<div class="mt-7 flex flex-col gap-8 xl:flex-row xl:gap-8"><div class="min-w-0 flex-1 overflow-hidden rounded-xl border border-slate-200 bg-white divide-y divide-slate-200" id="notice-list">
+<a class="group flex gap-4 px-4 py-5 transition-colors hover:bg-slate-50 sm:gap-6 sm:px-6" href="article.html"><div class="min-w-0 flex-1"><h2 class="font-bold leading-6 text-slate-900 transition-colors group-hover:text-visa-blue">领事服务中心海外上线外籍人员来华咨询服务</h2><p class="mt-2 text-sm leading-6 text-slate-500">领事服务中心海外上线外籍人员来华咨询服务、放假安排及相关申请流程更新。</p></div><time class="w-14 shrink-0 border-l border-slate-200 pl-3 text-right text-xs text-slate-400 sm:w-16 sm:pl-4"><strong class="block text-base font-bold text-visa-blue">09-11</strong>2025年</time></a>
+<a class="group flex gap-4 px-4 py-5 transition-colors hover:bg-slate-50 sm:gap-6 sm:px-6" href="article.html"><div class="min-w-0 flex-1"><h2 class="font-bold leading-6 text-slate-900 transition-colors group-hover:text-visa-blue">申请第一步：线上递交申请</h2><p class="mt-2 text-sm leading-6 text-slate-500">请确保选择正确的申请地址，并按要求在线提交材料。</p></div><time class="w-14 shrink-0 border-l border-slate-200 pl-3 text-right text-xs text-slate-400 sm:w-16 sm:pl-4"><strong class="block text-base font-bold text-visa-blue">10-25</strong>2024年</time></a>
+<a class="group flex gap-4 px-4 py-5 transition-colors hover:bg-slate-50 sm:gap-6 sm:px-6" href="article.html"><div class="min-w-0 flex-1"><h2 class="font-bold leading-6 text-slate-900 transition-colors group-hover:text-visa-blue">申请第二、三步：线下递交申请及取证</h2><p class="mt-2 text-sm leading-6 text-slate-500">线上审核通过后，到签证中心递交材料、交费并按通知取证。</p></div><time class="w-14 shrink-0 border-l border-slate-200 pl-3 text-right text-xs text-slate-400 sm:w-16 sm:pl-4"><strong class="block text-base font-bold text-visa-blue">10-25</strong>2024年</time></a>
+<a class="group flex gap-4 px-4 py-5 transition-colors hover:bg-slate-50 sm:gap-6 sm:px-6" href="article.html"><div class="min-w-0 flex-1"><h2 class="font-bold leading-6 text-slate-900 transition-colors group-hover:text-visa-blue">请为随行的外籍佣工申请S2签证</h2><p class="mt-2 text-sm leading-6 text-slate-500">为随行外籍佣工申请签证时，请选择对应的 S2 签证类型。</p></div><time class="w-14 shrink-0 border-l border-slate-200 pl-3 text-right text-xs text-slate-400 sm:w-16 sm:pl-4"><strong class="block text-base font-bold text-visa-blue">09-22</strong>2024年</time></a>
+<a class="group flex gap-4 px-4 py-5 transition-colors hover:bg-slate-50 sm:gap-6 sm:px-6" href="article.html"><div class="min-w-0 flex-1"><h2 class="font-bold leading-6 text-slate-900 transition-colors group-hover:text-visa-blue">2026年全年放假通知</h2><p class="mt-2 text-sm leading-6 text-slate-500">请提前查阅全年节假日安排，合理规划材料递交与取证时间。</p></div><time class="w-14 shrink-0 border-l border-slate-200 pl-3 text-right text-xs text-slate-400 sm:w-16 sm:pl-4"><strong class="block text-base font-bold text-visa-blue">12-31</strong>2025年</time></a>
+<a class="group flex gap-4 px-4 py-5 transition-colors hover:bg-slate-50 sm:gap-6 sm:px-6" href="article.html"><div class="min-w-0 flex-1"><h2 class="font-bold leading-6 text-slate-900 transition-colors group-hover:text-visa-blue">签证申请材料递交注意事项</h2><p class="mt-2 text-sm leading-6 text-slate-500">请按要求准备原件、复印件及线上审核通过后的确认材料。</p></div><time class="w-14 shrink-0 border-l border-slate-200 pl-3 text-right text-xs text-slate-400 sm:w-16 sm:pl-4"><strong class="block text-base font-bold text-visa-blue">11-18</strong>2025年</time></a>
+<a class="group flex gap-4 px-4 py-5 transition-colors hover:bg-slate-50 sm:gap-6 sm:px-6" href="article.html"><div class="min-w-0 flex-1"><h2 class="font-bold leading-6 text-slate-900 transition-colors group-hover:text-visa-blue">关于签证申请受理时间的说明</h2><p class="mt-2 text-sm leading-6 text-slate-500">申请人请根据出行计划预留合理办理时间，避免临近出行集中递交。</p></div><time class="w-14 shrink-0 border-l border-slate-200 pl-3 text-right text-xs text-slate-400 sm:w-16 sm:pl-4"><strong class="block text-base font-bold text-visa-blue">08-15</strong>2025年</time></a>
+<a class="group flex gap-4 px-4 py-5 transition-colors hover:bg-slate-50 sm:gap-6 sm:px-6" href="article.html"><div class="min-w-0 flex-1"><h2 class="font-bold leading-6 text-slate-900 transition-colors group-hover:text-visa-blue">节假日前后服务安排提示</h2><p class="mt-2 text-sm leading-6 text-slate-500">节假日前后申请量较大，请关注最新服务时间及取证通知。</p></div><time class="w-14 shrink-0 border-l border-slate-200 pl-3 text-right text-xs text-slate-400 sm:w-16 sm:pl-4"><strong class="block text-base font-bold text-visa-blue">05-30</strong>2025年</time></a>
+<a class="group flex gap-4 px-4 py-5 transition-colors hover:bg-slate-50 sm:gap-6 sm:px-6" href="article.html"><div class="min-w-0 flex-1"><h2 class="font-bold leading-6 text-slate-900 transition-colors group-hover:text-visa-blue">签证中心服务费用调整说明</h2><p class="mt-2 text-sm leading-6 text-slate-500">请在提交申请前核对最新服务费用、支付方式及相应凭证要求。</p></div><time class="w-14 shrink-0 border-l border-slate-200 pl-3 text-right text-xs text-slate-400 sm:w-16 sm:pl-4"><strong class="block text-base font-bold text-visa-blue">03-12</strong>2025年</time></a>
+<a class="group flex gap-4 px-4 py-5 transition-colors hover:bg-slate-50 sm:gap-6 sm:px-6" href="article.html"><div class="min-w-0 flex-1"><h2 class="font-bold leading-6 text-slate-900 transition-colors group-hover:text-visa-blue">申请进度查询服务更新</h2><p class="mt-2 text-sm leading-6 text-slate-500">线上查询入口已更新，请使用申请凭证中的信息查询办理进度。</p></div><time class="w-14 shrink-0 border-l border-slate-200 pl-3 text-right text-xs text-slate-400 sm:w-16 sm:pl-4"><strong class="block text-base font-bold text-visa-blue">01-08</strong>2025年</time></a>
+</div>
+</div>
+<div class="mt-7 flex flex-col items-center justify-between gap-4 text-sm text-slate-500 sm:flex-row"><span>共14条 · 2页</span><div class="flex gap-2"><button class="rounded-md border border-slate-200 px-3 py-1.5 hover:bg-slate-50" type="button">上一页</button><button class="rounded-md bg-visa-blue px-3 py-1.5 text-white" type="button">1</button><button class="rounded-md border border-slate-200 px-3 py-1.5 hover:bg-slate-50" type="button">2</button><button class="rounded-md border border-slate-200 px-3 py-1.5 hover:bg-slate-50" type="button">下一页</button></div></div>
+</section>
+</div>
+</main>
+</div>
+<script>
+  const visaServiceToggle = document.getElementById('visa-service-toggle');
+  const visaServiceSubmenu = document.getElementById('visa-service-submenu');
 
-<!-- ========== FOOTER ========== -->
-<footer class="bg-slate-50 border-t-2 border-[#d4a853]/30 mt-2">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-8 w-full max-w-[1760px] mx-auto">
-<div class="space-y-6">
-<img alt="中国签证服务中心" class="h-7" src="images/logo5.png"/>
-<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">签证服务的官方提供商，致力于为所有前往中国的申请人提供高质量、专业的协助。</p>
-<div class="flex gap-4">
-<a class="text-primary hover:text-secondary" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
-<a class="text-primary hover:text-secondary" href="#"><span class="material-symbols-outlined">public</span></a>
-<a class="text-primary hover:text-secondary" href="#"><span class="material-symbols-outlined">share</span></a>
-</div>
-</div>
-<div class="space-y-6">
-<h4 class="font-bold text-primary dark:text-blue-400 text-xs tracking-wide i18n-title">服务项目</h4>
-<ul class="space-y-4">
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">申请签证</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">VIP服务</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">进度查询</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">旅游与保险</a></li>
-</ul>
-</div>
-<div class="space-y-6">
-<h4 class="font-bold text-primary dark:text-blue-400 text-xs tracking-wide i18n-title">相关信息</h4>
-<ul class="space-y-4">
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">关于我们</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">公告</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">隐私政策</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline i18n-soft-text" href="#">法律声明</a></li>
-</ul>
-</div>
-<div class="space-y-6">
-<h4 class="font-bold text-primary dark:text-blue-400 text-xs tracking-wide i18n-title">联系我们</h4>
-<div class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
-<p class="flex items-start gap-3">
-<span class="material-symbols-outlined text-sm">location_on</span>
-                        123 外交大道, 500室, 国际城
-                    </p>
-<p class="flex items-center gap-3">
-<span class="material-symbols-outlined text-sm">mail</span>
-                        support@cvac.cn
-                    </p>
-<p class="flex items-center gap-3 font-bold text-primary">
-<span class="material-symbols-outlined text-sm">phone</span>
-                        +86 (010) 555-VISA
-                    </p>
-</div>
-</div>
-</div>
-<div class="border-t border-slate-200 py-8 px-12 text-center text-xs text-slate-500">
-<p>© 2024 中国签证申请服务中心。版权所有。Powered by Imperial Gateway.</p>
-</div>
-</footer>
+  visaServiceToggle.addEventListener('click', () => {
+    const isExpanded = visaServiceToggle.getAttribute('aria-expanded') === 'true';
+    visaServiceToggle.setAttribute('aria-expanded', String(!isExpanded));
+    visaServiceToggle.setAttribute('aria-label', isExpanded ? '展开签证服务子菜单' : '收起签证服务子菜单');
+  visaServiceSubmenu.classList.toggle('hidden', isExpanded);
+  });
 
-</div>
-</body>
-</html>
+  const authenticationServiceToggle = document.getElementById('authentication-service-toggle');
+  const authenticationServiceSubmenu = document.getElementById('authentication-service-submenu');
+  authenticationServiceToggle.addEventListener('click', () => {
+    const isExpanded = authenticationServiceToggle.getAttribute('aria-expanded') === 'true';
+    authenticationServiceToggle.setAttribute('aria-expanded', String(!isExpanded));
+    authenticationServiceToggle.setAttribute('aria-label', isExpanded ? '展开认证服务子菜单' : '收起认证服务子菜单');
+    authenticationServiceSubmenu.classList.toggle('hidden', isExpanded);
+  });
+
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+
+  const setMobileMenu = (isOpen) => {
+    mobileMenu.classList.toggle('hidden', !isOpen);
+    mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+    mobileMenuToggle.setAttribute('aria-label', isOpen ? '关闭菜单' : '打开菜单');
+    document.body.classList.toggle('overflow-hidden', isOpen);
+  };
+
+  mobileMenuToggle.addEventListener('click', () => setMobileMenu(mobileMenu.classList.contains('hidden')));
+  mobileMenuClose.addEventListener('click', () => setMobileMenu(false));
+  mobileMenuBackdrop.addEventListener('click', () => setMobileMenu(false));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) setMobileMenu(false);
+  });
+</script>
+</body></html>
