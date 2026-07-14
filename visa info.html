@@ -3,8 +3,8 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Chinese Visa Application Service Center</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script src="shared-layout.js?v=header-blue-yellow-20260713" defer></script>
-<script src="footer.js?v=content-footer-v9-20260713" defer></script>
+<script src="shared-layout.js?v=sidebar-accordion-20260714" defer></script>
+<script src="footer.js?v=external-common-css-20260714" defer></script>
 <script>
     tailwind.config = {
       theme: {
@@ -19,28 +19,7 @@
       }
     }
   </script>
-<style data-purpose="layout-styling">
-    html,
-    body {
-      background-color: #ffffff;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-    .main-height {
-      min-height: calc(100vh - 60px);
-    }
-    .main-height > main {
-      overflow-x: hidden !important;
-    }
-    #visa-article-table tbody tr {
-      cursor: pointer;
-      transition: background-color 0.18s ease, box-shadow 0.18s ease;
-    }
-    #visa-article-table tbody tr:hover {
-      background-color: #f8fafc;
-      box-shadow: inset 4px 0 0 #00338d;
-    }
-  </style>
+<link rel="stylesheet" href="site-common.css?v=20260714">
 </head>
 <body class="font-sans antialiased text-slate-900">
 <header class="flex h-[60px] w-full bg-gradient-to-r from-[#0950a4] to-[#0679b7] px-4 text-white shadow-md sticky top-0 z-50 lg:px-[30px]">
