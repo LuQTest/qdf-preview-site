@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>在线填表引导 - Chinese Visa Application Service Center</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="shared-layout.js?v=sidebar-accordion-20260721" defer></script>
+  <script src="footer.js?v=external-common-css-20260721" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'visa-blue': '#2d66a9',
+            'visa-sidebar-text': '#333333',
+            'visa-border': '#e5e7eb'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="site-common.css?v=20260721">
+</head>
+<body class="font-sans antialiased text-slate-900">
+  <header></header>
+  <div class="main-height flex w-full overflow-x-hidden lg:h-[calc(100vh-60px)] lg:overflow-hidden">
+    <aside></aside>
+    <main class="min-w-0 flex-1 overflow-x-hidden bg-slate-50/70 lg:h-full lg:overflow-y-auto lg:px-[30px]">
+      <div class="mx-auto w-full max-w-[1240px] px-4 py-6 sm:px-6 lg:py-8">
+        <section class="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm" aria-labelledby="guide-title">
+          <div class="bg-gradient-to-r from-[#0950a4] to-[#0679b7] px-6 py-7 text-white sm:px-8 lg:px-10 lg:py-9">
+            <div class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">Online Application</p>
+                <h1 class="mt-2 text-2xl font-bold tracking-tight sm:text-3xl" id="guide-title">在线填表</h1>
+                <p class="mt-3 max-w-2xl text-sm leading-6 text-white/80">填写申请表前，请先确认办理地点、准备申请材料，并了解后续预约递交流程。</p>
+              </div>
+              <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/15 ring-1 ring-white/20">
+                <svg aria-hidden="true" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 3.75h7.5L19 8.25v12H7v-16.5Z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 3.75v4.5h5M10 12h6M10 15.5h6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-8 p-5 sm:p-7 lg:p-9">
+            <section id="office-address" aria-labelledby="office-address-title">
+              <div class="mb-4 flex items-center gap-3">
+                <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-visa-blue">
+                  <svg aria-hidden="true" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
+                    <circle cx="12" cy="10" r="2.5"/>
+                  </svg>
+                </span>
+                <div>
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-visa-blue/70">Office Location</p>
+                  <h2 class="text-lg font-bold text-slate-900" id="office-address-title">办公地址</h2>
+                </div>
+              </div>
+
+              <div class="grid gap-5 rounded-xl border border-blue-100 bg-blue-50/55 p-5 sm:p-6 lg:grid-cols-[1.3fr_1fr]">
+                <div>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <h3 class="font-bold text-slate-900">中国签证申请服务中心（新加坡演示中心）</h3>
+                    <span class="rounded-full bg-amber-100 px-2.5 py-1 text-[11px] font-semibold text-amber-700">演示信息</span>
+                  </div>
+                  <p class="mt-3 text-sm leading-6 text-slate-600">88 Harbour View Avenue, Level 6, Singapore 098765</p>
+                  <p class="mt-2 text-xs leading-5 text-slate-500">以上地址、电话与办公时间仅用于页面演示，请以中心正式通知为准。</p>
+                </div>
+                <dl class="grid grid-cols-1 gap-3 text-sm sm:grid-cols-2 lg:grid-cols-1">
+                  <div class="rounded-lg bg-white/80 px-4 py-3 ring-1 ring-blue-100/70">
+                    <dt class="text-xs text-slate-400">办公时间</dt>
+                    <dd class="mt-1 font-medium text-slate-700">周一至周五 09:00–16:00</dd>
+                  </div>
+                  <div class="rounded-lg bg-white/80 px-4 py-3 ring-1 ring-blue-100/70">
+                    <dt class="text-xs text-slate-400">咨询电话</dt>
+                    <dd class="mt-1 font-medium text-slate-700">+65 6000 8899</dd>
+                  </div>
+                </dl>
+              </div>
+            </section>
+
+            <section id="application-steps" aria-labelledby="application-steps-title">
+              <div class="mb-5 flex items-center gap-3">
+                <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-visa-blue">
+                  <svg aria-hidden="true" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 5h14M5 12h14M5 19h14"/>
+                    <circle cx="5" cy="5" r="1.5" fill="currentColor" stroke="none"/>
+                    <circle cx="5" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+                    <circle cx="5" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+                  </svg>
+                </span>
+                <div>
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-visa-blue/70">Application Process</p>
+                  <h2 class="text-lg font-bold text-slate-900" id="application-steps-title">办理步骤</h2>
+                </div>
+              </div>
+
+              <ol class="relative grid gap-4 lg:grid-cols-4 lg:gap-5">
+                <li class="relative rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-full bg-visa-blue text-sm font-bold text-white">1</span>
+                  <h3 class="mt-4 font-bold text-slate-900">确认办理地点</h3>
+                  <p class="mt-2 text-sm leading-6 text-slate-500">确认当前选择的是新加坡中心，并核对办公时间。</p>
+                </li>
+                <li class="relative rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-full bg-visa-blue text-sm font-bold text-white">2</span>
+                  <h3 class="mt-4 font-bold text-slate-900">准备申请材料</h3>
+                  <p class="mt-2 text-sm leading-6 text-slate-500">根据签证类型准备护照、照片和相关证明材料。</p>
+                </li>
+                <li class="relative rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-full bg-[#e1b53f] text-sm font-bold text-white">3</span>
+                  <h3 class="mt-4 font-bold text-slate-900">在线填写申请表</h3>
+                  <p class="mt-2 text-sm leading-6 text-slate-500">按页面提示完整填写，并检查个人信息和申请内容。</p>
+                </li>
+                <li class="relative rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-full bg-slate-300 text-sm font-bold text-white">4</span>
+                  <h3 class="mt-4 font-bold text-slate-900">预约并递交</h3>
+                  <p class="mt-2 text-sm leading-6 text-slate-500">完成预约后前往中心递交材料并采集相关信息。</p>
+                </li>
+              </ol>
+            </section>
+
+            <section id="extended-services" aria-labelledby="extended-services-title">
+              <div class="mb-5 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-visa-blue">
+                    <svg aria-hidden="true" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16v12H4zM8 7V4h8v3M8 12h8M8 16h5"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-visa-blue/70">Additional Services</p>
+                    <h2 class="text-lg font-bold text-slate-900" id="extended-services-title">延伸服务</h2>
+                  </div>
+                </div>
+                <span class="hidden text-xs text-slate-400 sm:block">按需选择 · 现场办理</span>
+              </div>
+
+              <div class="grid gap-5 md:grid-cols-3">
+                <article class="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                  <div class="h-40 overflow-hidden bg-slate-100">
+                    <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105" src="images/consultation.png" alt="工作人员协助填写申请表">
+                  </div>
+                  <div class="p-5">
+                    <h3 class="font-bold text-slate-900">代填表</h3>
+                    <p class="mt-2 min-h-[48px] text-sm leading-6 text-slate-500">由现场人员协助梳理信息并完成表格填写，减少遗漏。</p>
+                    <button class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-visa-blue hover:text-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-visa-blue" type="button" data-service-action="demo">了解服务 <span aria-hidden="true">→</span></button>
+                  </div>
+                </article>
+
+                <article class="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                  <div class="h-40 overflow-hidden bg-slate-100">
+                    <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105" src="images/service-counter.png" alt="签证申请服务中心业务柜台">
+                  </div>
+                  <div class="p-5">
+                    <h3 class="font-bold text-slate-900">优先审核</h3>
+                    <p class="mt-2 min-h-[48px] text-sm leading-6 text-slate-500">优先进行材料预检，及时提示缺失项和常见填写问题。</p>
+                    <button class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-visa-blue hover:text-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-visa-blue" type="button" data-service-action="demo">了解服务 <span aria-hidden="true">→</span></button>
+                  </div>
+                </article>
+
+                <article class="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                  <div class="h-40 overflow-hidden bg-slate-100">
+                    <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105" src="images/id-photo.png" alt="证件照片拍摄服务">
+                  </div>
+                  <div class="p-5">
+                    <h3 class="font-bold text-slate-900">复印/拍照</h3>
+                    <p class="mt-2 min-h-[48px] text-sm leading-6 text-slate-500">提供材料复印及符合申请规格的证件照片拍摄服务。</p>
+                    <button class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-visa-blue hover:text-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-visa-blue" type="button" data-service-action="demo">了解服务 <span aria-hidden="true">→</span></button>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="overflow-hidden rounded-xl border border-blue-100 bg-gradient-to-r from-blue-50 to-sky-50 px-5 py-7 text-center sm:px-8" id="start-form" aria-labelledby="start-form-title">
+              <h2 class="text-xl font-bold text-slate-900" id="start-form-title">准备好了吗？</h2>
+              <p class="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-500">请确认办理地点和申请信息无误后，开始填写在线申请表。</p>
+              <button class="mt-5 inline-flex items-center justify-center gap-2 rounded-lg bg-[#e1b53f] px-8 py-3 text-sm font-semibold text-white shadow-md shadow-[#e1b53f]/20 transition-colors hover:bg-[#c99c25] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-visa-blue active:scale-[0.98]" type="button">开始填表 <span aria-hidden="true">→</span></button>
+            </section>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
