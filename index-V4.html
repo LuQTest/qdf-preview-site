@@ -1,0 +1,985 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>中国签证申请服务中心｜新加坡</title>
+  <meta name="description" content="中国签证申请服务中心新加坡站，提供签证申请、材料准备、护照递交与进度追踪服务。">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="shared-layout.js?v=sidebar-accordion-20260722" defer></script>
+  <script src="footer.js?v=external-common-css-20260722" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'visa-blue': '#2d66a9',
+            'visa-sidebar-text': '#333333',
+            'visa-border': '#e5e7eb'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="site-common.css?v=20260722">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@0..1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #07316c;
+      --blue: #0756ad;
+      --blue-strong: #0452a8;
+      --blue-soft: #eaf2ff;
+      --gold: #f2b900;
+      --ink: #1f2630;
+      --muted: #747d8c;
+      --line: #dfe5ef;
+      --canvas: #f3f6fc;
+      --card: #fff;
+      --sidebar: 200px;
+      --safe: 1462px;
+      --header-edge: max(24px, calc((100vw - var(--sidebar) - var(--safe)) / 2));
+      --radius: 9px;
+      --shadow: 0 4px 18px rgba(28, 52, 91, .05);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scrollbar-width: none; }
+    html::-webkit-scrollbar { width: 0; height: 0; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: clip;
+      color: var(--ink);
+      background: var(--canvas);
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .material-symbols-rounded {
+      font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
+      line-height: 1;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .utility-bar {
+      position: relative;
+      z-index: 70;
+      height: 60px;
+      background: var(--navy);
+      color: #fff;
+    }
+    .utility-inner {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+      margin-left: var(--sidebar);
+      padding: 0 var(--header-edge) 0 24px;
+      font-size: 13px;
+    }
+    .utility-link { opacity: .95; transition: opacity .18s ease; }
+    .utility-link:hover { opacity: 1; text-decoration: underline; }
+    .utility-sep { margin: 0 15px; opacity: .55; }
+    .language-switch {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 92px;
+      height: 36px;
+      margin-left: 24px;
+      border: 0;
+      border-radius: 3px;
+      background: var(--gold);
+      color: #fff;
+      cursor: pointer;
+    }
+    .language-switch summary {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      list-style: none;
+    }
+    .language-switch summary::-webkit-details-marker { display: none; }
+    .language-menu {
+      position: absolute;
+      top: 42px;
+      right: 0;
+      width: 110px;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #fff;
+      color: #384153;
+      box-shadow: 0 12px 30px rgba(0, 30, 80, .18);
+    }
+    .language-menu a { display: block; padding: 10px 14px; }
+    .language-menu a:hover { background: #f2f6fc; color: var(--blue); }
+
+    .site-header {
+      position: relative;
+      z-index: 60;
+      height: 72px;
+      margin-left: var(--sidebar);
+      background: #fff;
+      border-bottom: 1px solid #eef1f6;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 var(--header-edge) 0 25px;
+    }
+    .brand-logo { width: 297px; height: auto; }
+    .location {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-left: 30px;
+      color: #495266;
+      font-size: 16px;
+    }
+    .location .material-symbols-rounded { color: var(--blue); font-size: 25px; }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
+    }
+    .search-form { display: flex; width: 322px; height: 36px; }
+    .search-form input {
+      min-width: 0;
+      flex: 1;
+      border: 1px solid #cdd5e1;
+      border-right: 0;
+      border-radius: 3px 0 0 3px;
+      padding: 0 12px;
+      color: #485164;
+      outline: none;
+    }
+    .search-form input:focus { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
+    .search-button {
+      display: grid;
+      width: 42px;
+      place-items: center;
+      border: 0;
+      border-radius: 0 3px 3px 0;
+      background: var(--blue);
+      color: #fff;
+      cursor: pointer;
+    }
+    .login-button {
+      display: grid;
+      min-width: 92px;
+      height: 36px;
+      place-items: center;
+      border-radius: 3px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      transition: background .18s ease, transform .18s ease;
+    }
+    .login-button:hover { background: #06498f; transform: translateY(-1px); }
+    .mobile-menu-button {
+      display: none;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 5px;
+      background: var(--blue);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: absolute;
+      z-index: 50;
+      top: 60px;
+      left: 0;
+      width: var(--sidebar);
+      min-height: 3310px;
+      border-right: 1px solid #dce2ec;
+      background: #f8faff;
+      color: #606a7a;
+    }
+    .sidebar-nav { padding: 20px 8px 24px; }
+    .nav-row,
+    .nav-toggle {
+      display: flex;
+      width: 100%;
+      min-height: 40px;
+      align-items: center;
+      gap: 9px;
+      border: 0;
+      padding: 0 11px;
+      background: transparent;
+      color: #5e6879;
+      font-size: 14px;
+      text-align: left;
+      cursor: pointer;
+      transition: color .18s ease, background .18s ease;
+    }
+    .nav-row:hover,
+    .nav-toggle:hover { background: #eef3fb; color: var(--blue); }
+    .nav-row .material-symbols-rounded,
+    .nav-toggle .material-symbols-rounded { width: 18px; font-size: 18px; }
+    .nav-caret { margin-left: auto; font-size: 16px !important; transition: transform .2s ease; }
+    .nav-toggle[aria-expanded="true"] .nav-caret { transform: rotate(180deg); }
+    .nav-submenu {
+      position: relative;
+      margin: 0 0 5px 27px;
+      padding: 4px 0 6px 15px;
+      border-left: 1px solid #d9e0ea;
+    }
+    .nav-submenu[hidden] { display: none; }
+    .nav-submenu::before,
+    .nav-submenu a::before {
+      content: "";
+      position: absolute;
+      left: -1px;
+      width: 10px;
+      border-top: 1px solid #d9e0ea;
+    }
+    .nav-submenu::before { display: none; }
+    .nav-submenu a {
+      position: relative;
+      display: block;
+      min-height: 39px;
+      padding: 10px 8px 9px;
+      border-radius: 3px;
+      font-size: 13px;
+      line-height: 20px;
+    }
+    .nav-submenu a::before { top: 20px; }
+    .nav-submenu a:hover { background: #f0f4fb; color: var(--blue); }
+    .nav-submenu a.active { background: #eaf1fb; color: #445064; }
+    .nav-divider { height: 1px; margin: 16px 10px 9px; background: #dfe4ec; }
+    .nav-row.active { background: #eaf1fb; color: #485569; }
+
+    .page-shell { min-width: 0; margin-left: 0; background: var(--canvas); }
+    .hero {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1721 / 642;
+      min-height: 430px;
+      max-height: 642px;
+      background: #a9c4dc;
+    }
+    .hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      pointer-events: none;
+      background: rgba(5, 23, 48, .08);
+    }
+    .step-dock {
+      position: absolute;
+      z-index: 5;
+      right: max(18px, calc((100% - var(--safe)) / 2));
+      bottom: -71px;
+      left: max(18px, calc((100% - var(--safe)) / 2));
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      min-height: 145px;
+      overflow: hidden;
+      border-radius: 72px;
+      background: rgba(28, 34, 45, .88);
+      color: #fff;
+      box-shadow: 0 9px 26px rgba(8, 22, 43, .12);
+      backdrop-filter: blur(5px);
+    }
+    .step-tab {
+      position: relative;
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 13px;
+      border: 0;
+      padding: 14px 8px 12px;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      transition: background .18s ease;
+    }
+    .step-tab:hover,
+    .step-tab:focus-visible { background: rgba(255,255,255,.08); outline: none; }
+    .step-tab .step-icon {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+    .step-tab:nth-child(2) .step-icon {
+      width: 82px;
+      height: 82px;
+      margin-top: -24px;
+    }
+    .step-tab span:last-child { overflow: hidden; font-size: 16px; text-overflow: ellipsis; white-space: nowrap; }
+
+    .mobile-step-menu { display: none; }
+    .mobile-step-toggle {
+      position: relative;
+      z-index: 2;
+      width: 48px;
+      height: 48px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--blue);
+      box-shadow: 0 8px 24px rgba(4, 47, 101, .28);
+      cursor: pointer;
+    }
+    .mobile-step-toggle span {
+      position: absolute;
+      left: 13px;
+      width: 22px;
+      height: 3px;
+      border-radius: 2px;
+      background: #fff;
+      transition: top .2s ease, transform .2s ease, opacity .16s ease;
+    }
+    .mobile-step-toggle span:nth-child(1) { top: 15px; }
+    .mobile-step-toggle span:nth-child(2) { top: 22px; }
+    .mobile-step-toggle span:nth-child(3) { top: 29px; }
+    .mobile-step-panel {
+      position: absolute;
+      top: 50%;
+      left: 60px;
+      width: min(260px, calc(100vw - 84px));
+      overflow: hidden;
+      border: 1px solid rgba(9, 84, 165, .12);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 16px 38px rgba(6, 34, 71, .22);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translate(-8px, -50%);
+      transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+    }
+    .mobile-step-link {
+      display: block;
+      width: 100%;
+      min-height: 48px;
+      border: 0;
+      border-bottom: 1px solid #e8edf4;
+      padding: 11px 16px;
+      background: transparent;
+      color: #26364c;
+      font: 600 14px/1.45 inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+    .mobile-step-link:last-child { border-bottom: 0; }
+    .mobile-step-link:hover,
+    .mobile-step-link:focus-visible { background: #edf5ff; color: var(--blue); outline: none; }
+    body.mobile-step-open .mobile-step-panel {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translate(0, -50%);
+    }
+    body.mobile-step-open .mobile-step-toggle span:nth-child(1) { top: 22px; transform: rotate(45deg); }
+    body.mobile-step-open .mobile-step-toggle span:nth-child(2) { opacity: 0; }
+    body.mobile-step-open .mobile-step-toggle span:nth-child(3) { top: 22px; transform: rotate(-45deg); }
+
+    .home-content { padding: 108px 0 66px; }
+    .safe-area {
+      width: min(calc(100% - 36px), var(--safe));
+      margin: 0 auto;
+    }
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1092px) 352px;
+      gap: 18px;
+      align-items: start;
+    }
+    .main-column { min-width: 0; }
+    .notice-stack { display: grid; gap: 11.5px; }
+    .notice-card {
+      display: block;
+      height: 149px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      padding: 25px 48px 20px;
+      background: #fff;
+      box-shadow: var(--shadow);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .notice-card:hover { transform: translateY(-1px); box-shadow: 0 9px 24px rgba(28, 52, 91, .09); }
+    .notice-card.featured { background: var(--blue-strong); color: #fff; }
+    .notice-meta { display: flex; align-items: center; gap: 22px; margin-bottom: 12px; font-size: 13px; }
+    .notice-pill {
+      display: inline-flex;
+      min-width: 98px;
+      height: 35px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .featured .notice-pill { background: #fff; color: var(--blue); }
+    .notice-date { color: #6c7584; }
+    .featured .notice-date { color: rgba(255,255,255,.72); }
+    .notice-title { margin: 0 0 9px; font-size: 22px; line-height: 1.25; }
+    .notice-copy {
+      display: -webkit-box;
+      overflow: hidden;
+      margin: 0;
+      color: #6d7685;
+      font-size: 13px;
+      line-height: 1.55;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+    .featured .notice-copy { color: rgba(255,255,255,.88); }
+
+    .ad-column { display: grid; gap: 0; }
+    .ad-card {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 4px 15px rgba(24, 42, 72, .08);
+    }
+    .ad-card img { width: 100%; height: 100%; object-fit: cover; }
+    .ad-carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transform: translate3d(calc(var(--carousel-index, 0) * -100%), 0, 0);
+      transition: transform .7s ease-in-out;
+      will-change: transform;
+    }
+    .ad-carousel-slide { flex: 0 0 100%; min-width: 0; }
+    .ad-card.tall { height: 610px; }
+    .ad-card.jd { height: 246px; }
+    .ad-card.banner { height: 166px; }
+    .ad-card:nth-child(2) { margin-top: 29px; }
+    .ad-card:nth-child(3) { margin-top: 37px; }
+    .ad-card:nth-child(4) { height: 167px; margin-top: 15px; }
+    .ad-card:nth-child(5) { margin-top: 16px; }
+    .ad-card:nth-child(6) { height: 167px; margin-top: 15px; }
+    .ad-badge {
+      position: absolute;
+      top: 16px;
+      right: 14px;
+      display: grid;
+      min-width: 49px;
+      height: 27px;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(22, 24, 29, .88);
+      color: #fff;
+      font: 700 12px/1 Arial, sans-serif;
+    }
+    .ad-dots {
+      position: absolute;
+      top: 18px;
+      left: 22px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .ad-dots i { display: block; width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.85); transition: width .35s ease, border-radius .35s ease; }
+    .ad-dots i.active { width: 31px; border-radius: 4px; }
+
+    .guide-heading,
+    .discover-heading {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin: 60px 0 13px;
+    }
+    .section-mark {
+      display: grid;
+      width: 56px;
+      height: 56px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      background: #e7edf7;
+      color: #657187;
+    }
+    .section-mark .material-symbols-rounded { font-size: 30px; }
+    .guide-heading h2 { margin: 0; color: #084783; font-size: 32px; }
+
+    .journey-list { display: grid; gap: 20px; }
+    .journey-card {
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .journey-header {
+      display: flex;
+      min-height: 82px;
+      align-items: center;
+      gap: 14px;
+      padding: 0 38px 0 43px;
+      color: var(--blue);
+    }
+    .journey-header .pin { font-size: 32px; }
+    .journey-header h3 { margin: 0; font-size: 22px; }
+    .journey-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-left: auto;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .journey-action.gold { color: var(--blue); }
+    .journey-action.gold:hover { color: var(--gold); }
+    .journey-action .material-symbols-rounded { font-size: 20px; }
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      padding: 0 38px 38px;
+    }
+    .resource-card {
+      display: flex;
+      min-height: 152px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 21px;
+      border: 1px solid #dfe3ea;
+      color: #242a33;
+      transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    }
+    .resource-card:hover { transform: translateY(-2px); border-color: #a9c6eb; box-shadow: 0 7px 18px rgba(20, 67, 126, .09); }
+    .resource-card .material-symbols-rounded { color: var(--blue); font-size: 42px; }
+    .resource-card strong { font-size: 18px; font-weight: 500; }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      padding: 0 38px 41px;
+    }
+    .service-card img { width: 100%; aspect-ratio: 242 / 152; object-fit: cover; }
+    .service-card h4 { margin: 18px 0 7px; font-size: 17px; font-weight: 500; }
+    .service-card p { margin: 0; color: #747c88; font-size: 12px; }
+    .journey-copy { margin: -6px 0 30px; padding: 0 85px; color: #737c89; font-size: 14px; line-height: 1.75; }
+    .journey-card.compact .journey-header { min-height: 94px; }
+    .journey-card:first-child { margin-bottom: 3px; }
+    .journey-card.passport .journey-header { min-height: 75px; padding-bottom: 0; }
+    .journey-card.passport { min-height: 148px; }
+
+    .discover-heading { margin: 40px 0 16px; }
+    .discover-heading h2 { margin: 0; color: #20262e; font-size: 28px; }
+    .city-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .city-card {
+      overflow: hidden;
+      border-radius: 9px;
+      background: #fff;
+      box-shadow: 0 5px 18px rgba(28, 52, 91, .06);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .city-card:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(28, 52, 91, .12); }
+    .city-card img { width: 100%; aspect-ratio: 354 / 202; object-fit: cover; }
+    .city-body { padding: 21px 28px 23px; }
+    .city-body h3 { margin: 0 0 12px; font-size: 21px; }
+    .city-body p { margin: 0; color: #77808d; font-size: 12px; line-height: 1.6; }
+    .city-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .city-card:hover .city-link { color: var(--gold); }
+
+    .site-footer {
+      margin-left: var(--sidebar);
+      border-top: 1px solid #dce2ec;
+      background: var(--canvas);
+      color: #707989;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      min-height: 323px;
+      max-width: var(--safe);
+      margin: 0 auto;
+      padding: 61px 0 42px;
+    }
+    .footer-brand img { width: 300px; }
+    .footer-brand p { max-width: 405px; margin: 36px 0 0; font-size: 13px; line-height: 1.8; }
+    .footer-links { display: grid; grid-template-columns: repeat(3, 122px); gap: 44px; }
+    .footer-links h3 { margin: 7px 0 25px; color: #515967; font-size: 16px; }
+    .footer-links a { display: block; margin-top: 13px; font-size: 13px; }
+    .footer-links a:hover { color: var(--blue); }
+    .copyright { grid-column: 1 / -1; align-self: end; padding-top: 56px; text-align: center; font-size: 12px; }
+
+    .mobile-drawer,
+    .drawer-backdrop { display: none; }
+
+    @media (max-width: 1500px) {
+      :root { --sidebar: 176px; }
+      .brand-logo { width: 250px; }
+      .search-form { width: 260px; }
+      .content-grid { grid-template-columns: minmax(0, 1fr) 300px; }
+      .ad-card.tall { height: auto; aspect-ratio: 351 / 610; }
+      .ad-card.jd { height: auto; aspect-ratio: 350 / 197; }
+      .ad-card.banner { height: auto; aspect-ratio: 2.05 / 1; }
+      .notice-card { padding-right: 30px; padding-left: 30px; }
+      .resource-grid, .service-grid { padding-right: 26px; padding-left: 26px; }
+      .footer-inner { width: min(calc(100% - 44px), var(--safe)); }
+    }
+
+    @media (max-width: 1180px) {
+      :root { --sidebar: 0px; }
+      .sidebar { display: none; }
+      .site-header, .site-footer, .page-shell { margin-left: 0; }
+      .utility-inner { padding-right: 24px; }
+      .hero { min-height: 390px; }
+      .content-grid { grid-template-columns: minmax(0, 1fr) 280px; }
+      .guide-heading h2 { font-size: 28px; }
+      .journey-header { padding-right: 28px; padding-left: 28px; }
+      .resource-grid, .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { padding-left: 24px; padding-right: 24px; }
+    }
+
+    @media (max-width: 900px) {
+      .utility-bar { height: 46px; }
+      .utility-inner { padding-right: 16px; }
+      .utility-link, .utility-sep { display: none; }
+      .language-switch { height: 32px; margin-right: 0; }
+      .site-header { height: 68px; }
+      .header-inner { padding: 0 16px; }
+      .brand-logo { width: min(245px, 55vw); }
+      .location, .search-form, .login-button { display: none; }
+      .mobile-menu-button { display: flex; margin-left: auto; }
+      .hero { min-height: 340px; max-height: none; aspect-ratio: 16 / 7; }
+      .step-dock { display: none; }
+      .mobile-step-menu {
+        position: fixed;
+        z-index: 80;
+        top: 58%;
+        left: 12px;
+        display: block;
+        transform: translateY(-50%);
+      }
+      .home-content { padding-top: 28px; }
+      .content-grid { grid-template-columns: 1fr; }
+      .ad-column { grid-template-columns: repeat(2, minmax(240px, 1fr)); overflow-x: auto; padding-bottom: 8px; }
+      .ad-card.tall, .ad-card.jd, .ad-card.banner { height: 210px; aspect-ratio: auto; }
+      .ad-card { margin-top: 0 !important; }
+      .ad-card img { object-position: center; }
+      .ad-card.tall img { object-position: center 35%; }
+      .guide-heading { margin-top: 38px; }
+      .journey-header h3 { font-size: 19px; }
+      .city-grid { grid-template-columns: repeat(3, minmax(270px, 1fr)); overflow-x: auto; padding-bottom: 12px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 42px; }
+      .footer-links { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .copyright { padding-top: 16px; }
+
+      .drawer-backdrop {
+        position: fixed;
+        z-index: 89;
+        inset: 0;
+        border: 0;
+        background: rgba(8, 22, 45, .46);
+      }
+      .mobile-drawer {
+        position: fixed;
+        z-index: 90;
+        top: 0;
+        right: 0;
+        width: min(88vw, 360px);
+        height: 100dvh;
+        overflow-y: auto;
+        padding: max(22px, env(safe-area-inset-top)) 22px 30px;
+        background: #fff;
+        box-shadow: -15px 0 40px rgba(6, 28, 61, .2);
+        transform: translateX(105%);
+        transition: transform .24s ease;
+      }
+      body.drawer-open .drawer-backdrop { display: block; }
+      body.drawer-open .mobile-drawer { display: block; transform: translateX(0); }
+      .drawer-head { display: flex; align-items: center; justify-content: space-between; }
+      .drawer-head strong { color: var(--blue); }
+      .drawer-close { display: grid; width: 38px; height: 38px; place-items: center; border: 0; border-radius: 4px; background: #edf3fb; color: var(--blue); }
+      .drawer-search { display: flex; height: 42px; margin: 22px 0; }
+      .drawer-search input { min-width: 0; flex: 1; border: 1px solid #d3dbe6; border-right: 0; padding: 0 11px; }
+      .drawer-search button { width: 44px; border: 0; background: var(--blue); color: #fff; }
+      .drawer-nav a { display: flex; align-items: center; gap: 10px; min-height: 46px; border-bottom: 1px solid #edf0f5; color: #586273; }
+      .drawer-nav .login-button { border-bottom: 0; color: #fff; }
+    }
+
+    @media (max-width: 620px) {
+      .hero { min-height: 300px; aspect-ratio: auto; }
+      .hero > img { object-position: 62% center; }
+      .safe-area { width: min(calc(100% - 24px), var(--safe)); }
+      .notice-card { min-height: 0; padding: 20px 18px; }
+      .notice-meta { gap: 10px; margin-bottom: 10px; }
+      .notice-pill { min-width: 82px; height: 30px; }
+      .notice-title { font-size: 18px; }
+      .guide-heading, .discover-heading { gap: 12px; }
+      .section-mark { width: 44px; height: 44px; }
+      .guide-heading h2 { font-size: 23px; }
+      .journey-header { min-height: 76px; gap: 8px; padding: 0 14px; }
+      .journey-header .pin { font-size: 25px; }
+      .journey-header h3 { font-size: 17px; }
+      .journey-action { gap: 3px; font-size: 12px; }
+      .resource-grid, .service-grid { grid-template-columns: 1fr 1fr; gap: 9px; padding: 0 12px 18px; }
+      .resource-card { min-height: 116px; gap: 12px; }
+      .resource-card .material-symbols-rounded { font-size: 34px; }
+      .resource-card strong { font-size: 15px; text-align: center; }
+      .service-card h4 { margin-top: 10px; font-size: 15px; }
+      .service-card p { display: none; }
+      .journey-copy { margin-top: 0; padding: 0 44px 22px; font-size: 13px; }
+      .ad-column { grid-template-columns: repeat(6, minmax(245px, 78vw)); }
+      .city-grid { grid-template-columns: repeat(3, minmax(265px, 82vw)); }
+      .footer-inner { min-height: 0; padding: 42px 20px 28px; }
+      .footer-brand img { width: 250px; }
+      .footer-brand p { margin-top: 24px; }
+      .footer-links { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+      .ad-carousel-track { transform: translate3d(0, 0, 0) !important; }
+    }
+  </style>
+</head>
+<body>
+  <header></header>
+  <div class="main-height flex w-full overflow-x-hidden lg:h-[calc(100vh-60px)] lg:overflow-hidden">
+    <aside></aside>
+    <main class="page-shell min-w-0 flex-1 overflow-x-hidden lg:h-full lg:overflow-y-auto">
+    <section class="hero" aria-label="中国城市与天坛主视觉">
+      <img src="images/v4-hero.png" alt="上海城市天际线与北京天坛组成的中国城市景观">
+      <nav class="step-dock" aria-label="签证办理五步导航">
+        <button class="step-tab" type="button" data-target="station-1"><img class="step-icon" src="images/v4-step-passport.png" alt="" aria-hidden="true"><span>选择签证类型并准备文件</span></button>
+        <button class="step-tab" type="button" data-target="station-2"><img class="step-icon" src="images/v4-step-edit-note.png" alt="" aria-hidden="true"><span>签证中心帮助</span></button>
+        <button class="step-tab" type="button" data-target="station-3"><img class="step-icon" src="images/v4-step-how-to-reg.png" alt="" aria-hidden="true"><span>在线申请</span></button>
+        <button class="step-tab" type="button" data-target="station-4"><img class="step-icon" src="images/v4-step-approval.png" alt="" aria-hidden="true"><span>护照递交</span></button>
+        <button class="step-tab" type="button" data-target="station-5"><img class="step-icon" src="images/v4-step-hourglass.png" alt="" aria-hidden="true"><span>进度追踪</span></button>
+      </nav>
+    </section>
+
+    <div class="mobile-step-menu">
+      <button class="mobile-step-toggle" type="button" aria-expanded="false" aria-controls="mobile-step-panel" aria-label="打开签证办理五步导航">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="mobile-step-panel" id="mobile-step-panel" aria-label="签证办理五步快捷导航">
+        <button class="mobile-step-link" type="button" data-target="station-1">选择签证类型并准备文件</button>
+        <button class="mobile-step-link" type="button" data-target="station-2">签证中心帮助</button>
+        <button class="mobile-step-link" type="button" data-target="station-3">在线申请</button>
+        <button class="mobile-step-link" type="button" data-target="station-4">护照递交</button>
+        <button class="mobile-step-link" type="button" data-target="station-5">进度追踪</button>
+      </nav>
+    </div>
+
+    <div class="home-content">
+      <div class="safe-area content-grid">
+        <div class="main-column">
+          <section class="notice-stack" aria-label="最新公告">
+            <a class="notice-card" href="article.html">
+              <div class="notice-meta"><span class="notice-pill">最新公告</span><time class="notice-date" datetime="2024-10-24">2024-10-24</time></div>
+              <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
+              <p class="notice-copy">为进一步优化签证申请体验，我中心将自2024年11月起实行全新的电子预约系统。新系统将整合移动支付与实时进度追踪功能，显著缩短现场等候时间。</p>
+            </a>
+            <a class="notice-card" href="article.html">
+              <div class="notice-meta"><span class="notice-pill">最新公告</span><time class="notice-date" datetime="2024-10-24">2024-10-24</time></div>
+              <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
+              <p class="notice-copy">为进一步优化签证申请体验，我中心将自2024年11月起实行全新的电子预约系统。新系统将整合移动支付与实时进度追踪功能，显著缩短现场等候时间。</p>
+            </a>
+            <a class="notice-card" href="article.html">
+              <div class="notice-meta"><span class="notice-pill">最新公告</span><time class="notice-date" datetime="2024-10-24">2024-10-24</time></div>
+              <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
+              <p class="notice-copy">为进一步优化签证申请体验，我中心将自2024年11月起实行全新的电子预约系统。新系统将整合移动支付与实时进度追踪功能，显著缩短现场等候时间。</p>
+            </a>
+          </section>
+
+          <div class="guide-heading">
+            <span class="section-mark"><span class="material-symbols-rounded" aria-hidden="true">flight</span></span>
+            <h2>赴华旅程 · 五步办理指南</h2>
+          </div>
+
+          <section class="journey-list" aria-label="赴华旅程五步办理指南">
+            <article class="journey-card" id="station-1">
+              <div class="journey-header"><span class="material-symbols-rounded pin" aria-hidden="true">location_on</span><h3>第一站：选择签证类型并准备文件</h3><a class="journey-action" href="visa info.html">查看详情<span class="material-symbols-rounded" aria-hidden="true">arrow_right_alt</span></a></div>
+              <div class="resource-grid">
+                <a class="resource-card" href="visa info.html"><span class="material-symbols-rounded" aria-hidden="true">badge</span><strong>签证类型及材料清单</strong></a>
+                <a class="resource-card" id="fees" href="#"><span class="material-symbols-rounded" aria-hidden="true">request_quote</span><strong>费用标准</strong></a>
+                <a class="resource-card" id="faq" href="#"><span class="material-symbols-rounded" aria-hidden="true">help</span><strong>常见问题</strong></a>
+                <a class="resource-card" id="downloads" href="#"><span class="material-symbols-rounded" aria-hidden="true">description</span><strong>文件模板</strong></a>
+              </div>
+            </article>
+
+            <article class="journey-card" id="station-2">
+              <div class="journey-header"><span class="material-symbols-rounded pin" aria-hidden="true">location_on</span><h3>第二站：签证中心帮助</h3><a class="journey-action" href="#">查看详情<span class="material-symbols-rounded" aria-hidden="true">arrow_right_alt</span></a></div>
+              <div class="service-grid">
+                <a class="service-card" href="#"><img src="images/v4-service-form.png" alt="工作人员协助填写申请表"><h4>代填表服务</h4><p>一站式解决您的填表困难</p></a>
+                <a class="service-card" href="#"><img src="images/v4-service-mail.png" alt="邮寄文件与信封"><h4>邮寄服务</h4><p>一站式解决您的填表困难</p></a>
+                <a class="service-card" href="#"><img src="images/v4-service-vip.png" alt="明亮舒适的贵宾室"><h4>贵宾室服务</h4><p>一站式解决您的填表困难</p></a>
+                <a class="service-card" href="#"><img src="images/v4-service-review.png" alt="签证资料审核"><h4>优先审核</h4><p>一站式解决您的填表困难</p></a>
+              </div>
+            </article>
+
+            <article class="journey-card compact" id="station-3">
+              <div class="journey-header"><span class="material-symbols-rounded pin" aria-hidden="true">location_on</span><h3>第三站：在线申请</h3><a class="journey-action gold" href="online form guide.html">开始填表<span class="material-symbols-rounded" aria-hidden="true">arrow_right_alt</span></a></div>
+            </article>
+
+            <article class="journey-card passport" id="station-4">
+              <div class="journey-header"><span class="material-symbols-rounded pin" aria-hidden="true">location_on</span><h3>第四站：护照递交</h3><a class="journey-action" href="#">开始邮寄<span class="material-symbols-rounded" aria-hidden="true">arrow_right_alt</span></a></div>
+              <p class="journey-copy">完成线上申请后，您需要将护照及必要材料提交至签证中心。<br>同时您可以选择将护照邮寄至中心。</p>
+            </article>
+
+            <article class="journey-card compact" id="station-5">
+              <div class="journey-header"><span class="material-symbols-rounded pin" aria-hidden="true">location_on</span><h3>第五站：进度追踪</h3><a class="journey-action" href="#">查看详情<span class="material-symbols-rounded" aria-hidden="true">arrow_right_alt</span></a></div>
+            </article>
+          </section>
+
+          <section aria-labelledby="discover-title">
+            <div class="discover-heading"><span class="section-mark"><span class="material-symbols-rounded" aria-hidden="true">explore</span></span><h2 id="discover-title">发现中国</h2></div>
+            <div class="city-grid">
+              <a class="city-card" href="#"><img src="images/v4-city-beijing.png" alt="云海中的北京长城"><div class="city-body"><h3>北京</h3><p>在导游的带领下探索故宫博物院和天坛。</p><span class="city-link">查看更多<span class="material-symbols-rounded" aria-hidden="true">arrow_right_alt</span></span></div></a>
+              <a class="city-card" href="#"><img src="images/v4-city-changbai.png" alt="长白山雪峰"><div class="city-body"><h3>长白山</h3><p>在导游的带领下探索故宫博物院和天坛。</p><span class="city-link">查看更多<span class="material-symbols-rounded" aria-hidden="true">arrow_right_alt</span></span></div></a>
+              <a class="city-card" href="#"><img src="images/v4-city-shanxi.png" alt="山西自然与人文景观"><div class="city-body"><h3>山西</h3><p>在导游的带领下探索故宫博物院和天坛。</p><span class="city-link">查看更多<span class="material-symbols-rounded" aria-hidden="true">arrow_right_alt</span></span></div></a>
+            </div>
+          </section>
+        </div>
+
+        <aside class="ad-column" aria-label="合作推广">
+          <a class="ad-card tall" data-slide-carousel data-carousel-delay="0" href="#">
+            <span class="ad-carousel-track">
+              <img class="ad-carousel-slide" src="images/v4-ad-wuliangye.jpg" alt="五粮液品牌推广">
+              <img class="ad-carousel-slide" src="images/v4-ad-wuliangye.jpg" alt="">
+              <img class="ad-carousel-slide" src="images/v4-ad-wuliangye.jpg" alt="">
+            </span>
+            <span class="ad-badge">AD</span><span class="ad-dots" aria-hidden="true"><i class="active"></i><i></i><i></i></span>
+          </a>
+          <a class="ad-card jd" data-slide-carousel data-carousel-delay="1500" href="#">
+            <span class="ad-carousel-track">
+              <img class="ad-carousel-slide" src="images/v4-ad-jd.png" alt="京东退税服务">
+              <img class="ad-carousel-slide" src="images/v4-ad-jd.png" alt="">
+              <img class="ad-carousel-slide" src="images/v4-ad-jd.png" alt="">
+            </span>
+            <span class="ad-dots" aria-hidden="true"><i class="active"></i><i></i><i></i></span>
+          </a>
+          <a class="ad-card banner" href="#"><img src="images/v4-ad-trip-china.png" alt="Trip.com 中国春季目的地推广"><span class="ad-badge">AD</span></a>
+          <a class="ad-card banner" href="#"><img src="images/v4-ad-trip-thailand.png" alt="Trip.com 泰国旅行推广"><span class="ad-badge">AD</span></a>
+          <a class="ad-card banner" href="#"><img src="images/v4-ad-orient.png" alt="亚洲旅行推广"><span class="ad-badge">AD</span></a>
+          <a class="ad-card banner" href="#"><img src="images/v4-ad-taste-china.png" alt="中国美食体验推广"><span class="ad-badge">AD</span></a>
+        </aside>
+      </div>
+    </div>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      const noticeStack = document.querySelector('.notice-stack');
+      const noticeCards = [...noticeStack.querySelectorAll('.notice-card')];
+      const setFeaturedNotice = (card) => {
+        noticeCards.forEach((notice) => notice.classList.toggle('featured', notice === card));
+      };
+      noticeCards.forEach((card) => {
+        card.addEventListener('pointerenter', (event) => {
+          if (event.pointerType === 'mouse') setFeaturedNotice(card);
+        });
+      });
+      noticeStack.addEventListener('pointerleave', () => setFeaturedNotice(null));
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const carouselSequence = [0, 1, 2, 1];
+
+      document.querySelectorAll('[data-slide-carousel]').forEach((card) => {
+        const track = card.querySelector('.ad-carousel-track');
+        const dots = [...card.querySelectorAll('.ad-dots i')];
+        const delay = Number(card.dataset.carouselDelay || 0);
+        let sequenceIndex = 0;
+        let startTimer = null;
+        let intervalTimer = null;
+
+        const render = (positionIndex) => {
+          track.style.setProperty('--carousel-index', positionIndex);
+          dots.forEach((dot, index) => dot.classList.toggle('active', index === positionIndex));
+        };
+        const clearTimers = () => {
+          window.clearTimeout(startTimer);
+          window.clearInterval(intervalTimer);
+        };
+        const advance = () => {
+          sequenceIndex = (sequenceIndex + 1) % carouselSequence.length;
+          render(carouselSequence[sequenceIndex]);
+        };
+        const resume = (wait = 3000) => {
+          clearTimers();
+          startTimer = window.setTimeout(() => {
+            advance();
+            intervalTimer = window.setInterval(advance, 3000);
+          }, wait);
+        };
+
+        render(carouselSequence[sequenceIndex]);
+        if (reducedMotion) return;
+        resume(3000 + delay);
+        card.addEventListener('pointerenter', (event) => {
+          if (event.pointerType === 'mouse') clearTimers();
+        });
+        card.addEventListener('pointerleave', (event) => {
+          if (event.pointerType === 'mouse') resume();
+        });
+      });
+
+      const mobileStepMenu = document.querySelector('.mobile-step-menu');
+      const mobileStepToggle = document.querySelector('.mobile-step-toggle');
+      const setMobileStepMenu = (open) => {
+        document.body.classList.toggle('mobile-step-open', open);
+        mobileStepToggle.setAttribute('aria-expanded', String(open));
+        mobileStepToggle.setAttribute('aria-label', open ? '关闭签证办理五步导航' : '打开签证办理五步导航');
+      };
+
+      mobileStepToggle.addEventListener('click', () => {
+        setMobileStepMenu(!document.body.classList.contains('mobile-step-open'));
+      });
+      document.addEventListener('click', (event) => {
+        if (!mobileStepMenu.contains(event.target)) setMobileStepMenu(false);
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setMobileStepMenu(false);
+      });
+
+      document.querySelectorAll('.step-tab, .mobile-step-link').forEach((button) => {
+        button.addEventListener('click', () => {
+          document.getElementById(button.dataset.target)?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+          if (button.classList.contains('mobile-step-link')) setMobileStepMenu(false);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
