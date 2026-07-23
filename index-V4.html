@@ -290,52 +290,77 @@
       z-index: 1;
       inset: 0;
       pointer-events: none;
-      background: rgba(5, 23, 48, .08);
+      background: linear-gradient(to bottom, rgba(5, 23, 48, .02) 34%, rgba(5, 23, 48, .14) 58%, rgba(5, 23, 48, .76) 100%);
     }
     .step-dock {
       position: absolute;
       z-index: 5;
-      right: max(18px, calc((100% - var(--safe)) / 2));
-      bottom: -71px;
-      left: max(18px, calc((100% - var(--safe)) / 2));
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      min-height: 145px;
-      overflow: hidden;
-      border-radius: 72px;
-      background: rgba(28, 34, 45, .88);
+      bottom: 27px;
+      left: calc(50% + 6px);
+      display: flex;
+      width: min(1116px, calc(100% - 48px));
+      min-height: 116px;
+      align-items: flex-start;
+      gap: 13px;
+      overflow: visible;
+      border-radius: 0;
+      background: transparent;
       color: #fff;
-      box-shadow: 0 9px 26px rgba(8, 22, 43, .12);
-      backdrop-filter: blur(5px);
+      box-shadow: none;
+      transform: translateX(-50%);
     }
     .step-tab {
       position: relative;
       display: flex;
-      min-width: 0;
+      width: 84px;
+      min-width: 84px;
+      flex: 0 0 84px;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      gap: 13px;
+      gap: 8px;
       border: 0;
-      padding: 14px 8px 12px;
+      padding: 0;
       background: transparent;
       color: #fff;
       cursor: pointer;
-      transition: background .18s ease;
+      transition: transform .18s ease;
     }
     .step-tab:hover,
-    .step-tab:focus-visible { background: rgba(255,255,255,.08); outline: none; }
+    .step-tab:focus-visible { background: transparent; outline: none; transform: translateY(-2px); }
     .step-tab .step-icon {
-      width: 42px;
-      height: 42px;
+      display: block;
+      width: 84px;
+      height: 84px;
       object-fit: contain;
+      transition: opacity .18s ease;
     }
-    .step-tab:nth-child(2) .step-icon {
-      width: 82px;
-      height: 82px;
-      margin-top: -24px;
+    .step-tab::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 84px;
+      height: 84px;
+      background: var(--step-hover-icon) center / contain no-repeat;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .18s ease;
     }
-    .step-tab span:last-child { overflow: hidden; font-size: 16px; text-overflow: ellipsis; white-space: nowrap; }
+    .step-tab:hover::before { opacity: 1; }
+    .step-tab:hover .step-icon { opacity: 0; }
+    .step-connector {
+      display: block;
+      width: 148px;
+      height: 32px;
+      min-width: 0;
+      max-width: 148px;
+      flex: 1 1 148px;
+      margin-top: 25px;
+      object-fit: fill;
+      pointer-events: none;
+    }
+    .step-tab span:last-child { overflow: visible; font-size: 16px; line-height: 24px; text-align: center; text-shadow: 0 1px 3px rgba(2, 15, 31, .7); white-space: nowrap; }
 
     .mobile-step-menu { display: none; }
     .mobile-step-toggle {
@@ -403,7 +428,7 @@
     body.mobile-step-open .mobile-step-toggle span:nth-child(2) { opacity: 0; }
     body.mobile-step-open .mobile-step-toggle span:nth-child(3) { top: 22px; transform: rotate(-45deg); }
 
-    .home-content { padding: 108px 0 66px; }
+    .home-content { padding: 55px 0 66px; }
     .safe-area {
       width: min(calc(100% - 36px), var(--safe));
       margin: 0 auto;
@@ -415,47 +440,41 @@
       align-items: start;
     }
     .main-column { min-width: 0; }
-    .notice-stack { display: grid; gap: 11.5px; }
-    .notice-card {
-      display: block;
-      height: 149px;
-      border: 1px solid transparent;
-      border-radius: var(--radius);
-      padding: 25px 48px 20px;
+    .notice-stack {
+      display: grid;
+      grid-template-columns: 268px minmax(0, 1fr);
+      width: 1088px;
+      min-height: 215px;
+      gap: 23px;
+      box-sizing: border-box;
+      margin-left: 8px;
+      border-radius: 12px;
+      padding: 23px 30px 25px 23px;
       background: #fff;
       box-shadow: var(--shadow);
-      transition: transform .18s ease, box-shadow .18s ease;
     }
-    .notice-card:hover { transform: translateY(-1px); box-shadow: 0 9px 24px rgba(28, 52, 91, .09); }
-    .notice-card.featured { background: var(--blue-strong); color: #fff; }
-    .notice-meta { display: flex; align-items: center; gap: 22px; margin-bottom: 12px; font-size: 13px; }
-    .notice-pill {
-      display: inline-flex;
-      min-width: 98px;
-      height: 35px;
-      align-items: center;
-      justify-content: center;
-      border-radius: 18px;
-      background: var(--blue-soft);
-      color: var(--blue);
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .featured .notice-pill { background: #fff; color: var(--blue); }
-    .notice-date { color: #6c7584; }
-    .featured .notice-date { color: rgba(255,255,255,.72); }
-    .notice-title { margin: 0 0 9px; font-size: 22px; line-height: 1.25; }
-    .notice-copy {
-      display: -webkit-box;
+    .notice-media {
+      display: block;
+      width: 268px;
+      height: 167px;
       overflow: hidden;
-      margin: 0;
-      color: #6d7685;
-      font-size: 13px;
-      line-height: 1.55;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
+      border-radius: 5px;
     }
-    .featured .notice-copy { color: rgba(255,255,255,.88); }
+    .notice-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .notice-list { display: grid; height: 167px; grid-template-rows: repeat(3, 1fr); }
+    .notice-card {
+      display: grid;
+      min-height: 55px;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 22px;
+      border-bottom: 1px solid #d6d6d6;
+      color: #111;
+    }
+    .notice-card:last-child { border-bottom: 0; }
+    .notice-title { overflow: hidden; margin: 0; font-size: 18px; font-weight: 400; line-height: 1.35; text-overflow: ellipsis; white-space: nowrap; }
+    .notice-card.featured .notice-title { color: var(--blue); }
+    .notice-date { color: #777; font-size: 14px; line-height: 1; white-space: nowrap; }
 
     .ad-column { display: grid; gap: 0; }
     .ad-card {
@@ -510,10 +529,12 @@
 
     .journey-rail {
       --journey-marker-size: 56px;
-      --journey-heading-gap: 60px;
+      --journey-heading-gap: 65px;
       --journey-discover-gap: 40px;
       position: relative;
       display: flow-root;
+      width: 1088px;
+      margin-left: 8px;
     }
     .journey-rail::before {
       position: absolute;
@@ -531,7 +552,7 @@
       display: flex;
       align-items: center;
       gap: 22px;
-      margin: 60px 0 13px;
+      margin: 65px 0 13px;
     }
     .section-mark {
       position: relative;
@@ -547,7 +568,15 @@
     }
     .section-mark .material-symbols-rounded { font-size: 30px; }
     .journey-plane-icon { display: block; width: 37px; height: 27px; object-fit: contain; }
-    .guide-heading h2 { margin: 0; color: #084783; font-size: 32px; }
+    .guide-heading h2 {
+      position: absolute;
+      left: calc(50% + 20px);
+      margin: 0;
+      color: #084783;
+      font-size: 32px;
+      font-weight: 700;
+      transform: translateX(-50%);
+    }
 
     .journey-list { display: grid; gap: 20px; }
     .journey-card {
@@ -581,23 +610,25 @@
     .resource-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      padding: 0 38px 38px;
+      gap: 16px;
+      padding: 0 28px 34px 53px;
     }
     .resource-card {
-      display: flex;
-      min-height: 152px;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 21px;
-      border: 1px solid #dfe3ea;
+      display: block;
+      min-width: 0;
       color: #242a33;
-      transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+      transition: color .18s ease, transform .18s ease;
     }
-    .resource-card:hover { transform: translateY(-2px); border-color: #a9c6eb; box-shadow: 0 7px 18px rgba(20, 67, 126, .09); }
-    .resource-card .material-symbols-rounded { color: var(--blue); font-size: 42px; }
-    .resource-card strong { font-size: 18px; font-weight: 500; }
+    .resource-card:hover { color: var(--blue); transform: translateY(-2px); }
+    .resource-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 8 / 5;
+      border-radius: 3px;
+      object-fit: cover;
+    }
+    .resource-card strong { display: block; margin-top: 16px; font-size: 18px; font-weight: 500; line-height: 1.35; }
+    .resource-card p { margin: 5px 0 0; color: #747c88; font-size: 12px; line-height: 1.45; }
     .service-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -672,7 +703,9 @@
       .ad-card.tall { height: auto; aspect-ratio: 351 / 610; }
       .ad-card.jd { height: auto; aspect-ratio: 350 / 197; }
       .ad-card.banner { height: auto; aspect-ratio: 2.05 / 1; }
-      .notice-card { padding-right: 30px; padding-left: 30px; }
+      .notice-stack { width: auto; grid-template-columns: 224px minmax(0, 1fr); margin-left: 0; }
+      .notice-media { width: 224px; }
+      .journey-rail { width: auto; margin-left: 0; }
       .resource-grid, .service-grid { padding-right: 26px; padding-left: 26px; }
       .footer-inner { width: min(calc(100% - 44px), var(--safe)); }
     }
@@ -722,6 +755,7 @@
       .ad-card.tall img { object-position: center 35%; }
       .journey-rail { --journey-heading-gap: 38px; }
       .guide-heading { margin-top: var(--journey-heading-gap); }
+      .guide-heading h2 { position: static; transform: none; }
       .journey-header h3 { font-size: 19px; }
       .city-grid { grid-template-columns: repeat(3, minmax(270px, 1fr)); overflow-x: auto; padding-bottom: 12px; }
       .footer-inner { grid-template-columns: 1fr; gap: 42px; }
@@ -765,10 +799,12 @@
       .hero { min-height: 300px; aspect-ratio: auto; }
       .hero > img { object-position: 62% center; }
       .safe-area { width: min(calc(100% - 24px), var(--safe)); }
-      .notice-card { min-height: 0; padding: 20px 18px; }
-      .notice-meta { gap: 10px; margin-bottom: 10px; }
-      .notice-pill { min-width: 82px; height: 30px; }
-      .notice-title { font-size: 18px; }
+      .notice-stack { grid-template-columns: 1fr; min-height: 0; gap: 12px; padding: 12px; }
+      .notice-media { width: 100%; height: auto; aspect-ratio: 268 / 167; }
+      .notice-list { height: auto; }
+      .notice-card { min-height: 52px; gap: 10px; }
+      .notice-title { font-size: 16px; }
+      .notice-date { font-size: 12px; }
       .journey-rail { --journey-marker-size: 44px; }
       .guide-heading, .discover-heading { gap: 12px; }
       .section-mark { width: 44px; height: 44px; }
@@ -779,9 +815,9 @@
       .journey-header h3 { font-size: 17px; }
       .journey-action { gap: 3px; font-size: 12px; }
       .resource-grid, .service-grid { grid-template-columns: 1fr 1fr; gap: 9px; padding: 0 12px 18px; }
-      .resource-card { min-height: 116px; gap: 12px; }
-      .resource-card .material-symbols-rounded { font-size: 34px; }
-      .resource-card strong { font-size: 15px; text-align: center; }
+      .resource-card { min-height: 0; }
+      .resource-card strong { margin-top: 10px; font-size: 15px; }
+      .resource-card p { margin-top: 3px; font-size: 11px; }
       .service-card h4 { margin-top: 10px; font-size: 15px; }
       .service-card p { display: none; }
       .journey-copy { margin-top: 0; padding: 0 44px 22px; font-size: 13px; }
@@ -807,11 +843,15 @@
     <section class="hero" aria-label="中国城市与天坛主视觉">
       <img src="images/v4-hero.png" alt="上海城市天际线与北京天坛组成的中国城市景观">
       <nav class="step-dock" aria-label="签证办理五步导航">
-        <button class="step-tab" type="button" data-target="station-1"><img class="step-icon" src="images/v4-step-passport.png" alt="" aria-hidden="true"><span>选择签证类型并准备文件</span></button>
-        <button class="step-tab" type="button" data-target="station-2"><img class="step-icon" src="images/v4-step-edit-note.png" alt="" aria-hidden="true"><span>签证中心帮助</span></button>
-        <button class="step-tab" type="button" data-target="station-3"><img class="step-icon" src="images/v4-step-how-to-reg.png" alt="" aria-hidden="true"><span>在线申请</span></button>
-        <button class="step-tab" type="button" data-target="station-4"><img class="step-icon" src="images/v4-step-approval.png" alt="" aria-hidden="true"><span>护照递交</span></button>
-        <button class="step-tab" type="button" data-target="station-5"><img class="step-icon" src="images/v4-step-hourglass.png" alt="" aria-hidden="true"><span>进度追踪</span></button>
+        <button class="step-tab" type="button" data-target="station-1" style="--step-hover-icon: url('images/v4-step-node-passport-gold.png')"><img class="step-icon" src="images/v4-step-node-passport.png" alt="" aria-hidden="true"><span>选择签证类型并准备文件</span></button>
+        <img class="step-connector" src="images/v4-step-connector.png" alt="" aria-hidden="true">
+        <button class="step-tab" type="button" data-target="station-2" style="--step-hover-icon: url('images/v4-step-node-help.png')"><img class="step-icon" src="images/v4-step-edit-note.png" alt="" aria-hidden="true"><span>签证中心帮助</span></button>
+        <img class="step-connector" src="images/v4-step-connector.png" alt="" aria-hidden="true">
+        <button class="step-tab" type="button" data-target="station-3" style="--step-hover-icon: url('images/v4-step-node-online-gold.png')"><img class="step-icon" src="images/v4-step-node-online.png" alt="" aria-hidden="true"><span>在线申请</span></button>
+        <img class="step-connector" src="images/v4-step-connector.png" alt="" aria-hidden="true">
+        <button class="step-tab" type="button" data-target="station-4" style="--step-hover-icon: url('images/v4-step-node-submit-gold.png')"><img class="step-icon" src="images/v4-step-node-submit.png" alt="" aria-hidden="true"><span>护照递交</span></button>
+        <img class="step-connector" src="images/v4-step-connector.png" alt="" aria-hidden="true">
+        <button class="step-tab" type="button" data-target="station-5" style="--step-hover-icon: url('images/v4-step-node-track-gold.png')"><img class="step-icon" src="images/v4-step-node-track.png" alt="" aria-hidden="true"><span>进度追踪</span></button>
       </nav>
     </section>
 
@@ -832,21 +872,23 @@
       <div class="safe-area content-grid">
         <div class="main-column">
           <section class="notice-stack" aria-label="最新公告">
-            <a class="notice-card" href="article.html">
-              <div class="notice-meta"><span class="notice-pill">最新公告</span><time class="notice-date" datetime="2024-10-24">2024-10-24</time></div>
-              <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
-              <p class="notice-copy">为进一步优化签证申请体验，我中心将自2024年11月起实行全新的电子预约系统。新系统将整合移动支付与实时进度追踪功能，显著缩短现场等候时间。</p>
+            <a class="notice-media" href="article.html" aria-label="查看最新公告">
+              <img src="images/v4-notice-tech.png" alt="智慧城市数据网络">
             </a>
-            <a class="notice-card" href="article.html">
-              <div class="notice-meta"><span class="notice-pill">最新公告</span><time class="notice-date" datetime="2024-10-24">2024-10-24</time></div>
-              <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
-              <p class="notice-copy">为进一步优化签证申请体验，我中心将自2024年11月起实行全新的电子预约系统。新系统将整合移动支付与实时进度追踪功能，显著缩短现场等候时间。</p>
-            </a>
-            <a class="notice-card" href="article.html">
-              <div class="notice-meta"><span class="notice-pill">最新公告</span><time class="notice-date" datetime="2024-10-24">2024-10-24</time></div>
-              <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
-              <p class="notice-copy">为进一步优化签证申请体验，我中心将自2024年11月起实行全新的电子预约系统。新系统将整合移动支付与实时进度追踪功能，显著缩短现场等候时间。</p>
-            </a>
+            <div class="notice-list">
+              <a class="notice-card" href="article.html">
+                <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
+                <time class="notice-date" datetime="2024-10-24">2024-10-24</time>
+              </a>
+              <a class="notice-card" href="article.html">
+                <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
+                <time class="notice-date" datetime="2024-10-24">2024-10-24</time>
+              </a>
+              <a class="notice-card" href="article.html">
+                <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
+                <time class="notice-date" datetime="2024-10-24">2024-10-24</time>
+              </a>
+            </div>
           </section>
 
           <div class="journey-rail">
@@ -859,10 +901,10 @@
             <article class="journey-card" id="station-1">
               <div class="journey-header"><span class="material-symbols-rounded pin" aria-hidden="true">location_on</span><h3>第一站：选择签证类型并准备文件</h3><a class="journey-action" href="visa info.html">查看详情<span class="material-symbols-rounded" aria-hidden="true">arrow_right_alt</span></a></div>
               <div class="resource-grid">
-                <a class="resource-card" href="visa info.html"><span class="material-symbols-rounded" aria-hidden="true">badge</span><strong>签证类型及材料清单</strong></a>
-                <a class="resource-card" id="fees" href="#"><span class="material-symbols-rounded" aria-hidden="true">request_quote</span><strong>费用标准</strong></a>
-                <a class="resource-card" id="faq" href="#"><span class="material-symbols-rounded" aria-hidden="true">help</span><strong>常见问题</strong></a>
-                <a class="resource-card" id="downloads" href="#"><span class="material-symbols-rounded" aria-hidden="true">description</span><strong>文件模板</strong></a>
+                <a class="resource-card" href="visa info.html"><img src="images/v4-resource-material.png" alt="填写签证申请材料"><strong>签证类型及材料清单</strong><p>一站式解决您的填表困难</p></a>
+                <a class="resource-card" id="fees" href="#"><img src="images/v4-resource-fee.png" alt="使用计算器核算费用"><strong>费用标准</strong><p>一站式解决您的填表困难</p></a>
+                <a class="resource-card" id="faq" href="#"><img src="images/v4-resource-faq.png" alt="常见问题说明"><strong>常见问题</strong><p>一站式解决您的填表困难</p></a>
+                <a class="resource-card" id="downloads" href="#"><img src="images/v4-resource-template.png" alt="文件模板与业务资料"><strong>文件模板</strong><p>一站式解决您的填表困难</p></a>
               </div>
             </article>
 
@@ -881,7 +923,7 @@
             </article>
 
             <article class="journey-card passport" id="station-4">
-              <div class="journey-header"><span class="material-symbols-rounded pin" aria-hidden="true">location_on</span><h3>第四站：护照递交</h3><a class="journey-action" href="#">开始邮寄<span class="material-symbols-rounded" aria-hidden="true">arrow_right_alt</span></a></div>
+              <div class="journey-header"><span class="material-symbols-rounded pin" aria-hidden="true">location_on</span><h3>第四站：护照递交</h3></div>
               <p class="journey-copy">完成线上申请后，您需要将护照及必要材料提交至签证中心。<br>同时您可以选择将护照邮寄至中心。</p>
             </article>
 
