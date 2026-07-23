@@ -508,6 +508,24 @@
     .ad-dots i { display: block; width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.85); transition: width .35s ease, border-radius .35s ease; }
     .ad-dots i.active { width: 31px; border-radius: 4px; }
 
+    .journey-rail {
+      --journey-marker-size: 56px;
+      --journey-heading-gap: 60px;
+      --journey-discover-gap: 40px;
+      position: relative;
+      display: flow-root;
+    }
+    .journey-rail::before {
+      position: absolute;
+      z-index: 0;
+      top: calc(var(--journey-heading-gap) + (var(--journey-marker-size) / 2));
+      bottom: calc((var(--journey-discover-gap) + (var(--journey-marker-size) / 2)) * -1);
+      left: calc((var(--journey-marker-size) / 2) - .5px);
+      border-left: 1px dashed #cfd7e3;
+      content: "";
+      pointer-events: none;
+    }
+    .journey-rail > * { position: relative; z-index: 1; }
     .guide-heading,
     .discover-heading {
       display: flex;
@@ -516,6 +534,8 @@
       margin: 60px 0 13px;
     }
     .section-mark {
+      position: relative;
+      z-index: 2;
       display: grid;
       width: 56px;
       height: 56px;
@@ -526,6 +546,7 @@
       color: #657187;
     }
     .section-mark .material-symbols-rounded { font-size: 30px; }
+    .journey-plane-icon { display: block; width: 37px; height: 27px; object-fit: contain; }
     .guide-heading h2 { margin: 0; color: #084783; font-size: 32px; }
 
     .journey-list { display: grid; gap: 20px; }
@@ -688,7 +709,10 @@
         left: 12px;
         display: block;
         transform: translateY(-50%);
+        transition: transform .2s ease;
       }
+      body.mobile-step-peek .mobile-step-menu { transform: translate(-36px, -50%); }
+      body.mobile-step-open .mobile-step-menu { transform: translateY(-50%); }
       .home-content { padding-top: 28px; }
       .content-grid { grid-template-columns: 1fr; }
       .ad-column { grid-template-columns: repeat(2, minmax(240px, 1fr)); overflow-x: auto; padding-bottom: 8px; }
@@ -696,7 +720,8 @@
       .ad-card { margin-top: 0 !important; }
       .ad-card img { object-position: center; }
       .ad-card.tall img { object-position: center 35%; }
-      .guide-heading { margin-top: 38px; }
+      .journey-rail { --journey-heading-gap: 38px; }
+      .guide-heading { margin-top: var(--journey-heading-gap); }
       .journey-header h3 { font-size: 19px; }
       .city-grid { grid-template-columns: repeat(3, minmax(270px, 1fr)); overflow-x: auto; padding-bottom: 12px; }
       .footer-inner { grid-template-columns: 1fr; gap: 42px; }
@@ -744,8 +769,10 @@
       .notice-meta { gap: 10px; margin-bottom: 10px; }
       .notice-pill { min-width: 82px; height: 30px; }
       .notice-title { font-size: 18px; }
+      .journey-rail { --journey-marker-size: 44px; }
       .guide-heading, .discover-heading { gap: 12px; }
       .section-mark { width: 44px; height: 44px; }
+      .journey-plane-icon { width: 29px; height: 21px; }
       .guide-heading h2 { font-size: 23px; }
       .journey-header { min-height: 76px; gap: 8px; padding: 0 14px; }
       .journey-header .pin { font-size: 25px; }
@@ -822,8 +849,9 @@
             </a>
           </section>
 
+          <div class="journey-rail">
           <div class="guide-heading">
-            <span class="section-mark"><span class="material-symbols-rounded" aria-hidden="true">flight</span></span>
+            <span class="section-mark"><img class="journey-plane-icon" src="images/v4-journey-plane.png" alt=""></span>
             <h2>赴华旅程 · 五步办理指南</h2>
           </div>
 
@@ -861,6 +889,7 @@
               <div class="journey-header"><span class="material-symbols-rounded pin" aria-hidden="true">location_on</span><h3>第五站：进度追踪</h3><a class="journey-action" href="#">查看详情<span class="material-symbols-rounded" aria-hidden="true">arrow_right_alt</span></a></div>
             </article>
           </section>
+          </div>
 
           <section aria-labelledby="discover-title">
             <div class="discover-heading"><span class="section-mark"><span class="material-symbols-rounded" aria-hidden="true">explore</span></span><h2 id="discover-title">发现中国</h2></div>
@@ -957,14 +986,35 @@
 
       const mobileStepMenu = document.querySelector('.mobile-step-menu');
       const mobileStepToggle = document.querySelector('.mobile-step-toggle');
+      const mobileStepBreakpoint = window.matchMedia('(max-width: 900px)');
+      let mobileStepScrollY = window.scrollY;
+      const setMobileStepPeek = (peek) => {
+        const allowed = peek && mobileStepBreakpoint.matches && !document.body.classList.contains('mobile-step-open');
+        document.body.classList.toggle('mobile-step-peek', allowed);
+      };
       const setMobileStepMenu = (open) => {
+        if (open) setMobileStepPeek(false);
         document.body.classList.toggle('mobile-step-open', open);
         mobileStepToggle.setAttribute('aria-expanded', String(open));
         mobileStepToggle.setAttribute('aria-label', open ? '关闭签证办理五步导航' : '打开签证办理五步导航');
+        if (!open) mobileStepScrollY = window.scrollY;
       };
 
       mobileStepToggle.addEventListener('click', () => {
-        setMobileStepMenu(!document.body.classList.contains('mobile-step-open'));
+        const wasPeeking = document.body.classList.contains('mobile-step-peek');
+        setMobileStepPeek(false);
+        setMobileStepMenu(wasPeeking ? true : !document.body.classList.contains('mobile-step-open'));
+      });
+      const handleMobileStepScroll = () => {
+        if (!mobileStepBreakpoint.matches || document.body.classList.contains('mobile-step-open')) return;
+        if (Math.abs(window.scrollY - mobileStepScrollY) < 12) return;
+        setMobileStepPeek(true);
+        mobileStepScrollY = window.scrollY;
+      };
+      window.addEventListener?.('scroll', handleMobileStepScroll, { passive: true });
+      mobileStepBreakpoint.addEventListener?.('change', (event) => {
+        if (!event.matches) setMobileStepPeek(false);
+        mobileStepScrollY = window.scrollY;
       });
       document.addEventListener('click', (event) => {
         if (!mobileStepMenu.contains(event.target)) setMobileStepMenu(false);
