@@ -6,7 +6,7 @@
   <title>中国签证申请服务中心｜新加坡</title>
   <meta name="description" content="中国签证申请服务中心新加坡站，提供签证申请、材料准备、护照递交与进度追踪服务。">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script src="shared-layout.js?v=sidebar-accordion-20260722" defer></script>
+  <script src="shared-layout.js?v=sidebar-psd-20260723" defer></script>
   <script src="footer.js?v=psd-footer-20260723" defer></script>
   <script>
     tailwind.config = {
@@ -21,7 +21,7 @@
       }
     };
   </script>
-  <link rel="stylesheet" href="site-common.css?v=psd-footer-20260723">
+  <link rel="stylesheet" href="site-common.css?v=psd-full-20260723">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@0..1&display=swap" rel="stylesheet">
@@ -134,6 +134,7 @@
     .site-header {
       position: relative;
       z-index: 60;
+      width: calc(100vw - var(--sidebar));
       height: 72px;
       margin-left: var(--sidebar);
       background: #fff;
@@ -274,7 +275,7 @@
     .nav-divider { height: 1px; margin: 16px 10px 9px; background: #dfe4ec; }
     .nav-row.active { background: #eaf1fb; color: #485569; }
 
-    .page-shell { min-width: 0; margin-left: 0; background: var(--canvas); }
+    .page-shell { width: calc(100vw - var(--sidebar)); min-width: 0; margin-left: 0; background: var(--canvas); }
     .hero {
       position: relative;
       width: 100%;
@@ -428,7 +429,148 @@
     body.mobile-step-open .mobile-step-toggle span:nth-child(2) { opacity: 0; }
     body.mobile-step-open .mobile-step-toggle span:nth-child(3) { top: 22px; transform: rotate(-45deg); }
 
-    .home-content { padding: 55px 0 66px; }
+    .entry-notice-dialog {
+      width: min(780px, calc(100% - 32px));
+      max-height: min(760px, calc(100dvh - 32px));
+      overflow: hidden;
+      border: 0;
+      border-radius: 14px;
+      padding: 0;
+      background: #fff;
+      color: var(--ink);
+      box-shadow: 0 28px 70px rgba(4, 30, 68, .3);
+    }
+    .entry-notice-dialog[open] {
+      display: flex;
+      flex-direction: column;
+    }
+    .entry-notice-dialog::backdrop {
+      background: rgba(4, 18, 39, .62);
+      backdrop-filter: blur(2px);
+    }
+    .entry-notice-head {
+      position: relative;
+      min-height: 64px;
+      flex: 0 0 auto;
+      padding: 16px 62px 14px 24px;
+      background: var(--navy);
+      color: #fff;
+    }
+    .entry-notice-head h2 { margin: 0; font-size: 20px; line-height: 1.35; }
+    .entry-notice-icon-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .32);
+      border-radius: 50%;
+      background: transparent;
+      color: #fff;
+      font-size: 25px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .entry-notice-icon-close:hover { background: rgba(255, 255, 255, .12); }
+    .entry-notice-body {
+      display: grid;
+      min-height: 0;
+      flex: 1 1 auto;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      overflow-y: auto;
+      padding: 30px 32px 28px;
+    }
+    .entry-notice-ad {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      align-self: start;
+      border-radius: 8px;
+      background: #eef3f9;
+    }
+    .entry-notice-ad img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 32 / 5;
+      object-fit: cover;
+    }
+    .entry-notice-ad span {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 4px 8px;
+      border-radius: 10px;
+      background: rgba(20, 23, 29, .82);
+      color: #fff;
+      font: 700 10px/1 Arial, sans-serif;
+    }
+    .entry-notice-copy h3 { margin: 2px 0 14px; color: var(--blue); font-size: 20px; line-height: 1.45; }
+    .entry-notice-copy h4 { margin: 24px 0 10px; color: #26364c; font-size: 16px; line-height: 1.45; }
+    .entry-notice-copy p { margin: 0; color: #667184; font-size: 14px; line-height: 1.75; }
+    .entry-notice-copy p + p { margin-top: 13px; }
+    .entry-notice-alert {
+      margin-bottom: 22px !important;
+      border-left: 4px solid var(--gold);
+      border-radius: 4px;
+      padding: 12px 14px;
+      background: #f5f8fd;
+      color: #3f4d62 !important;
+    }
+    .entry-notice-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .entry-notice-copy ol { margin: 10px 0 0; padding-left: 21px; color: #667184; font-size: 14px; line-height: 1.75; }
+    .entry-notice-copy li + li { margin-top: 11px; }
+    .entry-notice-hours {
+      display: grid;
+      grid-template-columns: minmax(120px, 1fr) auto;
+      gap: 8px 16px;
+      margin: 10px 0 17px;
+      border-radius: 6px;
+      padding: 14px 16px;
+      background: #f5f8fd;
+      color: #526075;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .entry-notice-hours strong { color: #26364c; }
+    .entry-notice-signature { margin-top: 20px !important; color: #45546a !important; text-align: right; }
+    .entry-notice-scam {
+      margin-top: 28px !important;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 22px;
+      color: #b04a31 !important;
+    }
+    .entry-notice-actions {
+      display: flex;
+      flex: 0 0 auto;
+      justify-content: flex-end;
+      border-top: 1px solid #e6ebf2;
+      padding: 10px 24px;
+    }
+    .entry-notice-close {
+      min-width: 116px;
+      height: 36px;
+      border: 0;
+      border-radius: 5px;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .entry-notice-close:hover { background: #003f91; }
+
+    .home-content { padding: 50px 0 53px; }
     .safe-area {
       width: min(calc(100% - 36px), var(--safe));
       margin: 0 auto;
@@ -438,20 +580,46 @@
       grid-template-columns: minmax(0, 1092px) 352px;
       gap: 18px;
       align-items: start;
+      justify-content: center;
     }
     .main-column { min-width: 0; }
     .notice-stack {
-      display: grid;
-      grid-template-columns: 268px minmax(0, 1fr);
       width: 1088px;
-      min-height: 215px;
-      gap: 23px;
+      min-height: 259px;
       box-sizing: border-box;
-      margin-left: 8px;
       border-radius: 12px;
       padding: 23px 30px 25px 23px;
       background: #fff;
       box-shadow: var(--shadow);
+    }
+    .notice-head {
+      display: flex;
+      min-height: 28px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      color: var(--blue);
+    }
+    .notice-head-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .notice-head-icon { font-size: 26px; }
+    .notice-head h2 { margin: 0; font-size: 18px; font-weight: 700; line-height: 28px; }
+    .notice-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .notice-more .material-symbols-rounded { font-size: 19px; }
+    .notice-board-body {
+      display: grid;
+      grid-template-columns: 268px minmax(0, 1fr);
+      gap: 23px;
     }
     .notice-media {
       display: block;
@@ -495,14 +663,16 @@
       will-change: transform;
     }
     .ad-carousel-slide { flex: 0 0 100%; min-width: 0; }
-    .ad-card.tall { height: 610px; }
-    .ad-card.jd { height: 246px; }
-    .ad-card.banner { height: 166px; }
-    .ad-card:nth-child(2) { margin-top: 29px; }
-    .ad-card:nth-child(3) { margin-top: 37px; }
-    .ad-card:nth-child(4) { height: 167px; margin-top: 15px; }
-    .ad-card:nth-child(5) { margin-top: 16px; }
-    .ad-card:nth-child(6) { height: 167px; margin-top: 15px; }
+    .ad-card.tall { height: 608px; }
+    .ad-card.jd { height: 234px; }
+    .ad-card.banner { height: 164px; }
+    .ad-card:nth-child(2) { margin-top: 16px; }
+    .ad-card:nth-child(3) { margin-top: 18px; }
+    .ad-card:nth-child(4) { height: 165px; margin-top: 17px; }
+    .ad-card:nth-child(5) { height: 164px; margin-top: 18px; }
+    .ad-card:nth-child(6) { height: 165px; margin-top: 17px; }
+    .ad-card:nth-child(7) { height: 165px; margin-top: 17px; }
+    .ad-card:nth-child(8) { height: 164px; margin-top: 19px; }
     .ad-badge {
       position: absolute;
       top: 16px;
@@ -534,7 +704,6 @@
       position: relative;
       display: flow-root;
       width: 1088px;
-      margin-left: 8px;
     }
     .journey-rail::before {
       position: absolute;
@@ -552,7 +721,7 @@
       display: flex;
       align-items: center;
       gap: 22px;
-      margin: 65px 0 13px;
+      margin: 65px 0 11px;
     }
     .section-mark {
       position: relative;
@@ -607,11 +776,26 @@
     .journey-action.gold { color: var(--blue); }
     .journey-action.gold:hover { color: var(--gold); }
     .journey-action .material-symbols-rounded { font-size: 20px; }
+    #station-3 {
+      border: 1px solid var(--blue);
+      box-shadow: none;
+    }
+    #station-3 { margin-top: 7px; }
+    #station-3 .journey-header { min-height: 100px; }
+    #station-3 .journey-action {
+      min-width: 112px;
+      height: 42px;
+      justify-content: center;
+      border-radius: 4px;
+      background: var(--blue);
+      color: #fff;
+    }
+    #station-3 .journey-action:hover { background: #003f91; color: #fff; }
     .resource-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      padding: 0 28px 34px 53px;
+      padding: 0 28px 45px 53px;
     }
     .resource-card {
       display: block;
@@ -633,18 +817,20 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
-      padding: 0 38px 41px;
+      padding: 0 38px 36px;
     }
     .service-card img { width: 100%; aspect-ratio: 242 / 152; object-fit: cover; }
     .service-card h4 { margin: 18px 0 7px; font-size: 17px; font-weight: 500; }
     .service-card p { margin: 0; color: #747c88; font-size: 12px; }
     .journey-copy { margin: -6px 0 30px; padding: 0 85px; color: #737c89; font-size: 14px; line-height: 1.75; }
-    .journey-card.compact .journey-header { min-height: 94px; }
-    .journey-card:first-child { margin-bottom: 3px; }
-    .journey-card.passport .journey-header { min-height: 75px; padding-bottom: 0; }
-    .journey-card.passport { min-height: 148px; }
+    .journey-card.compact .journey-header { min-height: 104px; }
+    .journey-card:first-child { margin-bottom: 5px; }
+    .journey-card.passport .journey-header { min-height: 58px; padding-bottom: 0; }
+    .journey-card.passport { min-height: 104px; margin-top: 8px; }
+    .journey-card.passport .journey-copy { margin: -2px 0 15px; }
+    #station-5 { margin-top: 8px; }
 
-    .discover-heading { margin: 40px 0 16px; }
+    .discover-heading { margin: 45px 0 16px; }
     .discover-heading h2 { margin: 0; color: #20262e; font-size: 28px; }
     .city-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .city-card {
@@ -656,7 +842,7 @@
     }
     .city-card:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(28, 52, 91, .12); }
     .city-card img { width: 100%; aspect-ratio: 354 / 202; object-fit: cover; }
-    .city-body { padding: 21px 28px 23px; }
+    .city-body { padding: 21px 28px 19px; }
     .city-body h3 { margin: 0 0 12px; font-size: 21px; }
     .city-body p { margin: 0; color: #77808d; font-size: 12px; line-height: 1.6; }
     .city-link {
@@ -676,6 +862,7 @@
       background: var(--canvas);
       color: #707989;
     }
+    .content-footer { width: calc(100vw - var(--sidebar)); }
     .footer-inner {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -703,7 +890,8 @@
       .ad-card.tall { height: auto; aspect-ratio: 351 / 610; }
       .ad-card.jd { height: auto; aspect-ratio: 350 / 197; }
       .ad-card.banner { height: auto; aspect-ratio: 2.05 / 1; }
-      .notice-stack { width: auto; grid-template-columns: 224px minmax(0, 1fr); margin-left: 0; }
+      .notice-stack { width: auto; }
+      .notice-board-body { grid-template-columns: 224px minmax(0, 1fr); }
       .notice-media { width: 224px; }
       .journey-rail { width: auto; margin-left: 0; }
       .resource-grid, .service-grid { padding-right: 26px; padding-left: 26px; }
@@ -799,8 +987,13 @@
       .hero { min-height: 300px; aspect-ratio: auto; }
       .hero > img { object-position: 62% center; }
       .safe-area { width: min(calc(100% - 24px), var(--safe)); }
-      .notice-stack { grid-template-columns: 1fr; min-height: 0; gap: 12px; padding: 12px; }
-      .notice-media { width: 100%; height: auto; aspect-ratio: 268 / 167; }
+      .notice-stack { min-height: 0; padding: 14px 12px 12px; }
+      .notice-head { min-height: 26px; margin-bottom: 8px; }
+      .notice-head-icon { font-size: 23px; }
+      .notice-head h2 { font-size: 17px; line-height: 26px; }
+      .notice-more { font-size: 12px; }
+      .notice-board-body { display: block; }
+      .notice-media { display: none; }
       .notice-list { height: auto; }
       .notice-card { min-height: 52px; gap: 10px; }
       .notice-title { font-size: 16px; }
@@ -814,6 +1007,8 @@
       .journey-header .pin { font-size: 25px; }
       .journey-header h3 { font-size: 17px; }
       .journey-action { gap: 3px; font-size: 12px; }
+      #station-3 .journey-header { min-height: 82px; }
+      #station-3 .journey-action { min-width: 86px; height: 34px; }
       .resource-grid, .service-grid { grid-template-columns: 1fr 1fr; gap: 9px; padding: 0 12px 18px; }
       .resource-card { min-height: 0; }
       .resource-card strong { margin-top: 10px; font-size: 15px; }
@@ -821,12 +1016,22 @@
       .service-card h4 { margin-top: 10px; font-size: 15px; }
       .service-card p { display: none; }
       .journey-copy { margin-top: 0; padding: 0 44px 22px; font-size: 13px; }
-      .ad-column { grid-template-columns: repeat(6, minmax(245px, 78vw)); }
+      #station-3, .journey-card.passport, #station-5 { margin-top: 0; }
+      .ad-column { grid-template-columns: repeat(8, minmax(245px, 78vw)); }
       .city-grid { grid-template-columns: repeat(3, minmax(265px, 82vw)); }
       .footer-inner { min-height: 0; padding: 42px 20px 28px; }
       .footer-brand img { width: 250px; }
       .footer-brand p { margin-top: 24px; }
       .footer-links { grid-template-columns: repeat(2, 1fr); }
+      .entry-notice-dialog { width: min(100% - 24px, 520px); max-height: calc(100dvh - 24px); border-radius: 11px; }
+      .entry-notice-head { min-height: 60px; padding: 14px 54px 12px 18px; }
+      .entry-notice-head h2 { font-size: 18px; }
+      .entry-notice-icon-close { top: 11px; right: 12px; width: 34px; height: 34px; }
+      .entry-notice-body { gap: 20px; padding: 22px; }
+      .entry-notice-ad { border-radius: 6px; }
+      .entry-notice-ad img { width: 100%; height: auto; aspect-ratio: 32 / 5; }
+      .entry-notice-actions { padding: 8px 18px 10px; }
+      .entry-notice-close { width: 100%; height: 36px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -868,26 +1073,85 @@
       </nav>
     </div>
 
+    <dialog class="entry-notice-dialog" id="entry-notice-dialog" aria-labelledby="entry-notice-welcome" aria-describedby="entry-notice-copy">
+      <header class="entry-notice-head">
+        <h2 id="entry-notice-welcome">欢迎来到中国签证申请服务中心</h2>
+      </header>
+      <div class="entry-notice-body">
+        <div class="entry-notice-ad" aria-label="广告位">
+          <img src="images/Bcang.jpg" alt="中国旅行目的地推广">
+          <span>AD</span>
+        </div>
+        <article class="entry-notice-copy">
+          <p class="entry-notice-alert">Chinese Visa Application Service Center in London will be closed for 4 May 2026 and 25 May 2026 two days for the Bank Holiday. Sorry for any inconvenience caused. Thank you for your understanding.</p>
+          <h3>Notice about online Chinese visa application</h3>
+          <div id="entry-notice-copy">
+            <p>Chinese Visa Application Service Center has enabled online review. All applicants are required to fill in the application form and submit materials online. Only after the online review is passed and the review approval email is received, can they go to the visa center to submit materials (original passport, “Visa Application Certificate”, photo, etc.). Applicants for diplomatic or official purposes are still requested to submit at the Consular Section of the Chinese Embassy in the UK.</p>
+            <a class="entry-notice-link" href="#">Please click here to view the key points of special reminder.</a>
+
+            <h4>Announcement details</h4>
+            <ol>
+              <li>Common technical issues and precautions for filling out forms and uploading materials.</li>
+              <li>Applicants are advised to submit an online visa application on the visa center website at least 30 days before travel.</li>
+              <li>After the online review is passed, you should go to the visa center to submit required documents within 3 weeks. Before submitting your passport and application materials to the center, please confirm that your application status is “Review Completed”, check the confirmation email received through your registered email, print the “Visa Application Certificate”, and bring your original passport to the visa center.</li>
+            </ol>
+
+            <p>You must collect your passport at the Visa Application Centre during working hours with the Pickup Sheet issued when you submitted your documents.</p>
+
+            <h4>Application Submission</h4>
+            <div class="entry-notice-hours" aria-label="Application submission hours">
+              <strong>Regular / Express</strong><span>09:00–15:00</span>
+              <strong>Urgent</strong><span>09:00–13:00</span>
+            </div>
+
+            <h4>Collection</h4>
+            <div class="entry-notice-hours" aria-label="Collection hours">
+              <strong>Regular</strong><span>09:00–16:00</span>
+              <strong>Express</strong><span>12:00–16:00</span>
+              <strong>Urgent</strong><span>12:00–16:00</span>
+            </div>
+
+            <p>The above time is for working days, excluding weekends and holidays.</p>
+            <p class="entry-notice-signature">Chinese Visa Application Service Center<br>July 4, 2025</p>
+
+            <h3 class="entry-notice-scam">Please be aware of phone scams!</h3>
+            <p>Please note that we do not ask for any payment by phone or online. All payments regarding your visa application should be made when you are in the visa centre.</p>
+            <p>If you think you have been scammed and are concerned about your Chinese visa application, please write to us.</p>
+            <p>If you think you have fallen victim, please report it to the police and contact your bank immediately.</p>
+          </div>
+        </article>
+      </div>
+      <div class="entry-notice-actions">
+        <button class="entry-notice-close" type="button" data-entry-notice-close>关闭</button>
+      </div>
+    </dialog>
+
     <div class="home-content">
       <div class="safe-area content-grid">
         <div class="main-column">
-          <section class="notice-stack" aria-label="最新公告">
-            <a class="notice-media" href="article.html" aria-label="查看最新公告">
-              <img src="images/v4-notice-tech.png" alt="智慧城市数据网络">
-            </a>
-            <div class="notice-list">
-              <a class="notice-card" href="article.html">
-                <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
-                <time class="notice-date" datetime="2024-10-24">2024-10-24</time>
+          <section class="notice-stack" aria-label="重要通知">
+            <div class="notice-head">
+              <div class="notice-head-title"><span class="material-symbols-rounded notice-head-icon" aria-hidden="true">edit_note</span><h2>重要通知</h2></div>
+              <a class="notice-more" href="list.html">查看更多<span class="material-symbols-rounded" aria-hidden="true">arrow_right_alt</span></a>
+            </div>
+            <div class="notice-board-body">
+              <a class="notice-media" href="article.html" aria-label="查看最新公告">
+                <img src="images/v4-notice-tech.png" alt="智慧城市数据网络">
               </a>
-              <a class="notice-card" href="article.html">
-                <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
-                <time class="notice-date" datetime="2024-10-24">2024-10-24</time>
-              </a>
-              <a class="notice-card" href="article.html">
-                <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
-                <time class="notice-date" datetime="2024-10-24">2024-10-24</time>
-              </a>
+              <div class="notice-list">
+                <a class="notice-card" href="article.html">
+                  <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
+                  <time class="notice-date" datetime="2024-10-24">2024-10-24</time>
+                </a>
+                <a class="notice-card" href="article.html">
+                  <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
+                  <time class="notice-date" datetime="2024-10-24">2024-10-24</time>
+                </a>
+                <a class="notice-card" href="article.html">
+                  <h2 class="notice-title">关于调整新加坡中心申请流程的通知</h2>
+                  <time class="notice-date" datetime="2024-10-24">2024-10-24</time>
+                </a>
+              </div>
             </div>
           </section>
 
@@ -923,8 +1187,8 @@
             </article>
 
             <article class="journey-card passport" id="station-4">
-              <div class="journey-header"><span class="material-symbols-rounded pin" aria-hidden="true">location_on</span><h3>第四站：护照递交</h3></div>
-              <p class="journey-copy">完成线上申请后，您需要将护照及必要材料提交至签证中心。<br>同时您可以选择将护照邮寄至中心。</p>
+              <div class="journey-header"><span class="material-symbols-rounded pin" aria-hidden="true">location_on</span><h3>第四站：护照递交</h3><a class="journey-action" href="#">查看更多<span class="material-symbols-rounded" aria-hidden="true">arrow_right_alt</span></a></div>
+              <p class="journey-copy">完成线上申请后，您需要将护照及必要材料提交至签证中心。同时您可以选择将护照邮寄至中心。</p>
             </article>
 
             <article class="journey-card compact" id="station-5">
@@ -964,6 +1228,8 @@
           <a class="ad-card banner" href="#"><img src="images/v4-ad-trip-thailand.png" alt="Trip.com 泰国旅行推广"><span class="ad-badge">AD</span></a>
           <a class="ad-card banner" href="#"><img src="images/v4-ad-orient.png" alt="亚洲旅行推广"><span class="ad-badge">AD</span></a>
           <a class="ad-card banner" href="#"><img src="images/v4-ad-taste-china.png" alt="中国美食体验推广"><span class="ad-badge">AD</span></a>
+          <a class="ad-card banner" href="#"><img src="images/v4-ad-gulangyu.png" alt="鼓浪屿历史国际社区推广"></a>
+          <a class="ad-card banner" href="#"><img src="images/v4-ad-coming-china.png" alt="外籍来华温馨提示"></a>
         </aside>
       </div>
     </div>
@@ -986,6 +1252,22 @@
 
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const carouselSequence = [0, 1, 2, 1];
+
+      const entryNoticeDialog = document.getElementById('entry-notice-dialog');
+      const closeEntryNotice = () => {
+        if (typeof entryNoticeDialog.close === 'function') entryNoticeDialog.close();
+        else entryNoticeDialog.removeAttribute('open');
+      };
+      entryNoticeDialog.querySelectorAll('[data-entry-notice-close]').forEach((button) => {
+        button.addEventListener('click', closeEntryNotice);
+      });
+      entryNoticeDialog.addEventListener('click', (event) => {
+        if (event.target === entryNoticeDialog) closeEntryNotice();
+      });
+      window.requestAnimationFrame(() => {
+        if (typeof entryNoticeDialog.showModal === 'function') entryNoticeDialog.showModal();
+        else entryNoticeDialog.setAttribute('open', '');
+      });
 
       document.querySelectorAll('[data-slide-carousel]').forEach((card) => {
         const track = card.querySelector('.ad-carousel-track');
@@ -1065,9 +1347,54 @@
         if (event.key === 'Escape') setMobileStepMenu(false);
       });
 
+      const stepScrollDuration = 2000;
+      const stepScrollContainer = document.querySelector('.page-shell');
+      let stepScrollFrame = 0;
+      const scrollToStep = (target) => {
+        window.cancelAnimationFrame(stepScrollFrame);
+        const scrollsWindow = mobileStepBreakpoint.matches;
+        if (!scrollsWindow && !stepScrollContainer) {
+          target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+          return;
+        }
+
+        const startTop = scrollsWindow ? window.scrollY : stepScrollContainer.scrollTop;
+        const rawTargetTop = scrollsWindow
+          ? startTop + target.getBoundingClientRect().top
+          : startTop + target.getBoundingClientRect().top - stepScrollContainer.getBoundingClientRect().top;
+        const maxTop = scrollsWindow
+          ? Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - window.innerHeight
+          : stepScrollContainer.scrollHeight - stepScrollContainer.clientHeight;
+        const targetTop = Math.max(0, Math.min(rawTargetTop, maxTop));
+        const setScrollTop = (top) => {
+          if (scrollsWindow) window.scrollTo(0, top);
+          else stepScrollContainer.scrollTop = top;
+        };
+        if (scrollsWindow) {
+          setScrollTop(targetTop);
+          return;
+        }
+        if (reducedMotion || Math.abs(targetTop - startTop) < 1) {
+          setScrollTop(targetTop);
+          return;
+        }
+
+        const startedAt = performance.now();
+        const easeInOutCubic = (progress) => progress < .5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+        const animateStepScroll = (now) => {
+          const progress = Math.min((now - startedAt) / stepScrollDuration, 1);
+          setScrollTop(startTop + (targetTop - startTop) * easeInOutCubic(progress));
+          if (progress < 1) stepScrollFrame = window.requestAnimationFrame(animateStepScroll);
+        };
+        stepScrollFrame = window.requestAnimationFrame(animateStepScroll);
+      };
+
       document.querySelectorAll('.step-tab, .mobile-step-link').forEach((button) => {
         button.addEventListener('click', () => {
-          document.getElementById(button.dataset.target)?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+          const target = document.getElementById(button.dataset.target);
+          if (target) scrollToStep(target);
           if (button.classList.contains('mobile-step-link')) setMobileStepMenu(false);
         });
       });
