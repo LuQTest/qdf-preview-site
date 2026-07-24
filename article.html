@@ -3,14 +3,14 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Chinese Visa Application Service Center</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script src="shared-layout.js?v=sidebar-psd-20260723" defer></script>
-<script src="footer.js?v=psd-footer-20260723" defer></script>
+<script src="shared-layout.js?v=mock-auth-20260724" defer></script>
+<script src="footer.js?v=about-link-20260724" defer></script>
 <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            'visa-blue': '#2d66a9', // Header RGB(45, 102, 169)
+            'visa-blue': '#0756ad', // Header RGB(45, 102, 169)
             'visa-sidebar-text': '#333333',
             'visa-purple': '#a642a4', // Purple block color
             'visa-border': '#e5e7eb',
@@ -19,222 +19,12 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="site-common.css?v=psd-full-20260723">
+  <link rel="stylesheet" href="site-common.css?v=mock-auth-20260724">
 </head>
 <body class="font-sans antialiased text-slate-900">
-<header class="flex h-[60px] w-full bg-gradient-to-r from-[#0950a4] to-[#0679b7] px-4 text-white shadow-md sticky top-0 z-50 lg:px-[30px]">
-<div class="flex h-full w-full items-center">
-<div class="flex items-center space-x-4">
-<img src="images/logo5.png" alt="Chinese Visa Application Service Center Logo" class="h-10 max-w-[210px] object-contain lg:max-w-none">
-</div>
-<form class="ml-8 hidden h-9 items-stretch lg:flex" role="search">
-<label class="sr-only" for="site-search">站内搜索</label>
-<input class="w-[300px] rounded-l-md border-0 bg-white px-3 text-sm text-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-200" id="site-search" name="q" placeholder="搜索签证服务、通知等" type="search">
-<button class="flex items-center gap-1.5 rounded-r-md bg-[#e1b53f] px-3.5 text-sm font-medium transition-colors hover:bg-[#c99c25] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" type="submit">
-<svg aria-hidden="true" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6.5"></circle><path stroke-linecap="round" d="m16 16 4 4"></path></svg>搜索
-</button>
-</form>
-<div class="ml-auto hidden items-center gap-5 text-sm font-medium lg:flex">
-<span class="text-white/85">新加坡</span>
-<a class="text-white/85 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="#">切换中心</a>
-<details class="group relative"><summary class="flex cursor-pointer list-none items-center gap-1 text-white/85 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">中文<svg aria-hidden="true" class="h-3.5 w-3.5 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></summary><div class="absolute right-0 top-7 z-20 w-24 overflow-hidden rounded-md bg-white py-1 text-slate-700 shadow-lg ring-1 ring-slate-900/10"><a class="block px-3 py-2 text-sm hover:bg-slate-50 hover:text-visa-blue" href="#">中文</a><a class="block px-3 py-2 text-sm hover:bg-slate-50 hover:text-visa-blue" href="#">English</a></div></details>
-<a class="rounded-md bg-white px-3.5 py-1.5 text-visa-blue transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="#">注册 / 登录</a>
-</div>
-<button aria-controls="mobile-menu" aria-expanded="false" aria-label="打开菜单" class="ml-auto flex h-10 w-10 items-center justify-center rounded-md transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden" id="mobile-menu-toggle" type="button">
-<svg aria-hidden="true" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
-</button>
-</div>
-</header>
-<div class="fixed inset-0 z-[60] hidden lg:hidden" id="mobile-menu">
-<button aria-label="关闭菜单" class="absolute inset-0 h-full w-full bg-slate-950/40" id="mobile-menu-backdrop" type="button"></button>
-<aside aria-label="移动端导航" class="relative h-full w-[min(86vw,360px)] overflow-y-auto bg-white p-5 shadow-2xl">
-<div class="flex items-center justify-between"><span class="text-base font-semibold text-visa-blue">新加坡</span><button aria-label="关闭菜单" class="flex h-9 w-9 items-center justify-center rounded-md text-slate-500 hover:bg-slate-100" id="mobile-menu-close" type="button"><svg aria-hidden="true" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg></button></div>
-<form class="mt-5 flex h-10" role="search"><label class="sr-only" for="mobile-site-search">站内搜索</label><input class="min-w-0 flex-1 rounded-l-md border border-slate-200 px-3 text-sm text-slate-700 placeholder:text-slate-400 focus:border-visa-blue focus:ring-visa-blue" id="mobile-site-search" name="q" placeholder="搜索签证服务、通知等" type="search"><button class="rounded-r-md bg-visa-blue px-3 text-sm font-medium text-white" type="submit">搜索</button></form>
-<div class="my-5 border-t border-slate-200"></div>
-<a class="block rounded-md bg-visa-blue px-4 py-3 text-center text-base font-medium text-white" href="#">注册 / 登录</a>
-<a class="mt-1 block rounded-md px-4 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-visa-blue" href="#">切换中心</a>
-<details class="group mt-1"><summary class="flex cursor-pointer list-none items-center justify-between rounded-md px-4 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-visa-blue">中文<svg aria-hidden="true" class="h-4 w-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></summary><div class="ml-4 border-l border-slate-200 py-1"><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">中文</a><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">English</a></div></details>
-<div class="my-5 border-t border-slate-200"></div>
-<nav class="space-y-1 text-base">
-<a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">首页</a>
-<details class="group" open><summary class="flex cursor-pointer list-none items-center justify-between rounded-md px-3 py-2.5 font-medium text-visa-blue hover:bg-blue-50">签证服务<svg aria-hidden="true" class="h-4 w-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></summary><div class="ml-3 border-l border-slate-200 py-1"><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">签证类型及材料清单</a><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">费用标准</a><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">申请表样例</a><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">资料下载</a><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">在华证件办理</a><a class="block px-3 py-2 text-base leading-6 text-slate-600 hover:text-visa-blue" href="#">常见问题</a></div></details>
-<a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">认证服务</a><a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">延伸服务</a><a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">通知</a>
-<div class="my-3 border-t border-slate-200"></div>
-<a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">酒店</a><a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">机票</a><a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">其他交通</a><a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">体验/门票</a><a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">定制游</a><a class="block rounded-md px-3 py-2.5 font-medium text-visa-sidebar-text hover:bg-slate-50" href="#">旅行保险</a>
-</nav>
-</aside>
-</div>
+<header></header>
 <div class="flex w-full main-height lg:h-[calc(100vh-60px)] lg:overflow-hidden">
-<aside class="hidden w-[200px] shrink-0 flex-col border-r border-visa-border py-8 lg:flex lg:h-full lg:overflow-y-auto">
-<nav class="space-y-1">
-<div class="flex flex-col mb-8">
-<a class="px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#">首页</a>
-<div>
-<button aria-controls="visa-service-submenu" aria-expanded="true" aria-label="收起签证服务子菜单" class="flex w-full items-center justify-between px-8 py-3 text-sm font-medium text-visa-blue transition-colors hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-visa-blue" id="visa-service-toggle" type="button">
-<span>签证服务</span>
-<svg aria-hidden="true" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
-</button>
-<ul class="mb-2 ml-8 border-l border-slate-200" id="visa-service-submenu">
-<li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">签证类型及材料清单</a></li>
-<li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">费用标准</a></li>
-<li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">申请表样例</a></li>
-<li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">资料下载</a></li>
-<li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">在华证件办理</a></li>
-<li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">常见问题</a></li>
-</ul>
-</div>
-<div>
-<button aria-controls="authentication-service-submenu" aria-expanded="false" aria-label="展开认证服务子菜单" class="flex w-full items-center justify-between px-8 py-3 text-sm font-medium text-visa-sidebar-text transition-colors hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-visa-blue" id="authentication-service-toggle" type="button"><span>认证服务</span><svg aria-hidden="true" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></button>
-<ul class="hidden mb-2 ml-8 border-l border-slate-200" id="authentication-service-submenu"><li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">认证类型及材料清单</a></li><li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">费用标准</a></li><li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">填写样例</a></li><li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">资料下载</a></li><li><a class="block px-4 py-2 text-sm leading-4 text-visa-sidebar-text transition-colors hover:bg-gray-50 hover:text-visa-blue" href="#">常见问题</a></li></ul>
-</div>
-<a class="px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#">延伸服务</a>
-<a class="px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#">通知</a>
-</div>
-<div class="mx-8 border-t border-gray-100 mb-8"></div>
-<div class="flex flex-col">
-<a class="flex items-center gap-2 px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#"><svg data-service-icon="hotel" aria-hidden="true" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M5 21V4h10v17M5 8h10M9 4v4M8 12h2M8 16h2M15 21V10h4v11M3 21h18"/></svg>酒店</a>
-<a class="flex items-center gap-2 px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#"><svg data-service-icon="flight" aria-hidden="true" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m3 11 18-5-6 5 4 7-2.5.7-5-5-3.5 4.5-2-.7 1.5-5.5L3 13v-2Z"/></svg>机票</a>
-<a class="flex items-center gap-2 px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#"><svg data-service-icon="transport" aria-hidden="true" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect x="4" y="4" width="16" height="15" rx="3"/><path d="M7 19v2M17 19v2M7 9h10M8 14h.01M16 14h.01"/></svg>其他交通</a>
-<a class="flex items-center gap-2 px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#"><svg data-service-icon="ticket" aria-hidden="true" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 7a2 2 0 0 0 2 2v6a2 2 0 0 0-2 2v1h16v-1a2 2 0 0 0-2-2V9a2 2 0 0 0 2-2V6H4v1ZM12 6v12"/></svg>体验/门票</a>
-<a class="flex items-center gap-2 px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#"><svg data-service-icon="custom-tour" aria-hidden="true" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m12 3 2.5 5.5L20 9l-4 4 1 5.5-5-2.8-5 2.8L8 13 4 9l5.5-.5L12 3Z"/></svg>定制游</a>
-<a class="flex items-center gap-2 px-8 py-3 text-sm font-medium text-visa-sidebar-text hover:bg-gray-50 transition-colors" href="#"><svg data-service-icon="insurance" aria-hidden="true" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 3c3 3.4 5 6.2 5 9a5 5 0 1 1-10 0c0-2.8 2-5.6 5-9ZM4 13.5h16"/></svg>旅行保险</a>
-</div>
-</nav>
-</aside>
-<main class="hidden" aria-hidden="true">
-<div class="flex w-full max-w-[1500px] flex-col gap-4 px-4 pb-8 pt-4 min-[1800px]:flex-row min-[1800px]:gap-5 min-[1800px]:px-[20px] min-[1800px]:pb-12 min-[1800px]:pt-[25px]">
-<section class="flex w-full flex-col overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-sm min-[1800px]:w-[1090px]" data-purpose="main-blank-area">
-<div class="flex-1 px-4 py-5 sm:px-6 sm:py-6 lg:px-10 lg:py-8">
-<div class="w-full">
-<div class="flex flex-col items-start gap-3 border-b border-slate-100 pb-5 sm:flex-row sm:items-end sm:justify-between">
-<div>
-  <p class="text-xs font-bold tracking-[0.2em] text-visa-blue/90 uppercase">Visa Service</p>
-  <h2 class="mt-1.5 text-2xl font-bold tracking-tight text-slate-900">签证类型及材料清单</h2>
-</div>
-<a class="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-md shadow-blue-500/10 transition-all duration-150 transform active:scale-[0.98] flex items-center gap-2" href="online form guide.html">
-      在线填表
-</a>
-</div>
-<p class="mt-4 text-sm leading-6 text-slate-500">请根据赴华主要目的查阅相应签证种类及适用说明。</p>
-<div class="mt-6 overflow-hidden rounded-xl border border-slate-200/70 bg-white lg:hidden">
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（L）旅游</p><p class="mt-1 text-sm leading-5 text-slate-500">个人旅游；团体旅游。</p></a>
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（F）交流、访问、考察等</p><p class="mt-1 text-sm leading-5 text-slate-500">学术、文化、宗教、非政府组织等交流活动；不超过 90 日的志愿服务及其他相关事项。</p></a>
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（M）商业贸易活动</p><p class="mt-1 text-sm leading-5 text-slate-500">贸易活动、参加比赛及其他商业活动。</p></a>
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（Q1）家庭成员或亲属（超过180日）</p><p class="mt-1 text-sm leading-5 text-slate-500">中国公民或具有中国永久居留资格的外国人的家庭成员、亲属等申请入境居留。</p></a>
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（Q2）家庭成员或亲属（不超过180日）</p><p class="mt-1 text-sm leading-5 text-slate-500">入境短期探亲的中国公民亲属或具有中国永久居留资格的外国人亲属。</p></a>
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（S1）私人事务（超过180日）</p><p class="mt-1 text-sm leading-5 text-slate-500">因工作、学习等在华居留外国人的家庭成员及其他需长期停留人员。</p></a>
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（S2）私人事务（不超过180日）</p><p class="mt-1 text-sm leading-5 text-slate-500">因工作、学习等在华居留外国人的家庭成员及其他需短期停留人员。</p></a>
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（Z）工作</p><p class="mt-1 text-sm leading-5 text-slate-500">入境工作的外国专家、营业性演出人员、驻华代表机构代表及其他取得工作许可人员。</p></a>
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（X1）长期学习（超过180日）</p><p class="mt-1 text-sm leading-5 text-slate-500">长期学习人员。</p></a>
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（X2）短期学习（不超过180日）</p><p class="mt-1 text-sm leading-5 text-slate-500">短期学习人员。</p></a>
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（J1）外国常驻记者</p><p class="mt-1 text-sm leading-5 text-slate-500">外国常驻中国新闻机构的外国常驻记者。</p></a>
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（J2）短期采访报道</p><p class="mt-1 text-sm leading-5 text-slate-500">入境进行短期采访报道的外国记者。</p></a>
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（C）乘务</p><p class="mt-1 text-sm leading-5 text-slate-500">国际列车、航空器、国际航行船舶及国际道路运输从业人员。</p></a>
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（G）过境</p><p class="mt-1 text-sm leading-5 text-slate-500">经中国过境。</p></a>
-<a class="block border-b border-slate-100 px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（D）永久居留</p><p class="mt-1 text-sm leading-5 text-slate-500">入境永久居留人员。</p></a>
-<a class="block px-4 py-4 transition-colors hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-visa-blue" href="#"><p class="text-sm font-semibold text-slate-900">（R）人才</p><p class="mt-1 text-sm leading-5 text-slate-500">国家需要的外国高层次人才和急需紧缺专门人才。</p></a>
-</div>
-<div class="mt-6 hidden overflow-x-auto rounded-xl border border-slate-200/70 bg-white shadow-inner lg:block">
-<table class="min-w-[720px] w-full table-fixed border-collapse text-left text-sm" id="visa-article-table">
-<thead class="bg-slate-50 text-slate-600 border-b border-slate-200/70">
-  <tr>
-    <th class="w-[280px] px-6 py-4 font-semibold tracking-wide">赴华主要目的</th>
-    <th class="w-[110px] px-4 py-4 font-semibold tracking-wide text-center">签证类别</th>
-    <th class="px-6 py-4 font-semibold tracking-wide">适用说明</th>
-  </tr>
-</thead>
-<tbody class="divide-y divide-slate-100 text-slate-600">
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（L）旅游</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">L</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">个人旅游；团体旅游。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（F）交流、访问、考察等</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">F</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">学术、文化、宗教、非政府组织等交流活动；不超过 90 日的志愿服务及其他相关事项。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（M）商业贸易活动</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">M</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">贸易活动、参加比赛及其他商业活动。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（Q1）家庭成员或亲属（超过180日）</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">Q1</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">中国公民或具有中国永久居留资格的外国人的家庭成员、亲属等申请入境居留。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（Q2）家庭成员或亲属（不超过180日）</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">Q2</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">入境短期探亲的中国公民亲属或具有中国永久居留资格的外国人亲属。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（S1）私人事务（超过180日）</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">S1</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">因工作、学习等在华居留外国人的家庭成员及其他需长期停留人员。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（S2）私人事务（不超过180日）</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">S2</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">因工作、学习等在华居留外国人的家庭成员及其他需短期停留人员。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（Z）工作</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">Z</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">入境工作的外国专家、营业性演出人员、驻华代表机构代表及其他取得工作许可人员。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（X1）长期学习（超过180日）</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">X1</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">长期学习人员。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（X2）短期学习（不超过180日）</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">X2</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">短期学习人员。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（J1）外国常驻记者</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">J1</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">外国常驻中国新闻机构的外国常驻记者。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（J2）短期采访报道</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">J2</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">入境进行短期采访报道的外国记者。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（C）乘务</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">C</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">国际列车、航空器、国际航行船舶及国际道路运输从业人员。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（G）过境</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">G</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">经中国过境。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（D）永久居留</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">D</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">入境永久居留人员。</td>
-</tr>
-<tr class="bg-white">
-  <td class="px-6 py-4 font-medium text-slate-800">（R）人才</td>
-  <td class="px-4 py-4 text-center"><span class="inline-flex items-center justify-center w-10 h-6 bg-blue-50 text-visa-blue text-xs font-bold rounded-md border border-blue-100 shadow-sm">R</span></td>
-  <td class="px-6 py-4 leading-6 text-slate-500">国家需要的外国高层次人才和急需紧缺专门人才。</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section>
-<aside class="hidden w-[320px] shrink-0 self-start overflow-hidden rounded-xl border border-slate-200/60 bg-white shadow-sm min-[1800px]:block" data-purpose="right-banner-area">
-<img class="h-auto w-full object-cover object-center transition-transform duration-700 hover:scale-105" src="images/beautiful-china-temple.png" alt="美丽中国——天坛">
-</aside>
-</div>
-</main>
+<aside></aside>
 <main class="min-w-0 flex-1 bg-white lg:h-full lg:overflow-y-auto">
 <div class="mx-auto w-full max-w-[1824px] px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
 <nav aria-label="面包屑导航" class="mx-auto flex max-w-[1200px] items-center gap-2 overflow-x-auto whitespace-nowrap text-sm text-slate-500 sm:mb-10"><a class="transition-colors hover:text-visa-blue" href="index.html">首页</a><span>/</span><a class="transition-colors hover:text-visa-blue" href="#">通知</a><span>/</span><span class="font-medium text-slate-800">2026年中国签证申请最新指南</span></nav>
@@ -248,7 +38,7 @@
 <p class="mb-5">根据您的出行目的，选择合适的签证类型是申请的第一步。以下是常见签证类型及其适用场景：</p>
 <ul class="mb-6 list-disc space-y-3 pl-6"><li><strong>旅游签证（L签）</strong>——适用于赴华旅游、探亲或短期私人事务。</li><li><strong>商务签证（M签）</strong>——适用于赴华从事商业贸易活动。</li><li><strong>探亲签证（Q2签）</strong>——适用于赴华探望在中国境内居住的中国公民或永久居留外国人。</li><li><strong>工作签证（Z签）</strong>——适用于赴华工作，需提供相应工作许可材料。</li></ul>
 <aside class="my-8 rounded-xl border border-blue-100 bg-blue-50 p-5 text-slate-700 sm:p-6"><h3 class="text-base font-bold text-visa-blue">重要提示</h3><p class="mt-2 text-sm leading-6 sm:text-base">签证类型的选择直接影响您的入境许可和停留期限。如不确定应申请哪类签证，建议先通过签证中心人工咨询服务确认。</p></aside>
-<div class="my-10 overflow-hidden rounded-xl"><img class="h-auto w-full object-cover" src="images/Bcang.jpg" alt="签证服务推广"></div>
+<div class="my-10 relative overflow-hidden rounded-xl"><span style="position:absolute;top:16px;right:14px;display:grid;min-width:49px;height:27px;place-items:center;border-radius:14px;background:rgba(22,24,29,.88);color:#fff;font:700 12px/1 Arial,sans-serif;">AD</span><img class="h-auto w-full object-cover" src="images/Bcang.jpg" alt="签证服务推广"></div>
 <h2 class="mb-4 mt-10 border-b-2 border-blue-100 pb-2 text-xl font-bold text-visa-blue sm:text-2xl">三、结语</h2><p>2026年的签证政策整体呈现便利化、数字化趋势。提前了解最新政策、准备齐全材料、善用签证中心的便捷服务，能让申请过程更加顺畅高效。</p>
 </div>
 <div class="mt-10 border-t border-slate-200 pt-6"><div class="flex flex-wrap gap-2"><span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600">中国签证</span><span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600">签证指南</span><span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600">2026新政</span><span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600">旅行贴士</span></div></div>
@@ -257,64 +47,5 @@
 </div>
 </main>
 </div>
-<script>
-  const visaServiceToggle = document.getElementById('visa-service-toggle');
-  const visaServiceSubmenu = document.getElementById('visa-service-submenu');
 
-  visaServiceToggle.addEventListener('click', () => {
-    const isExpanded = visaServiceToggle.getAttribute('aria-expanded') === 'true';
-    visaServiceToggle.setAttribute('aria-expanded', String(!isExpanded));
-    visaServiceToggle.setAttribute('aria-label', isExpanded ? '展开签证服务子菜单' : '收起签证服务子菜单');
-  visaServiceSubmenu.classList.toggle('hidden', isExpanded);
-  });
-
-  const authenticationServiceToggle = document.getElementById('authentication-service-toggle');
-  const authenticationServiceSubmenu = document.getElementById('authentication-service-submenu');
-  authenticationServiceToggle.addEventListener('click', () => {
-    const isExpanded = authenticationServiceToggle.getAttribute('aria-expanded') === 'true';
-    authenticationServiceToggle.setAttribute('aria-expanded', String(!isExpanded));
-    authenticationServiceToggle.setAttribute('aria-label', isExpanded ? '展开认证服务子菜单' : '收起认证服务子菜单');
-    authenticationServiceSubmenu.classList.toggle('hidden', isExpanded);
-  });
-
-  const sidebarIcons = {
-    '签证服务': '<path d="M4 4.75A2.75 2.75 0 0 1 6.75 2h10.5A2.75 2.75 0 0 1 20 4.75v14.5a2.75 2.75 0 0 1-2.75 2.75H6.75A2.75 2.75 0 0 1 4 19.25V4.75Z"/><path d="M8 7h8M8 11h8M8 15h4"/><path d="m14.5 18 4-4"/>',
-    '认证服务': '<path d="M12 3 4.5 6.5V12c0 4.7 3.1 7.9 7.5 9 4.4-1.1 7.5-4.3 7.5-9V6.5L12 3Z"/><path d="m9 12 2 2 4-4"/>',
-    '延伸服务': '<rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/>',
-    '酒店': '<path d="M5 21V4h10v17M5 8h10M9 4v4M8 12h2M8 16h2M15 21V10h4v11"/><path d="M3 21h18"/>',
-    '机票': '<path d="m3 11 18-5-6 5 4 7-2.5.7-5-5-3.5 4.5-2-.7 1.5-5.5L3 13v-2Z"/>',
-    '其他交通': '<rect x="4" y="4" width="16" height="15" rx="3"/><path d="M7 19v2M17 19v2M7 9h10M8 14h.01M16 14h.01"/>',
-    '体验/门票': '<path d="M4 7a2 2 0 0 0 2 2v6a2 2 0 0 0-2 2v1h16v-1a2 2 0 0 0-2-2V9a2 2 0 0 0 2-2V6H4v1Z"/><path d="M12 6v12"/>',
-    '定制游': '<path d="m12 3 2.5 5.5L20 9l-4 4 1 5.5-5-2.8-5 2.8L8 13 4 9l5.5-.5L12 3Z"/>',
-    '旅行保险': '<path d="M12 3c3 3.4 5 6.2 5 9a5 5 0 1 1-10 0c0-2.8 2-5.6 5-9Z"/><path d="M4 13.5h16"/>'
-  };
-  const iconTemplate = (paths) => `<svg aria-hidden="true" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">${paths}</svg>`;
-  document.querySelectorAll('aside a, aside button').forEach((item) => {
-    const label = item.textContent.trim();
-    if (!sidebarIcons[label] || item.dataset.sidebarIcon || item.querySelector('[data-service-icon]')) return;
-    item.dataset.sidebarIcon = 'true';
-    item.classList.add('flex', 'items-center', 'gap-2');
-    const icon = document.createRange().createContextualFragment(iconTemplate(sidebarIcons[label]));
-    item.insertBefore(icon, item.firstChild);
-  });
-
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-  const mobileMenuClose = document.getElementById('mobile-menu-close');
-  const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
-
-  const setMobileMenu = (isOpen) => {
-    mobileMenu.classList.toggle('hidden', !isOpen);
-    mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
-    mobileMenuToggle.setAttribute('aria-label', isOpen ? '关闭菜单' : '打开菜单');
-    document.body.classList.toggle('overflow-hidden', isOpen);
-  };
-
-  mobileMenuToggle.addEventListener('click', () => setMobileMenu(mobileMenu.classList.contains('hidden')));
-  mobileMenuClose.addEventListener('click', () => setMobileMenu(false));
-  mobileMenuBackdrop.addEventListener('click', () => setMobileMenu(false));
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) setMobileMenu(false);
-  });
-</script>
 </body></html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>搜索结果 - 中国签证申请服务中心</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="shared-layout.js?v=mock-auth-20260724" defer></script>
+<script src="footer.js?v=about-link-20260724" defer></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'visa-blue': '#0756ad',
+            'visa-navy': '#07316c',
+            'visa-gold': '#f2b900',
+            'visa-sidebar-text': '#333333',
+            'visa-border': '#e5e7eb',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="site-common.css?v=mock-auth-20260724">
+</head>
+<body class="font-sans antialiased text-slate-900">
+<header></header>
+<div class="flex w-full main-height lg:h-[calc(100vh-60px)] lg:overflow-hidden">
+<aside></aside>
+<main class="min-w-0 flex-1 bg-white lg:h-full lg:overflow-y-auto">
+<div class="mx-auto w-full max-w-[1500px] px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+<section class="mx-auto max-w-[1200px]">
+
+  <!-- 标题 + 搜索框 -->
+  <div class="border-b-2 border-blue-100 pb-6">
+    <h1 class="text-2xl font-extrabold tracking-tight text-visa-blue sm:text-3xl">搜索</h1>
+    <p class="mt-2 text-sm leading-6 text-slate-500">查找签证服务、办理指南、通知公告与常见问题</p>
+
+    <form id="search-form" class="mt-5 flex gap-2" role="search">
+      <div class="relative flex-1">
+        <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"></circle><path stroke-linecap="round" d="m20 20-3.5-3.5"></path>
+          </svg>
+        </span>
+        <input id="search-input" type="search" name="q" autocomplete="off"
+          class="w-full rounded-md border border-slate-300 bg-white py-2.5 pl-10 pr-3 text-sm text-slate-800 outline-none transition-colors placeholder:text-slate-400 focus:border-visa-blue focus:ring-1 focus:ring-visa-blue"
+          placeholder="输入关键词，如：旅游签证、材料、进度查询">
+      </div>
+      <button type="submit"
+        class="shrink-0 rounded-md bg-visa-blue px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-visa-navy">
+        搜索
+      </button>
+    </form>
+  </div>
+
+  <!-- 结果统计 -->
+  <p id="result-count" class="mt-5 text-sm text-slate-500">正在加载结果…</p>
+
+  <!-- 结果列表 -->
+  <div id="result-list" class="mt-2 divide-y divide-slate-100">
+
+    <a class="group block py-5" href="article.html" data-keywords="旅游签证 L签 个人旅游 办理">
+      <h2 class="text-lg font-medium text-visa-blue transition-colors group-hover:underline">如何办理中国旅游签证（L 签）</h2>
+      <p class="mt-1 flex flex-wrap items-center gap-x-2 text-xs text-emerald-700">
+        <span>visaforchina.cn/sgp/guide/tourist-l</span><span class="text-slate-300">·</span><span class="text-slate-400">2025-03-12</span>
+      </p>
+      <p class="mt-1.5 line-clamp-2 text-sm leading-6 text-slate-600">介绍个人旅游 L 签的申请条件、所需材料、线上递交与线下取证的完整流程，帮助首次申请人快速上手。</p>
+      <span class="mt-2 inline-block rounded bg-blue-50 px-2 py-0.5 text-xs font-medium text-visa-blue">签证指南</span>
+    </a>
+
+    <a class="group block py-5" href="article.html" data-keywords="材料 清单 原件 复印件 照片 准备">
+      <h2 class="text-lg font-medium text-visa-blue transition-colors group-hover:underline">签证申请材料递交注意事项</h2>
+      <p class="mt-1 flex flex-wrap items-center gap-x-2 text-xs text-emerald-700">
+        <span>visaforchina.cn/sgp/notice/materials</span><span class="text-slate-300">·</span><span class="text-slate-400">2025-11-18</span>
+      </p>
+      <p class="mt-1.5 line-clamp-2 text-sm leading-6 text-slate-600">请按要求准备申请表、护照原件与复印件、照片及线上审核通过后的确认材料，避免因材料不全被退回。</p>
+      <span class="mt-2 inline-block rounded bg-blue-50 px-2 py-0.5 text-xs font-medium text-visa-blue">通知公告</span>
+    </a>
+
+    <a class="group block py-5" href="article.html" data-keywords="进度 查询 办理状态 凭证 受理">
+      <h2 class="text-lg font-medium text-visa-blue transition-colors group-hover:underline">申请进度查询服务更新</h2>
+      <p class="mt-1 flex flex-wrap items-center gap-x-2 text-xs text-emerald-700">
+        <span>visaforchina.cn/sgp/service/track</span><span class="text-slate-300">·</span><span class="text-slate-400">2025-01-08</span>
+      </p>
+      <p class="mt-1.5 line-clamp-2 text-sm leading-6 text-slate-600">线上查询入口已更新，请使用申请凭证中的受理编号查询办理进度，结果实时同步至中心系统。</p>
+      <span class="mt-2 inline-block rounded bg-blue-50 px-2 py-0.5 text-xs font-medium text-visa-blue">在线服务</span>
+    </a>
+
+    <a class="group block py-5" href="article.html" data-keywords="放假 节假日 安排 休馆 2026">
+      <h2 class="text-lg font-medium text-visa-blue transition-colors group-hover:underline">2026 年全年放假通知</h2>
+      <p class="mt-1 flex flex-wrap items-center gap-x-2 text-xs text-emerald-700">
+        <span>visaforchina.cn/sgp/notice/holiday-2026</span><span class="text-slate-300">·</span><span class="text-slate-400">2025-12-31</span>
+      </p>
+      <p class="mt-1.5 line-clamp-2 text-sm leading-6 text-slate-600">请提前查阅全年节假日与休馆安排，合理规划材料递交与取证时间，避开假期前后的办证高峰。</p>
+      <span class="mt-2 inline-block rounded bg-blue-50 px-2 py-0.5 text-xs font-medium text-visa-blue">通知公告</span>
+    </a>
+
+    <a class="group block py-5" href="article.html" data-keywords="认证 文书 公证书 领事 代办">
+      <h2 class="text-lg font-medium text-visa-blue transition-colors group-hover:underline">领事认证服务办理说明</h2>
+      <p class="mt-1 flex flex-wrap items-center gap-x-2 text-xs text-emerald-700">
+        <span>visaforchina.cn/sgp/service/legalisation</span><span class="text-slate-300">·</span><span class="text-slate-400">2025-06-20</span>
+      </p>
+      <p class="mt-1.5 line-clamp-2 text-sm leading-6 text-slate-600">提供公证书、商业文书等文件的领事认证代办，说明受理范围、所需证明及办理时限。</p>
+      <span class="mt-2 inline-block rounded bg-blue-50 px-2 py-0.5 text-xs font-medium text-visa-blue">延伸服务</span>
+    </a>
+
+    <a class="group block py-5" href="article.html" data-keywords="外籍佣工 S2 随行 家属 探亲">
+      <h2 class="text-lg font-medium text-visa-blue transition-colors group-hover:underline">请为随行的外籍佣工申请 S2 签证</h2>
+      <p class="mt-1 flex flex-wrap items-center gap-x-2 text-xs text-emerald-700">
+        <span>visaforchina.cn/sgp/guide/s2-domestic</span><span class="text-slate-300">·</span><span class="text-slate-400">2024-09-22</span>
+      </p>
+      <p class="mt-1.5 line-clamp-2 text-sm leading-6 text-slate-600">为随行外籍佣工申请签证时，请选择对应的 S2 签证类型，并准备雇佣关系与雇主签证相关材料。</p>
+      <span class="mt-2 inline-block rounded bg-blue-50 px-2 py-0.5 text-xs font-medium text-visa-blue">签证指南</span>
+    </a>
+
+    <a class="group block py-5" href="article.html" data-keywords="费用 收费 标准 支付 缴费">
+      <h2 class="text-lg font-medium text-visa-blue transition-colors group-hover:underline">签证中心服务费用调整说明</h2>
+      <p class="mt-1 flex flex-wrap items-center gap-x-2 text-xs text-emerald-700">
+        <span>visaforchina.cn/sgp/notice/fee</span><span class="text-slate-300">·</span><span class="text-slate-400">2025-03-12</span>
+      </p>
+      <p class="mt-1.5 line-clamp-2 text-sm leading-6 text-slate-600">请在提交申请前核对最新服务费用、支付方式及相应凭证要求，费用以受理当日公示标准为准。</p>
+      <span class="mt-2 inline-block rounded bg-blue-50 px-2 py-0.5 text-xs font-medium text-visa-blue">通知公告</span>
+    </a>
+
+    <a class="group block py-5" href="article.html" data-keywords="线上 递交 第一步 申请 预约">
+      <h2 class="text-lg font-medium text-visa-blue transition-colors group-hover:underline">申请第一步：线上递交申请</h2>
+      <p class="mt-1 flex flex-wrap items-center gap-x-2 text-xs text-emerald-700">
+        <span>visaforchina.cn/sgp/guide/step1</span><span class="text-slate-300">·</span><span class="text-slate-400">2024-10-25</span>
+      </p>
+      <p class="mt-1.5 line-clamp-2 text-sm leading-6 text-slate-600">请确保选择正确的申请地址，注册账号并在线填写申请表、上传材料，等待中心审核通过。</p>
+      <span class="mt-2 inline-block rounded bg-blue-50 px-2 py-0.5 text-xs font-medium text-visa-blue">签证指南</span>
+    </a>
+
+    <a class="group block py-5" href="article.html" data-keywords="取证 线下 递交 二三步 缴费">
+      <h2 class="text-lg font-medium text-visa-blue transition-colors group-hover:underline">申请第二、三步：线下递交与取证</h2>
+      <p class="mt-1 flex flex-wrap items-center gap-x-2 text-xs text-emerald-700">
+        <span>visaforchina.cn/sgp/guide/step2-3</span><span class="text-slate-300">·</span><span class="text-slate-400">2024-10-25</span>
+      </p>
+      <p class="mt-1.5 line-clamp-2 text-sm leading-6 text-slate-600">线上审核通过后，到签证中心递交材料、交费并按通知时间前来取证，支持本人或委托代取。</p>
+      <span class="mt-2 inline-block rounded bg-blue-50 px-2 py-0.5 text-xs font-medium text-visa-blue">签证指南</span>
+    </a>
+
+    <a class="group block py-5" href="article.html" data-keywords="受理时间 办理 时长 预留 出行">
+      <h2 class="text-lg font-medium text-visa-blue transition-colors group-hover:underline">关于签证申请受理时间的说明</h2>
+      <p class="mt-1 flex flex-wrap items-center gap-x-2 text-xs text-emerald-700">
+        <span>visaforchina.cn/sgp/notice/processing</span><span class="text-slate-300">·</span><span class="text-slate-400">2025-08-15</span>
+      </p>
+      <p class="mt-1.5 line-clamp-2 text-sm leading-6 text-slate-600">申请人请根据出行计划预留合理办理时间，避免临近出行集中递交，以免耽误行程。</p>
+      <span class="mt-2 inline-block rounded bg-blue-50 px-2 py-0.5 text-xs font-medium text-visa-blue">通知公告</span>
+    </a>
+
+  </div>
+
+  <!-- 分页 -->
+  <div class="mt-8 flex flex-col items-center justify-between gap-4 text-sm text-slate-500 sm:flex-row">
+    <span id="page-info">共 10 条 · 1 页</span>
+    <div class="flex gap-2">
+      <button class="rounded-md border border-slate-200 px-3 py-1.5 hover:bg-slate-50" type="button">上一页</button>
+      <button class="rounded-md bg-visa-blue px-3 py-1.5 text-white" type="button">1</button>
+      <button class="rounded-md border border-slate-200 px-3 py-1.5 hover:bg-slate-50" type="button">2</button>
+      <button class="rounded-md border border-slate-200 px-3 py-1.5 hover:bg-slate-50" type="button">下一页</button>
+    </div>
+  </div>
+
+</section>
+</div>
+</main>
+</div>
+
+<script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const input = document.getElementById('search-input');
+    const list = document.getElementById('result-list');
+    const countEl = document.getElementById('result-count');
+    const pageInfo = document.getElementById('page-info');
+    const items = Array.from(list.querySelectorAll('a[data-keywords]'));
+    const TOTAL = items.length;
+
+    function filter(q) {
+      const kw = (q || '').trim().toLowerCase();
+      let matched = 0;
+      items.forEach(function (el) {
+        const hay = (el.dataset.keywords + ' ' + el.textContent).toLowerCase();
+        const show = !kw || hay.includes(kw);
+        el.style.display = show ? '' : 'none';
+        if (show) matched++;
+      });
+      if (kw) {
+        countEl.textContent = '约 ' + matched + ' 条与 “' + q.trim() + '” 相关的结果';
+        pageInfo.textContent = '共 ' + matched + ' 条 · 1 页';
+      } else {
+        countEl.textContent = '共 ' + TOTAL + ' 条结果';
+        pageInfo.textContent = '共 ' + TOTAL + ' 条 · 1 页';
+      }
+    }
+
+    // 初始化：读取 URL 中的 q 参数
+    const initial = params.get('q') || '';
+    input.value = initial;
+    filter(initial);
+
+    // 提交搜索
+    document.getElementById('search-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const q = input.value;
+      const newUrl = new URL(window.location.href);
+      if (q.trim()) newUrl.searchParams.set('q', q.trim());
+      else newUrl.searchParams.delete('q');
+      window.history.replaceState({}, '', newUrl);
+      filter(q);
+    });
+  })();
+</script>
+</body></html>

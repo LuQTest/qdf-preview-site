@@ -112,6 +112,7 @@ body {
 }
 .shared-v4-location svg { width: 24px; height: 24px; fill: none; stroke: #0756ad; stroke-width: 1.9; }
 .shared-v4-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.shared-v4-auth-actions { display: flex; align-items: center; gap: 6px; }
 .shared-v4-search { display: flex; width: 322px; height: 36px; }
 .shared-v4-search input {
   min-width: 0;
@@ -147,6 +148,59 @@ body {
   font-weight: 700;
 }
 .shared-v4-login:hover { background: #003d8f; }
+.shared-v4-account,
+.shared-v4-logout {
+  display: grid;
+  height: 36px;
+  place-items: center;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.shared-v4-account {
+  min-width: 78px;
+  padding: 0 12px;
+  background: #0756ad;
+  color: #fff;
+}
+.shared-v4-account:hover { background: #003d8f; }
+.shared-v4-logout {
+  min-width: 54px;
+  padding: 0 10px;
+  border: 1px solid #0756ad;
+  background: #fff;
+  color: #0756ad;
+}
+.shared-v4-logout:hover {
+  background: #eef5ff;
+  color: #003d8f;
+}
+.shared-v4-mobile-auth.is-logged-in {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .72fr);
+  gap: 8px;
+}
+.shared-v4-mobile-account,
+.shared-v4-mobile-logout {
+  min-height: 48px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.shared-v4-mobile-account {
+  display: grid;
+  place-items: center;
+  padding: 10px 14px;
+  background: #0756ad;
+  color: #fff;
+}
+.shared-v4-mobile-logout {
+  border: 1px solid #0756ad;
+  background: #fff;
+  color: #0756ad;
+}
 .shared-v4-menu-button {
   display: none;
   width: 42px;
@@ -204,6 +258,17 @@ body {
   cursor: pointer;
 }
 .shared-v4-nav-row > span:last-child { margin-left: auto; }
+.shared-v4-truncate-item {
+  min-width: 0;
+  overflow: hidden;
+}
+.shared-v4-truncate-item .shared-v4-nav-label {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .shared-v4-nav-row:hover,
 .shared-v4-nav-row.is-active { background: #e9effa; color: #0756ad; }
 .shared-v4-sidebar svg { width: 17px; height: 17px; color: #536071; }

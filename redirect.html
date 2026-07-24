@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaving Visa for China Website</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'visa-navy': '#07316c',
+            'visa-blue': '#0756ad',
+            'visa-gold': '#f2b900',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    }
+    .btn-primary {
+      background-color: #0756ad;
+    }
+    .btn-primary:hover {
+      background-color: #07316c;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center bg-slate-50 px-4 py-10">
+
+  <!-- Logo -->
+  <a href="index.html" class="mb-8">
+    <img src="images/logo5.png" alt="中国签证申请服务中心" class="h-12 w-auto object-contain">
+  </a>
+
+  <!-- Card -->
+  <main class="w-full max-w-[560px] rounded-xl bg-white p-8 shadow-[0_8px_30px_rgba(7,49,108,0.08)] sm:p-10">
+    <h1 class="text-2xl font-bold leading-snug text-slate-800">
+      Are you sure you want to leave the Visa for China website?
+    </h1>
+
+    <p class="mt-4 text-base leading-relaxed text-slate-600">
+      You are about to leave the Visa for China website. Are you sure you want to continue?
+    </p>
+
+    <div class="mt-6">
+      <p class="text-sm text-slate-500">Link Address:</p>
+      <p id="target-url" class="mt-1 break-all text-sm font-medium text-slate-700">
+        https://www.example.com/
+      </p>
+    </div>
+
+    <hr class="my-8 border-slate-100" />
+
+    <div class="flex justify-end">
+      <a id="continue-btn" href="#" rel="noopener noreferrer"
+         class="btn-primary inline-flex items-center justify-center rounded-md px-8 py-3 text-base font-semibold text-white transition-colors">
+        Continue Visit
+      </a>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const target = params.get('target') || 'https://www.example.com/';
+      const displayUrl = document.getElementById('target-url');
+      const continueBtn = document.getElementById('continue-btn');
+
+      displayUrl.textContent = target;
+      continueBtn.href = target;
+
+      // 若目标地址不合法，保持按钮显示但 href 不跳转
+      if (!target.trim()) {
+        displayUrl.textContent = '（未指定外链地址）';
+        continueBtn.href = '#';
+        continueBtn.classList.add('pointer-events-none', 'opacity-60');
+      }
+    })();
+  </script>
+</body>
+</html>

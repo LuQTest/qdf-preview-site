@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>关于我们 - 中国签证申请服务中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'visa-blue': '#0756ad',
+            'visa-navy': '#07316c',
+            'visa-gold': '#f2b900',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="site-common.css?v=mock-auth-20260724">
+  <style>
+    body {
+      font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    }
+    /* 关于我们侧栏：移动端横向标签条 / 桌面端纵向卡片 */
+    .about-sidebar {
+      width: 100%;
+      flex-shrink: 0;
+    }
+    /* 移动端：横向可滚动标签栏 */
+    .about-sidebar-header { display: none; }
+    .about-sidebar-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 8px;
+    }
+    .about-sidebar-nav::-webkit-scrollbar { display: none; }
+    .about-sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      padding: 9px 14px;
+      font-size: 14px;
+      color: #475569;
+      border-radius: 8px;
+      transition: background .15s, color .15s;
+    }
+    .about-sidebar-nav svg {
+      width: 18px;
+      height: 18px;
+      color: #94a3b8;
+      flex-shrink: 0;
+      transition: color .15s;
+    }
+    .about-sidebar-nav a:hover { background: #f0f7ff; color: #0756ad; }
+    .about-sidebar-nav a:hover svg { color: #0756ad; }
+    .about-sidebar-nav a.is-active { background: #0756ad; color: #fff; }
+    .about-sidebar-nav a.is-active svg { color: #fff; }
+
+    @media (min-width: 1024px) {
+      .about-sidebar { width: 260px; }
+      .about-sidebar-header {
+        display: block;
+        background: #0756ad;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        padding: 14px 16px;
+        border-radius: 8px 8px 0 0;
+      }
+      .about-sidebar-nav {
+        flex-direction: column;
+        gap: 0;
+        overflow: visible;
+        border: 1px solid #e2e8f0;
+        border-top: 0;
+        border-radius: 0 0 8px 8px;
+        padding: 0;
+      }
+      .about-sidebar-nav a {
+        white-space: normal;
+        padding: 13px 16px;
+        border-radius: 0;
+        border-bottom: 1px solid #f1f5f9;
+      }
+      .about-sidebar-nav a:last-child { border-bottom: 0; }
+      .about-sidebar-nav a.is-active {
+        background: #f0f7ff;
+        color: #0756ad;
+        font-weight: 600;
+        box-shadow: inset 3px 0 0 #f2b900;
+      }
+      .about-sidebar-nav a.is-active svg { color: #0756ad; }
+    }
+    .about-article h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0756ad;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .about-article h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 24px 0 12px;
+    }
+    .about-article p {
+      font-size: 14px;
+      line-height: 1.85;
+      color: #475569;
+      text-indent: 2em;
+      margin-bottom: 10px;
+    }
+    .about-article ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .about-article li {
+      font-size: 14px;
+      line-height: 1.85;
+      color: #475569;
+      margin-bottom: 8px;
+      padding-left: 1.5em;
+      text-indent: -1.5em;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-slate-900">
+<header></header>
+<div class="main-height flex w-full">
+  <main class="min-w-0 flex-1 bg-slate-50 lg:h-full lg:overflow-y-auto">
+    <div class="mx-auto w-full max-w-[1500px] px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+      <div class="flex flex-col gap-8 lg:flex-row lg:gap-10">
+        <!-- 关于我们专用侧栏（放在 main 内，避免被 shared-layout.js 替换） -->
+        <aside class="about-sidebar">
+          <div class="about-sidebar-header">关于我们</div>
+          <nav class="about-sidebar-nav">
+            <a href="about-us.html" class="is-active">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path stroke-linecap="round" d="M12 16v-4M12 8h.01"></path>
+              </svg>
+              关于签证中心
+            </a>
+            <a href="#">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" d="M12 2L2 7l10 5 10-5-10-5Z"></path>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+              办公时间及地址
+            </a>
+            <a href="#">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 3L4.5 6.5V12c0 4.7 3.1 7.9 7.5 9 4.4-1.1 7.5-4.3 7.5-9V6.5L12 3Z"></path>
+                <path stroke-linecap="round" d="m9 12 2 2 4-4"></path>
+              </svg>
+              法律条款
+            </a>
+            <a href="#">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+                <path stroke-linecap="round" d="M3 8l8.8 5.6a2 2 0 0 0 2.4 0L21 8"></path>
+              </svg>
+              发送咨询邮件
+            </a>
+          </nav>
+        </aside>
+
+        <!-- 主内容 -->
+        <article class="about-article min-w-0 flex-1 rounded-xl border border-slate-200 bg-white p-6 sm:p-8 lg:p-10">
+          <h1>关于签证中心</h1>
+
+          <h2>一、签证中心的设立背景</h2>
+          <p>近年来，随着中国改革开放的不断深化和全球化的不断发展，中外人员往来日趋频繁，赴华签证申请量急剧增加。为便利中外人员往来，中国驻外使领馆采取了很多措施改进签证服务质量，但受到人员、场地等诸多客观条件限制，仍未能达到理想状况。近年来，世界上不少国家的驻外使领馆也面临着同样的问题，并引入签证申请中心为申请人提供更加全面、高效的服务。因此，一些签证量较大的中国驻外使领馆决定引入签证申请中心这一新的模式。</p>
+          <p>截至目前，我们已相继在欧洲、亚洲、大洋洲和北美洲设立了数十个中国签证申请服务中心（以下简称“签证中心”），为申请中国签证的各国人士提供优质服务。</p>
+
+          <h2>二、签证中心的服务范围</h2>
+          <p>签证中心是依照驻在国的法律注册、运营的服务性商业机构，也是经中国使领馆认可并提供与中国普通签证申请相关的事务性服务的机构。但它不是中国使领馆的延伸机构，不具有官方性质。其主要职责如下：</p>
+          <ol>
+            <li>（一）接待申请人，按照使领馆要求整理各类签证申请材料。</li>
+            <li>（二）为申请人提供有关中间事务性服务，包括基本信息录入、在签证中心和使领馆之间传递护照、签证和申请人资料等。</li>
+            <li>（三）按照使领馆的要求代收代缴签证费、签证加急费或特急费，代使领馆把护照与签证交还给申请人。</li>
+            <li>（四）及时按使领馆要求发布有关签证信息，并通过网站、接待大厅咨询台、咨询电话和电子信箱等，回答申请人咨询，提供相关帮助。</li>
+            <li>（五）根据使领馆要求为申请人提供其它必要服务。</li>
+          </ol>
+
+          <h2>三、签证中心的服务优势</h2>
+          <ol>
+            <li>（一）地理位置优越。为方便申请人前来签证中心递交签证申请，签证中心一般设在交通便利的市区高档写字楼内。</li>
+            <li>（二）充分利用网络技术。签证中心充分利用先进的网络技术，开设网站，提供详细的申请信息以及网上咨询、网上填表、网上状态查询等服务。</li>
+            <li>（三）申请人等候时间短。签证中心在接待大厅设置叫号机，同时提供网上预约申请服务，能够有效缩短申请人在签证中心的等候时间，确保良好的秩序和优质的服务。</li>
+            <li>（四）人性化服务。签证中心坚持以人为本的服务理念。接待大厅开设足够多的窗口，并安排专人负责引导申请人，提供现场咨询服务。为旅行社、残疾人等特殊服务对象安排专门窗口。在接待大厅内设接待室，以接待贵宾或其他有特殊需求的申请人。另外，签证中心还通过宣传折页、张贴画等方式，为申请人提供办证须知、利用电话、传真、邮件等方式回复有关中国签证申请的咨询。</li>
+          </ol>
+        </article>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="shared-layout.js?v=mock-auth-20260724" defer></script>
+<script src="footer.js?v=about-link-20260724" defer></script>
+</body></html>

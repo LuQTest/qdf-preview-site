@@ -4,13 +4,17 @@
     description: '签证服务的官方提供商，致力于为所有前往中国的申请人提供高质量、专业的协助。',
     copyright: 'COPYRIGHT ©2023CVASC, ALL RIGHTS RESERVED&nbsp;京ICP备19020028号-2',
     columns: [
-      { title: '关于我们', links: ['关于签证中心', '联系我们', '法律条款'] },
+      { title: '关于我们', links: [
+        { label: '关于签证中心', href: 'about-us.html' },
+        { label: '联系我们', href: '#' },
+        { label: '法律条款', href: '#' }
+      ] },
       { title: '友情链接', links: [] },
       { title: '服务反馈', links: [] }
     ]
   };
 
-  const footerColumn = ({ title, links }) => `<section class="content-footer-column"><h2>${title}</h2><ul>${links.map((label) => `<li><a href="#">${label}</a></li>`).join('')}</ul></section>`;
+  const footerColumn = ({ title, links }) => `<section class="content-footer-column"><h2>${title}</h2><ul>${links.map(({ label, href }) => `<li><a href="${href}">${label}</a></li>`).join('')}</ul></section>`;
   const footerTemplate = `<footer class="content-footer" data-content-footer="true"><div class="content-footer-inner"><section class="content-footer-brand"><img src="images/logo5.png" alt="${footerConfig.brandAlt}"><p>${footerConfig.description}</p></section><div class="content-footer-links">${footerConfig.columns.map(footerColumn).join('')}</div><div class="content-footer-copyright">${footerConfig.copyright}</div></div></footer>`;
 
   const contentMain = [...document.querySelectorAll('.main-height > main')].find((main) => main.getAttribute('aria-hidden') !== 'true');
